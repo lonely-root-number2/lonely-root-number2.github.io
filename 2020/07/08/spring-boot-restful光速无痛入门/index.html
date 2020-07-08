@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>spring boot restful光速无痛入门 | DY's blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">spring boot restful光速无痛入门</h1><a id="logo" href="/.">DY's blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">spring boot restful光速无痛入门</h1><div class="post-meta">2020-07-08</div><div class="post-content"><h1 id="spring-boot-restful光速无痛入门"><a href="#spring-boot-restful光速无痛入门" class="headerlink" title="spring boot restful光速无痛入门"></a>spring boot restful光速无痛入门</h1><h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h2><p>我将让你以最快的速度先看到内容，请一步一步跟着做，然后将讲解内容。</p>
+<ul>
+<li><p>创建项目：通过<a href="https://start.spring.io/" target="_blank" rel="noopener">spring initialz</a>创建。</p>
+</li>
+<li><p>打开网站，按照以下选择</p>
+</li>
+</ul>
+<blockquote>
+<p>Version：任意，推荐无任何备注的</p>
+<p>Project：Maven Project<br>Language:Java<br>packaging:Jar<br>Java:推荐8</p>
+</blockquote>
+<ul>
+<li><p>在右侧选择依赖：加入Spring Web</p>
+</li>
+<li><p>在下侧选择generate下载生成的项目文件并解压。</p>
+</li>
+<li><p>使用idea，载入项目。等待maven完成依赖和目录初始化。</p>
+</li>
+<li><p>创建路由类：</p>
+<ul>
+<li>在src/main/java/****下创建controller文件夹[将在此文件夹下完成业务]，在文件夹下创建一个类，填写以下代码并导入相关类。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"恭喜你完成第一步"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动项目，打开 localhost:8080/，你可以看到内容了~。</li>
+</ul>
+<p>相关的目录结构：</p>
+<p>![image-20200708211130087](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/01.png)</p>
+<ul>
+<li><p>spring系列框架的理解</p>
+<blockquote>
+<p>spring: 百科中有如下解释“ 针对bean的生命周期进行管理的轻量级容器 ， 提供了功能强大IOC、<a href="https://baike.baidu.com/item/AOP/1332219" target="_blank" rel="noopener">AOP</a>及Web MVC等功能 ” 。</p>
+<p>我的理解[估计不对，不敢信的]：连接池 + xml ==&gt;解耦，高效。</p>
+<p>spring boot: 耦合性是降低了，但是xml中的各种配置参数让人懵B，属实劝退。spring boot就是为了解决这种问题，即通过提供各种功能的默认参数尽可能的减少配置以便快速跑起来。[spring boot启动时会优先使用自定义的配置，如果没有就使用默认的]</p>
+<p>spring boot的starter: 将其原本的功能封装好并加入默认配置的jar包。</p>
+</blockquote>
+</li>
+<li><p>版本的问题？</p>
+<p>  在上边我们创建项目时可以选择spring boot的版本，那么各种版本的区别是什么呢？版本介绍：</p>
+</li>
+</ul>
+<p>你可以在<a href="https://spring.io/projects/spring-boot#learn" target="_blank" rel="noopener">这里</a>看到spring boot的各种版本，以下是各个版本的含义：</p>
+<p>​    GA ：稳定版本</p>
+<p>​    CURRENT: 最新不一定稳定</p>
+<p>​    SHAPSHOT：开发版</p>
+<ul>
+<li><p>配置文件</p>
+<p>  你可以通过写入位于spring boot项目的resource目录下的配置文件，完成端口修改，数据源配置等等功能，具体请自行百度。</p>
+</li>
+<li><p>使用spring boot完成其它请求方法？参考以下连接[在阅读以下连接前你可能需要了解 web路由，web请求方法，json 等内容]</p>
+<ul>
+<li><p><a href="http://m.hangge.com/news/cache/detail_2484.html" target="_blank" rel="noopener">http://m.hangge.com/news/cache/detail_2484.html</a> </p>
+</li>
+<li><p><a href="http://m.hangge.com/news/cache/detail_2485.html" target="_blank" rel="noopener">http://m.hangge.com/news/cache/detail_2485.html</a> </p>
+<p>在以上两个连接中似乎没讲到如何返回json这个常用的功能，spring boot 的 reference中提到，你可以直接在路由的处理函数[eg:上图的hello函数]中返回一个Object，spring boot将自动返回json数据。如果你想完成json嵌套呢？对象内置对象可能是一种思路[也有其它思路]。一般的开发中通常会返回类似 {“code”:”200”,”msg”:”ok”,…..}的内容，因此通过对象的嵌套可能是一种好的方式.关于 json 的其它内容，你也可以自行查询。</p>
+<p>此教程希望完成指引功能，因此如果你想完成其它功能(例如静态文件服务器等)，请自行查询。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="在spring-boot中使用mybatis"><a href="#在spring-boot中使用mybatis" class="headerlink" title="在spring boot中使用mybatis"></a>在spring boot中使用mybatis</h2><p>和之前相同，请先一步一步的按照教程完成操作，我将在后边为你讲解。</p>
+<ul>
+<li><p>在第一步创建项目时，继续添加 MySQL Driver，MyBatis Framework依赖。</p>
+</li>
+<li><p>配置数据库</p>
+<p>  在spring boot的配置文件中完成以下配置：</p>
+  <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://ip:port/databaseName?useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">username</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">passwd</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>你需要有一个这样的表![image-20200708215131454](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/02.png)，其中id为主键自增且与age同为int，username为string类型。并且有一条记录的id为2.</p>
+</li>
+<li><p>在src/main/java/****下创建mapper文件夹，在文件夹下创建一个名为UserMapper，填写以下代码并导入相关类[ide是个好工具，要善于使用]。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from users where id = #&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function">User <span class="title">findById</span><span class="params">(@Param(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在src/main/java/****下创建bean文件夹，在文件夹下创建一个名为User的类，填写以下代码并导入相关类[idea中 alt + insert这个按键可能挺有用的]。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">", username='"</span> + username + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", age="</span> + age +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在第一步你写代码的地方,这次你这样写</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper m;</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">        User d = m.findById(<span class="number">2</span>);</span><br><span class="line">        System.out.println(d);</span><br><span class="line">        <span class="keyword">return</span> d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动项目，访问 localhost:8080 你将看到一个json数据同时命令行也有输出。</p>
+</li>
+<li><p>项目目录结构</p>
+<p>  ![image-20200708220914529](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/03.png)</p>
+</li>
+</ul>
+<p>恭喜你完成第二课，接下来将讲述这中间发生了什么。</p>
+<ol>
+<li>mybatis是干啥的？</li>
+</ol>
+<blockquote>
+<p>百科上这样说：MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。 </p>
+<p>其实就是为了简化操作数据库。(但是配置贼复杂，还不如不用，逃</p>
+<p>如果你使用过jdbc，你会发现过程有些复杂和繁琐。</p>
+</blockquote>
+<ol start="2">
+<li>mybatis怎样工作呢？<blockquote>
+<p>对象关系映射（Object Relational Mapping，简称ORM）是通过使用描述对象和数据库之间映射的<a href="https://baike.baidu.com/item/元数据/1946090" target="_blank" rel="noopener">元数据</a>，将面向对象语言程序中的对象自动持久化到关系数据库中。 </p>
+<p>emmm，其实就是将数据库中的表和一个类的属性对应，来简化操作。</p>
+<p>观察上图中的实体类你会发现ta和数据库中的那张让你准备好的表是对应的。</p>
+<p>你通过执行mapper中接口的方法即完成了数据库的查询。== 等等，不对啊，java中的接口不是只是一个标准没有实现🐎？  确实是这样的，在传统的 SSM 框架中[局部]，你可能会看到类似如下的目录</p>
+<p>![如下](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/04.png)</p>
+<p>，在mapper下还要一个impl文件夹，在impl文件夹下有一个类，这个类中来实现UserMapper接口。而通过mybatis-starter的方式，你只需要使用注解的方式完成接口即可，starter会为你自动实现相关方法。（事实上使用注解这种方式并不是只有spring boot中可以使用，在mybatis3.4版本后就已支持注解和XML两种方式。）</p>
+<p>当你调用接口的方法完成crud的操作时，框架将自动为你完成对象与表的关联，这样你操作的单位将是与表对应的对象[序列化和反序列化这两个词可能有利于你的理解，请自行搜索]，便简化了操作。</p>
+<p>实体类可以通过一些工具自动生成。</p>
+</blockquote>
+</li>
+</ol>
+<p>恭喜你完成Spring boot restful的光速无痛教学。如果你还要任何问题，可以自行使用搜索引擎或者参考官方的文档。</p>
+<p>Tips：<strong>文中的理解真可能不对</strong>，毕竟我刚学java 1天。这篇文章主要是给自己翻阅，避免下次过不去坑。如果你想和我交流，好像也没途径，我这垃圾博客不支持评论。注意代码里边的<strong>注解</strong>，丢了就跑不起来了。还有不理解的概念请自行搜索，我已经尽可能通俗的描述了。</p>
+<p>终于写完了，这两天废了很多时间终于跑起来了，当o98k的时候，眼泪扑哧一下就到屏幕上了，太感人了😭~~ </p>
+<p>Auther：DY  </p>
+<p>GitHub: <a href="https://github.com/lonely-root-number2" target="_blank" rel="noopener">https://github.com/lonely-root-number2</a> </p>
+<p>B站：DY不会编程  [啥也没有]</p>
+<p>禁止转载！！！</p>
+</div><div class="tags"><a href="/tags/java/"><i class="fa fa-tag"></i>java</a></div><div class="post-nav"><a class="next" href="/2020/06/29/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 15px;">杂谈</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15px;">总结</a> <a href="/tags/%E4%B8%8D%E7%9F%A5%E9%81%93%E5%92%8B%E5%88%86%E7%B1%BB%E7%9A%84/" style="font-size: 15px;">不知道咋分类的</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">微服务</a> <a href="/tags/java/" style="font-size: 15px;">java</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/07/08/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/">spring boot restful光速无痛入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/29/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/01/fork%E3%80%81%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83&%E5%8D%8F%E7%A8%8B/">fork，异步回调 和 协程 对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/14/%E6%9C%80%E9%95%BF%E5%AF%92%E5%81%87%E7%9A%84%E6%80%BB%E7%BB%93/">最长寒假的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/restart-in-hexo/">restart in hexo</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.iww915.top/" title="xd's blog" target="_blank">xd's blog</a><ul></ul><a href="http://optimisticat.xyz/user?userId=lzdcl" title="optimisticat" target="_blank">optimisticat</a><ul></ul><a href="http://www.example3.com/" title="虚位以待😊" target="_blank">虚位以待😊</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">DY's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
