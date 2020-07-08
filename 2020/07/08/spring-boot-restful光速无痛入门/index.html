@@ -28,7 +28,7 @@
 <li>启动项目，打开 localhost:8080/，你可以看到内容了~。</li>
 </ul>
 <p>相关的目录结构：</p>
-<p>![image-20200708211130087](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/01.png)</p>
+<p><img src="https://hades0.gitee.io/imgStore/2020-07-08-22-49_spring-boot-web%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/01.png" alt="image-20200708211130087"></p>
 <ul>
 <li><p>spring系列框架的理解</p>
 <blockquote>
@@ -69,7 +69,7 @@
 <p>  在spring boot的配置文件中完成以下配置：</p>
   <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://ip:port/databaseName?useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">username</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">passwd</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>你需要有一个这样的表![image-20200708215131454](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/02.png)，其中id为主键自增且与age同为int，username为string类型。并且有一条记录的id为2.</p>
+<li><p>你需要有一个这样的表<img src="https://hades0.gitee.io/imgStore/2020-07-08-22-49_spring-boot-web%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/02.png" alt="image-20200708215131454">，其中id为主键自增且与age同为int，username为string类型。并且有一条记录的id为2.</p>
 </li>
 <li><p>在src/main/java/****下创建mapper文件夹，在文件夹下创建一个名为UserMapper，填写以下代码并导入相关类[ide是个好工具，要善于使用]。</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from users where id = #&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function">User <span class="title">findById</span><span class="params">(@Param(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -86,7 +86,7 @@
 <li><p>启动项目，访问 localhost:8080 你将看到一个json数据同时命令行也有输出。</p>
 </li>
 <li><p>项目目录结构</p>
-<p>  ![image-20200708220914529](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/03.png)</p>
+<p>  <img src="https://hades0.gitee.io/imgStore/2020-07-08-22-49_spring-boot-web%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/03.png" alt="image-20200708220914529"></p>
 </li>
 </ul>
 <p>恭喜你完成第二课，接下来将讲述这中间发生了什么。</p>
@@ -104,7 +104,7 @@
 <p>emmm，其实就是将数据库中的表和一个类的属性对应，来简化操作。</p>
 <p>观察上图中的实体类你会发现ta和数据库中的那张让你准备好的表是对应的。</p>
 <p>你通过执行mapper中接口的方法即完成了数据库的查询。== 等等，不对啊，java中的接口不是只是一个标准没有实现🐎？  确实是这样的，在传统的 SSM 框架中[局部]，你可能会看到类似如下的目录</p>
-<p>![如下](<a href="https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring" target="_blank" rel="noopener">https://hades0.gitee.io/imgStore/2020-07-08-22-36_spring</a> boot web光速无痛入门/04.png)</p>
+<p><img src="https://hades0.gitee.io/imgStore/2020-07-08-22-49_spring-boot-web%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/04.png" alt="如下"></p>
 <p>，在mapper下还要一个impl文件夹，在impl文件夹下有一个类，这个类中来实现UserMapper接口。而通过mybatis-starter的方式，你只需要使用注解的方式完成接口即可，starter会为你自动实现相关方法。（事实上使用注解这种方式并不是只有spring boot中可以使用，在mybatis3.4版本后就已支持注解和XML两种方式。）</p>
 <p>当你调用接口的方法完成crud的操作时，框架将自动为你完成对象与表的关联，这样你操作的单位将是与表对应的对象[序列化和反序列化这两个词可能有利于你的理解，请自行搜索]，便简化了操作。</p>
 <p>实体类可以通过一些工具自动生成。</p>
