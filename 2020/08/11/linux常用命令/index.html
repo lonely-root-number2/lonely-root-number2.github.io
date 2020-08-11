@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>linux常用命令 | DY's blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">linux常用命令</h1><a id="logo" href="/.">DY's blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">linux常用命令</h1><div class="post-meta">2020-08-11</div><div class="post-content"><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看帮助</span></span><br><span class="line">man ins</span><br><span class="line">ins --help</span><br><span class="line">info ins</span><br></pre></td></tr></table></figure>
+
+<h4 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">set nu|nonu		--行号</span><br><span class="line"><span class="meta">#</span><span class="bash">一般模式[default]</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">dd/d5d			删除当前行/删除当前行[包含] 后5行</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">u				撤销上一步</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">yy/y2y			复制当前行/复制当前行[包含]后5行</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">x/X			del/backspace</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">dw/yw			删除一个词[光标放在首字母]/复制一个单词</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"><span class="built_in">shift</span>+^/$		移动到行头/尾</span></span><br><span class="line">    #(1)+shift+g				移动到页头/尾--&gt;数字+操作==&gt;移动到数字行</span><br><span class="line"><span class="meta">#</span><span class="bash">编辑模式[从一般模式进入,按esc回到一般模式]</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">i/a[after]/o				当前光标处/后/下一行插入</span></span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span><span class="bash">命令模式[从一般模式进入]</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">:----&gt;w,q,!, (%s/old/new/g)</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">/----[查找]---&gt;	n/N[<span class="built_in">shift</span>+n]	下/上 一个</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">?----[查找]---&gt;	N[<span class="built_in">shift</span>+n]/n	下/上 一个</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#-----------vim补充</span></span></span><br><span class="line">快速跳转行首/尾：</span><br><span class="line">	0，^【是否带空格】</span><br><span class="line"><span class="meta">	$</span><span class="bash"> 【行尾】</span></span><br><span class="line">跳转指定行:</span><br><span class="line">	1. 88G[88 shift g] </span><br><span class="line">	2. :88</span><br><span class="line">跳转文件首/尾:</span><br><span class="line">	gg:首          G尾</span><br><span class="line">格式化:</span><br><span class="line">	gg=G</span><br><span class="line">括号对应:</span><br><span class="line">	命令模式 %</span><br><span class="line">删除:</span><br><span class="line">	x和X【命令模式】---&gt;单个字符</span><br><span class="line">	dw---删除一个单词</span><br><span class="line">	D【shift+D】删除光标之后所有  或 d $ </span><br><span class="line">	d0-----删除光标之前的</span><br><span class="line">替换:</span><br><span class="line">	r  + 字符</span><br><span class="line">删除指定区域：</span><br><span class="line"><span class="meta">	v[visual]--&gt;</span><span class="bash">选择区域-&gt;d</span></span><br><span class="line">删除指定行数:</span><br><span class="line">	dNd  或者 Ndd</span><br><span class="line">复制行:</span><br><span class="line">	yy</span><br><span class="line">	yNy  或者 Nyy</span><br><span class="line">粘贴:</span><br><span class="line">	p/P</span><br><span class="line">实际上vim中无删除，只有剪切[结合 p]。</span><br><span class="line">查找:</span><br><span class="line">	1. 光标到指定字符 按 * / #</span><br><span class="line">    2. / 或者 ?</span><br><span class="line">替换:</span><br><span class="line">	单行：选中行 :/ /define/new </span><br><span class="line">	通篇: 	: %s /println/print[每一行首个]	或者	:/ %s/old/new/g</span><br><span class="line">	指定行替换: :起始行号,终止行号s /old/new</span><br><span class="line">末行模式: ctrl + p显示上次命令</span><br><span class="line">撤销/反撤销:u   ctrl + r</span><br><span class="line">取消高亮:nohl</span><br><span class="line">分屏:</span><br><span class="line">	:sp	上下屏切换：ctrl ww </span><br><span class="line">	:vsp</span><br><span class="line">	退出所有:qall</span><br><span class="line">临时退出:</span><br><span class="line">	ctrl + N----&gt;fg</span><br><span class="line">man page:</span><br><span class="line">	3K</span><br><span class="line">查看宏定义:</span><br><span class="line">	[d</span><br><span class="line">vim中执行shell命令:</span><br><span class="line">	!命令</span><br><span class="line">vim打造IDE:</span><br><span class="line">	/etc/vim/vimrc</span><br><span class="line">	~/.vimrc---&gt;优先级大于↑</span><br></pre></td></tr></table></figure>
+
+<h4 id="用户-用户组"><a href="#用户-用户组" class="headerlink" title="用户/用户组"></a>用户/用户组</h4><blockquote>
+<p>useradd            创建</p>
+<p>userdel  [-r] li4    删除 用户（存档一并删除）</p>
+<p>passwd 用户名 修改密码</p>
+<p>id    li4                用户是否存在</p>
+<p>whoami                查看当前用户</p>
+<p>su - idN/root    切换用户#，$</p>
+<hr>
+<p>groupadd 组名</p>
+<p>groupdel 组名</p>
+<p>cat /etc/passwd 用户名，密码，id，组id，描述，主目录，登录shell</p>
+<p>cat /etc/shadow</p>
+<p>cat /etc/group</p>
+</blockquote>
+<h4 id="时间日期类"><a href="#时间日期类" class="headerlink" title="时间日期类"></a>时间日期类</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date</span><br><span class="line">cal</span><br><span class="line"><span class="meta">#</span><span class="bash">----具体参考man手册</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="文件目录类"><a href="#文件目录类" class="headerlink" title="文件目录类"></a>文件目录类</h4><ul>
+<li>pwd                当前目录<ul>
+<li>pwdx—-根据进程pid查看路径</li>
+</ul>
+</li>
+<li>ls——&gt;文件类型与权限 链接数 文件属主 文件属组 文件大小[byte] 建立或最近修改时间 名字<ul>
+<li>-l    【ll】            列表形式展示</li>
+<li>-d DircName         列出目录                </li>
+<li>-a -l    </li>
+<li>-R                查看目录下文件[递归查看]</li>
+<li>-h                human</li>
+</ul>
+</li>
+<li>mkdir                    创建目录<ul>
+<li>-p /a/b/c         按需创建</li>
+</ul>
+</li>
+<li>rmdir                  删除一个空目录</li>
+<li>touch                  创建一个文件</li>
+<li>cd             -,~ 相对目录，绝对目录./..          —-&gt;pushd popd</li>
+<li>cp             复制</li>
+<li>rm             删除</li>
+<li>mv             移动文件/重命名</li>
+<li>cat              查看文件<ul>
+<li>-A         列出特殊字符</li>
+<li>-b          显示行号</li>
+</ul>
+</li>
+<li>tac             类似cat</li>
+<li>more           按页查看<ul>
+<li>空格      下一页</li>
+<li>回车      下一行</li>
+<li>b           上一页</li>
+<li>q            退出</li>
+</ul>
+</li>
+<li>less                类似more<ul>
+<li>空格         下一页</li>
+<li>pagedown/pageup   上/下 一页</li>
+<li>/ &amp;？         向下/上搜寻字符串 —n/shift + n[N]</li>
+</ul>
+</li>
+<li>head/tail         按行查看<ul>
+<li>-n 数字</li>
+</ul>
+</li>
+<li>history             查看历史命令[history &gt;a.txt]</li>
+</ul>
+<h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><ul>
+<li>ifconfig</li>
+</ul>
+<h4 id="磁盘分区类"><a href="#磁盘分区类" class="headerlink" title="磁盘分区类"></a>磁盘分区类</h4><ul>
+<li>fdisk -l            查看硬盘逻辑分区</li>
+<li>mount/unmount</li>
+<li>df 路径          查看目录挂载分区<ul>
+<li>df -h        查看文件系统整体的磁盘使用量用人类可阅读的</li>
+<li>df -k         以kbytes为单位</li>
+<li>df -m       以mbytes</li>
+<li>df  -H      M=1000k的方式</li>
+<li>df  -T        包括文件系统</li>
+</ul>
+</li>
+<li>free               查看内存情况</li>
+</ul>
+<h4 id="搜索查找类"><a href="#搜索查找类" class="headerlink" title="搜索查找类"></a>搜索查找类</h4><ul>
+<li><p>find  . -name a.conf</p>
+<p>  find ./ -type ‘l’    —软连接<br>  find ./ -maxdepth 1 -name  “*”—搜索目录深度<br>  find ./ -size +20M -size -50M    —20M 到50M</p>
+</li>
+<li><p>grep         在文件中搜索查找[管道符]</p>
+<ul>
+<li>-n this jwhois.conf</li>
+</ul>
+</li>
+<li><p>whereis/which</p>
+</li>
+</ul>
+<h4 id="进程线程类"><a href="#进程线程类" class="headerlink" title="进程线程类"></a>进程线程类</h4><ul>
+<li>ps        查看进程，常和grep使用<ul>
+<li>-ef</li>
+<li>-aux</li>
+<li>-Lf 查询线程</li>
+<li>ajx 父进程/组进程等</li>
+</ul>
+</li>
+<li>pwdx</li>
+<li>kill        杀掉进程<ul>
+<li>-9   强制杀掉进程</li>
+</ul>
+</li>
+<li>netstat    查看网络统计相关命令[配合grep]<ul>
+<li>-pan  可查看TCP状态</li>
+</ul>
+</li>
+<li>wc [ctrl  D]</li>
+<li>top</li>
+</ul>
+<h4 id="压缩解压类"><a href="#压缩解压类" class="headerlink" title="压缩解压类"></a>压缩解压类</h4><ul>
+<li>gzip           压缩文件为.gz，不打包为一个文件<ul>
+<li>只能压缩文件</li>
+<li>不保留原文件</li>
+</ul>
+</li>
+<li>gunzip 解压</li>
+<li>tar <ul>
+<li>-zcvf xxx.tar.gz n1.txt n2.txt n3.txt</li>
+<li>-zxvf xxx.tar.gz</li>
+</ul>
+</li>
+<li>zip <ul>
+<li>-r 压缩目录 </li>
+</ul>
+</li>
+<li>unzip </li>
+</ul>
+<h4 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h4><ul>
+<li>uname -a</li>
+<li>ulimit -a</li>
+<li>lscpu 查看CPU信息</li>
+<li>watch -n0.5 (-d) “命令”</li>
+<li>nice值-20  —19   PR（优先级）</li>
+<li>curl -I 看协议头</li>
+<li>stat fileName     查看文件信息</li>
+<li>. /etc/profile // source etc/profile</li>
+</ul>
+<h4 id="文件目录及权限"><a href="#文件目录及权限" class="headerlink" title="文件目录及权限"></a>文件目录及权限</h4><ol>
+<li><p>树状结构</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1. bin							最常用的二进制文件</span><br><span class="line">2. boot							内核启动相关，镜像</span><br><span class="line">3. dev							设备</span><br><span class="line">4. etc							配置</span><br><span class="line">5. home							</span><br><span class="line">6. root							</span><br><span class="line">7. lib							动态链接库</span><br><span class="line">7. media</span><br><span class="line">8. mnt							外部挂载</span><br><span class="line">9. opt							额外的软件安装目录</span><br><span class="line">10. proc						内存映射</span><br><span class="line">11. srv							服务相关</span><br><span class="line">12. sys							Linux2.6改变</span><br><span class="line">13. tmp							临时文件</span><br><span class="line">14. usr							program files</span><br><span class="line">15. var							经常改变的文件</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>文件类型</p>
+<blockquote>
+<p>ls -l</p>
+<p>0 : </p>
+<p>   d：目录 </p>
+<p>   c：字符流，装置文件里的串行端口设备，如键盘,鼠标(一次性读取装置) </p>
+<p>   s：socket</p>
+<p>   p：管道</p>
+<p>   l：链接文件</p>
+<p>   b：设备文件，装置文件里可供储存的接口设备(可随机存取设备)</p>
+<p>1-3:属主权限 r：可读  w：可写[删除]  x：可执行[可进入]</p>
+<p>4-6：属组权限</p>
+<p>7-9：其它用户权限</p>
+<p>rwx—存在为1，不存在为0.—-&gt;0-7        ！不要写000</p>
+<p>chmod 707 t1</p>
+<p>chown 最终用户:落地用户组 文件</p>
+<p>chgrp</p>
+<hr>
+<p>文件默认权限：666 - umask</p>
+<p>目录默认权限：777- umask</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h4><blockquote>
+<p>rpm -qa 查询所安装的所有软件包</p>
+<p>rpm -q nginx 查询软件包是否安装</p>
+<p>rpm -qi 查询软件包信息</p>
+<p>rpm -ivh [install,verbose[提示信息],hash[进度条]]安装</p>
+<p>rpm -e nginx卸载   </p>
+<p>rpm -e –nodeps nginx 卸载软件包及其链式依赖</p>
+</blockquote>
+<h4 id="man的使用"><a href="#man的使用" class="headerlink" title="man的使用"></a>man的使用</h4><p>例如：man ls  </p>
+<p>　查看时需要翻屏：</p>
+<pre><code>向后翻一屏：space(空格键)    　　向前翻一屏：b
+
+向后翻一行：Enter(回车键)    　　 向前翻一行：k</code></pre><p>   查看时需要查找：</p>
+<pre><code>/关键词      向后查找    n：下一个
+
+?关键词     向前查找    N：前一个</code></pre><p>whatis</p>
+</div><div class="tags"><a href="/tags/linux/"><i class="fa fa-tag"></i>linux</a></div><div class="post-nav"><a class="next" href="/2020/08/10/jave-ide-%E9%85%8D%E7%BD%AE/">jave ide 配置</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 15px;">杂谈</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15px;">总结</a> <a href="/tags/%E4%B8%8D%E7%9F%A5%E9%81%93%E5%92%8B%E5%88%86%E7%B1%BB%E7%9A%84/" style="font-size: 15px;">不知道咋分类的</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">微服务</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jwt/" style="font-size: 15px;">jwt</a> <a href="/tags/web/" style="font-size: 15px;">web</a> <a href="/tags/spring-boot/" style="font-size: 15px;">spring boot</a> <a href="/tags/ide/" style="font-size: 15px;">ide</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/11/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/10/jave-ide-%E9%85%8D%E7%BD%AE/">jave ide 配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/13/JWT%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/">JWT原理介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/08/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/">spring boot restful光速无痛入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/29/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/01/fork%E3%80%81%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83&%E5%8D%8F%E7%A8%8B/">fork，异步回调 和 协程 对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/14/%E6%9C%80%E9%95%BF%E5%AF%92%E5%81%87%E7%9A%84%E6%80%BB%E7%BB%93/">最长寒假的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/restart-in-hexo/">restart in hexo</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.iww915.top/" title="xd's blog" target="_blank">xd's blog</a><ul></ul><a href="http://optimisticat.xyz/user?userId=lzdcl" title="optimisticat" target="_blank">optimisticat</a><ul></ul><a href="http://www.example3.com/" title="虚位以待😊" target="_blank">虚位以待😊</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">DY's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
