@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>vscode常用插件及配置 | DY's blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">vscode常用插件及配置</h1><a id="logo" href="/.">DY's blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">vscode常用插件及配置</h1><div class="post-meta">2020-08-17</div><div class="post-content"><p>本文为自用，仅供参考<br>** 2020.8.5更新**<br>TabNine (<del>必备</del>,很强，支持所有语言，但很吃内存)<br><strong>必备：</strong></p>
+<p>beauty（代码格式化，支持主流语言）</p>
+<p>Bracket Pair Colorizer(彩色括号，拯救你于重重调用)</p>
+<p>chinese（汉化）</p>
+<p><strong>前端</strong></p>
+<p>Auto Close Tag</p>
+<p>Auto rename Tag</p>
+<p>HTML Snippets</p>
+<p>color info</p>
+<p>JavaScript (ES6) code snippets</p>
+<p>open in browser</p>
+<p>eslint</p>
+<p><strong>其它常用：</strong></p>
+<p>Code Runner：右键即可编译运行单文件，很方便</p>
+<p><strong>风格主题：</strong></p>
+<p>ayu</p>
+<p>深海主题 Material Theme</p>
+<p>吸血鬼主题 Dracula Official</p>
+<p>One Dark Pro</p>
+<p><strong>设置背景图片[此插件修改通过vscode实现，小概率可能会导致vscode崩掉]：</strong></p>
+<p>  插件：background</p>
+<p>  相关配置项：</p>
+<p>  background-size 参数的第一个设置背景图大小</p>
+<p>  opacity 设置背景图<em>透明度，推荐0.1，可根据图片适当调整。</em><br>  文件路径使用 ‘/’ 代替‘\’避免转义。</p>
+<p><em>/// background背景配置项</em></p>
+<p>  “files.eol”: “\n”,</p>
+<p>  “editor.suggest.snippetsPreventQuickSuggestions”: false,</p>
+<p>  “editor.suggestSelection”: “first”,</p>
+<p>  “vsintellicode.modify.editor.suggestSelection”: “automaticallyOverrodeDefaultValue”, <em>// formatting only supports LF line endings</em></p>
+<p>  “update.enableWindowsBackgroundUpdates”: true,</p>
+<p>  “background.customImages”: [</p>
+<pre><code>&quot;file:///D:/code/workspvode/bgimg/孤独小镇.jpg&quot;*//图片地址*</code></pre><p>  ],</p>
+<p>  “background.style”: {</p>
+<pre><code>&quot;content&quot;:&quot;&apos;&apos;&quot;,
+
+&quot;pointer-events&quot;:&quot;none&quot;,
+
+&quot;position&quot;:&quot;absolute&quot;,*//图片位置*
+
+&quot;width&quot;:&quot;100%&quot;,
+
+&quot;height&quot;:&quot;100%&quot;,
+
+&quot;z-index&quot;:&quot;99999&quot;,
+
+&quot;background.repeat&quot;:&quot;no-repeat&quot;,
+
+&quot;background-size&quot;:&quot;100%,25%&quot;,*//图片大小*
+
+&quot;opacity&quot;:0.1 *//透明度*</code></pre><p>  },</p>
+<p>  “background.useFront”: true,</p>
+<p>  “background.useDefault”: false,<em>//是否使用默认图片</em></p>
+<p>}</p>
+<p><strong>插件同步：</strong></p>
+<p>setting sync</p>
+<p>最新版本vscode官方已经支持</p>
+<p><strong>python：</strong></p>
+<p>  cmd中执行以下命令：<br>  pip install -U pylint –user</p>
+<p>  pip install flake8</p>
+<p>  tips：python通过pip安装库时可通过使用国内镜像加速。<br>  eg：pip install flask ==&gt;pip install flask -i <a href="https://pypi.douban.com/simple/" target="_blank" rel="noopener">https://pypi.douban.com/simple/</a></p>
+<p><strong>go:</strong></p>
+<p>  \1. 设置好环境变量go mod，goproxy，gopath，并且把%GOPATH\bin%加入path。</p>
+<p>  \2. 安装go插件（微软官方）</p>
+<p>  \3. ctrl + shift + p ，选择Go：Install/Update Tools，选择所有并下载。</p>
+<p>  Go自定义代码段Demo（需要设置”editor.snippetSuggestions”: “top”,）：</p>
+<p>  “editor.acceptSuggestionOnEnter”: false,–&gt; 此选项建议关闭</p>
+<pre><code>&quot;fmt.Println&quot;: {
+
+&quot;prefix&quot;: &quot;pln&quot;,
+
+&quot;body&quot;: [
+
+  &quot;fmt.Println($1)&quot;,
+
+],
+
+&quot;description&quot;: &quot;Log output to console&quot;</code></pre><p>  },</p>
+<p>  “err 快速处理”: {</p>
+<pre><code>&quot;prefix&quot;: &quot;herr&quot;,
+
+&quot;body&quot;: [
+
+  &quot;if err != nil{&quot;,
+
+  &quot;\tfmt.Printf(\&quot;$1,error:%v\&quot;,err)&quot;,
+
+  &quot;}&quot;
+
+],
+
+&quot;description&quot;: &quot;快速err处理&quot;</code></pre><p>  },</p>
+<p><strong>Vscode Setting示例</strong>：<a href="https://github.com/lonely-root-number2/dotfiles/blob/master/vscode/settings.json" target="_blank" rel="noopener">https://github.com/lonely-root-number2/dotfiles/blob/master/vscode/settings.json</a></p>
+<p><strong>java:</strong></p>
+<p>参考 <a href="https://www.4fan.top/2020/08/10/jave-ide-配置/" target="_blank" rel="noopener">https://www.4fan.top/2020/08/10/jave-ide-%E9%85%8D%E7%BD%AE/</a> </p>
+<p><strong>c/c++:</strong></p>
+<p>C/C++（Microsoft）</p>
+<p>C/C++ Clang Command Adapter：提供静态检测（Lint），很重要</p>
+<p>Include Autocomplete</p>
+<p><strong>常用全局代码片段Demo：</strong></p>
+<p>  “go: HelloWorld”: {</p>
+<pre><code>&quot;scope&quot;: &quot;go&quot;,
+
+&quot;prefix&quot;: &quot;headergo&quot;,
+
+&quot;body&quot;: [
+
+  &quot;package main&quot;,
+
+  &quot;//Create Date:$CURRENT_YEAR $CURRENT_MONTH_NAME $CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND $CURRENT_DAY_NAME_SHORT&quot;,
+
+  &quot;//Auther:DY&quot;,
+
+  &quot;//Desc:$1&quot;,
+
+  &quot;//@Email:XX&quot;,
+
+  &quot;\n&quot;,
+
+  &quot;func main(){&quot;,
+
+  &quot;\n&quot;,
+
+  &quot;}&quot;
+
+],
+
+&quot;description&quot;: &quot;GO 快速开始&quot;</code></pre><p>  },</p>
+<p>  “java: HelloWorld”: {</p>
+<pre><code>&quot;scope&quot;: &quot;java&quot;,
+
+&quot;prefix&quot;: &quot;headerjava&quot;,
+
+&quot;body&quot;: [
+
+  &quot;//Create Date:$CURRENT_YEAR $CURRENT_MONTH_NAME $CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND $CURRENT_DAY_NAME_SHORT&quot;,
+
+  &quot;//Auther:DY&quot;,
+
+  &quot;//Desc:$1&quot;,
+
+  &quot;//@Email:XX&quot;,
+
+  &quot;\n&quot;,
+
+  &quot;public class $TM_FILENAME_BASE{&quot;,
+
+  &quot;\tpublic static void main(String[] args) {\n\t\tSystem.out.println(\&quot;Hello World\&quot;);\n\t}&quot;
+
+  &quot;}&quot;
+
+],
+
+&quot;description&quot;: &quot;Java 快速开始&quot;</code></pre><p>  },</p>
+<p>  “c: HelloWorld”:{</p>
+<pre><code>&quot;scope&quot;: &quot;c&quot;,
+
+&quot;prefix&quot;: &quot;headerc&quot;,
+
+&quot;body&quot;: [
+
+  &quot;//Create Date:$CURRENT_YEAR $CURRENT_MONTH_NAME $CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND $CURRENT_DAY_NAME_SHORT&quot;,
+
+  &quot;//Auther:DY&quot;,
+
+  &quot;//Desc:$1&quot;,
+
+  &quot;//@Email:XX&quot;,
+
+  &quot;\n&quot;,
+
+  &quot;#include &lt;stdio.h&gt;\n&quot;,
+
+  &quot;int main(){&quot;,
+
+  &quot;\t$1&quot;,
+
+  &quot;\treturn 0;&quot;,
+
+  &quot;}&quot;
+
+],
+
+&quot;description&quot;: &quot;C 快速开始&quot;</code></pre><p>  },</p>
+<p>  “Python: HelloWorld”:{</p>
+<pre><code>&quot;scope&quot;: &quot;python&quot;,
+
+&quot;prefix&quot;: &quot;headerpython&quot;,
+
+&quot;body&quot;: [
+
+  &quot;#Create Date:$CURRENT_YEAR $CURRENT_MONTH_NAME $CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND $CURRENT_DAY_NAME_SHORT&quot;,
+
+  &quot;#Auther:DY&quot;,
+
+  &quot;#Desc:$1&quot;,
+
+  &quot;#@Email:XX&quot;,
+
+  &quot;\n&quot;,
+
+  &quot;$2&quot;,
+
+],
+
+&quot;description&quot;: &quot;Python 头文件&quot;</code></pre><p>  }</p>
+<p>}</p>
+<p><strong>文件图标推荐：</strong></p>
+<p>  vscode-icon</p>
+<p>   ayu</p>
+<p>  material icon</p>
+<p><strong>路径补全：</strong></p>
+<p>  Path Intellisense</p>
+<p><strong>music：</strong></p>
+<p>  vsc-netease-music</p>
+<p><strong>快速翻译插件：</strong></p>
+<p>  x-translator</p>
+<p><strong>打字输入特效[贼炫，但可能会卡]：</strong></p>
+<p>  power mode </p>
+<p><strong>个人推荐的快捷键配置：</strong><br>以下快捷键名称为安装了Chinese插件后的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">触发参数提示：Ctrl + T Ctrl + S （提示[ti shi]）</span><br><span class="line">触发建议：Ctrl + N （同Vim）    </span><br><span class="line">向上&#x2F;下复制行：Shift + Alt + UpArrow&#x2F;DownArrow    </span><br><span class="line">向上&#x2F;下移动行： Alt + UpArrow</span><br><span class="line">文件：聚焦到资源管理器试图：ctrl + alt + 1</span><br><span class="line">终端：聚焦到上方编辑器组：ctrl + alt + 2</span><br><span class="line">终端：聚焦到终端：ctrl + alt + 3</span><br><span class="line">cursorhome&#x2F;cursorend  &#x3D;&#x3D;&gt; ctrl + ；&#x2F;ctrl + &#39; （回车左侧俩）    </span><br><span class="line">以下为其它常用快捷键，但推荐使用默认</span><br><span class="line">删除行        ctrl + k    </span><br><span class="line">在下面插入行    ctrl + enter    </span><br><span class="line">移动                </span><br><span class="line">复制    </span><br><span class="line">剪切        </span><br><span class="line">格式化文档      alt + shift +f    </span><br><span class="line">切换行注释      ctrl + &#x2F;    </span><br><span class="line">代码行缩进     ctrl + [    ]</span><br><span class="line">删除光标右侧的所有字  ctrl + delete</span><br><span class="line">多行编辑(列编辑)       alt + (shift) +鼠标左键</span><br><span class="line">扩展&#x2F;缩小选取范围： Shift+Alt+Left 和 Shift+Alt+Right</span><br><span class="line">移动到定义处： F12  &#x2F;  ctrl + 鼠标左键    </span><br><span class="line">定义处缩略图：只看一眼而不跳转过去 Alt+F12</span><br></pre></td></tr></table></figure>
+
+<p><strong>Lorem(乱数假文)：</strong></p>
+<p>  Lorem ipsum(使用参考介绍)</p>
+<p><strong>鼓励师：</strong></p>
+<p>  xx鼓励师</p>
+<p><strong>其它：</strong></p>
+<p>  Files:Auto Save选项推荐<strong>afterDelay</strong></p>
+<p>彻底卸载并且删除用户数据，删除以下两个目录：</p>
+<p> C:Users{user}AppDataRoamingCode和C:Users{user}.vscode<br>以上为个人经验，如有错误，欢迎讨论。<strong>禁止任何形式转载</strong></p>
+</div><div class="tags"><a href="/tags/ide/"><i class="fa fa-tag"></i>ide</a><a href="/tags/vscode/"><i class="fa fa-tag"></i>vscode</a><a href="/tags/%E6%8F%92%E4%BB%B6/"><i class="fa fa-tag"></i>插件</a></div><div class="post-nav"><a class="pre" href="/2020/08/17/rust%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">rust环境配置</a><a class="next" href="/2020/08/16/linux-shell%E7%BC%96%E7%A8%8B/">linux shell编程</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 15px;">杂谈</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15px;">总结</a> <a href="/tags/%E4%B8%8D%E7%9F%A5%E9%81%93%E5%92%8B%E5%88%86%E7%B1%BB%E7%9A%84/" style="font-size: 15px;">不知道咋分类的</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">微服务</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jwt/" style="font-size: 15px;">jwt</a> <a href="/tags/web/" style="font-size: 15px;">web</a> <a href="/tags/spring-boot/" style="font-size: 15px;">spring boot</a> <a href="/tags/ide/" style="font-size: 15px;">ide</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/rust/" style="font-size: 15px;">rust</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 15px;">入门</a> <a href="/tags/%E6%90%AD%E5%BB%BA/" style="font-size: 15px;">搭建</a> <a href="/tags/vscode/" style="font-size: 15px;">vscode</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 15px;">插件</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/17/rust%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">rust环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/17/vscode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%8F%8A%E9%85%8D%E7%BD%AE/">vscode常用插件及配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/linux-shell%E7%BC%96%E7%A8%8B/">linux shell编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/11/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/10/jave-ide-%E9%85%8D%E7%BD%AE/">jave ide 配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/13/JWT%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/">JWT原理介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/08/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/">spring boot restful光速无痛入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/29/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8/">微服务入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/01/fork%E3%80%81%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83&%E5%8D%8F%E7%A8%8B/">fork，异步回调 和 协程 对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/14/%E6%9C%80%E9%95%BF%E5%AF%92%E5%81%87%E7%9A%84%E6%80%BB%E7%BB%93/">最长寒假的总结</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.iww915.top/" title="xd's blog" target="_blank">xd's blog</a><ul></ul><a href="http://optimisticat.xyz/user?userId=lzdcl" title="optimisticat" target="_blank">optimisticat</a><ul></ul><a href="http://www.example3.com/" title="虚位以待😊" target="_blank">虚位以待😊</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">DY's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
