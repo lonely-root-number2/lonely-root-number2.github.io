@@ -2,12 +2,12 @@
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>主要参考 ms的文档： <a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/windows/wsl/install-win10</a>   (ms的文档其实很棒，步骤清晰并且有常见问题解答)</p>
 <ol>
 <li>运行中输入<code>winver</code>查看版本，如果运行的是 Windows 10 版本1903 或 1909，请在 Windows 菜单中打开“设置”，导航到“更新和安全性”，然后选择“检查更新”。 内部版本号必须是 18362.1049+ 或 18363.1049+，次要内部版本号需要高于 .1049。</li>
-<li>以管理员身份打开 PowerShell 并运行：<ul>
+<li>以管理员身份打开 PowerShell 并依次运行以下2条命令：<ul>
 <li><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></li>
 <li><code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></li>
 </ul>
 </li>
-<li><a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" target="_blank" rel="noopener">下载</a>并安装升级包.【如果下载慢可以尝试迅雷等其它方案】</li>
+<li><a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" target="_blank" rel="noopener">下载</a>并安装升级包.【如果下载慢可以尝试迅雷<strong>等</strong>其它方案】</li>
 <li>将 WSL 2 设置为默认版本： powershell中 –&gt;<code>wsl --set-default-version 2</code></li>
 <li>安装Linux 分发版  <a href="https://aka.ms/wslstore" target="_blank" rel="noopener">https://aka.ms/wslstore</a></li>
 </ol>
