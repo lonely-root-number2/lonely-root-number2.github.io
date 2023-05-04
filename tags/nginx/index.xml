@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/nginx/</link>
+    <description>Recent content in nginx on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 11 Mar 2021 16:05:58 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nginx常用配置</title>
+      <link>http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 11 Mar 2021 16:05:58 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</guid>
+      <description>控制以及常用命令: 1. 信号： http://nginx.org/en/docs/control.html 2. 命令 nginx -t #检查配置文件语法 nginx -c file #检查指定路径的配置文件语法 nginx -s reload #热重载，修改配置文件后使用 nginx -s stop #强制停止 nginx -s quit #优雅的停止 nginx -h #查看帮助 nginx -v #版本 nginx -V #查看编译参数 http段 #nginx 的 default_server 指令可以定义默认的 server 出处理一些没有成功匹配 server_name 的请求，如果没有显式定义，则会选取第一个定义的 server 作为 default_server。 server{ listen 80; server_name z.com; location / { root /home/html; #通常用绝对路径 index index.html; } } server{ listen 80; server_name 192.168.1.200; location / { root /var/www/html; #通常用绝对路径 index index.</description>
+    </item>
+    
+  </channel>
+</rss>

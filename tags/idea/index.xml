@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>idea on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/idea/</link>
+    <description>Recent content in idea on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 18 Feb 2021 22:26:06 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>idea常用快捷键</title>
+      <link>http://4fan.top/posts/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Thu, 18 Feb 2021 22:26:06 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>Home/End 光标快速定位至行首/行末 或者 shift + 小键盘 1 、 7 推荐alt + [ / ] * alt + f12 打开终端	* esc 切换焦点到代码编辑区 * shift + esc 关闭工作区
+alt +1 打开/关闭 左侧project
+整行左移 选中整行tab或shift tab 推荐：Ctrl +[ / ] 整行左、右移 *
+快捷键：Ctrl + W ctrl + shift + w * Ctrl + Shift + 数字键 标记/取消标记代码 Ctrl + 数字键 跳至标记好的点 f12 切换到最近使用的工具窗口 ctrl + - 代码折叠 ctrl + g 跳指定行/列 Ctrl + B、Ctrl +鼠标左键 跳到声明处 Ctrl + F12 显示当前文件结构。 Ctrl+F 查找 Ctrl+R 替换 Ctrl + y 删除一行 * ctrl + x 剪切一行 * Ctrl + d 复制一行 * F2 下一个错误 alt + f7 查找引用 Ctrl + z 撤销 Ctrl + Shift + z 反撤销 F3，查找下一个 * Shift+F3，查找上一个 alt+shift + 鼠标左键 多处选中 * Ctrl+Shift+J，整合两行 Alt+1，快速打开或隐藏工程面板 * Ctrl+Alt+B，跳转到方法实现处 Ctrl+Shift+Backspace，跳转到上次编辑的地方 * ctrl +shift +e 最近修改的文件 * Shift Shift 根据文件名称进行搜索 Ctrl + Shift + f 全局搜索 Ctrl + N 或 Ctrl+Shift+N 全局搜索或按文件名搜索 Alt+F7 查找类或方法在哪被使用 Shift+Shift 搜索任何东西 Ctrl + Alt + s idea 设置 Ctrl + Alt + Shift + s project 设置 Ctrl + Shift + u 大小写转换 java常用： ​	alt + insert 功能及其强大的快捷键</description>
+    </item>
+    
+  </channel>
+</rss>

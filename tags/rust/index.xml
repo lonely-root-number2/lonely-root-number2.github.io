@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rust on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/rust/</link>
+    <description>Recent content in rust on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 21 Apr 2022 13:04:20 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rust生命周期标注</title>
+      <link>http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/</link>
+      <pubDate>Thu, 21 Apr 2022 13:04:20 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/</guid>
+      <description>前置 需要理解变量生命周期。
+显式标注的特点 不改变引用的生命周期，描述多个生命周期的关系
+显式标注的意义和作用 给编译器提示，帮助编译器判断所写的代码是否安全(避免悬垂引用)。
+&amp;lt;==&amp;gt;描述函数输入参数和输出参数的关系以帮助编译器检查所写的代码是否符合预期
+&amp;lt;==&amp;gt;编译器根据函数的标注对函数调用时的传参情况判断。（限制函数的调用处于安全）
+&amp;lt;==&amp;gt;确切的说是当用户添加显式标注时表达了用户对此函数输入输出引用参数的生命周期的期待，编译器根据用户的期待与相关变量的实际生命周期对比以判断是否满足。
+&amp;lt;==&amp;gt;其实编译器都知道，主要是反过来提示用户注意此代码是否为安全的。
+例子和说明 fn longest&amp;lt;&amp;#39;a&amp;gt;(x: &amp;amp;&amp;#39;a str,y: &amp;amp;&amp;#39;a str) -&amp;gt; &amp;amp;&amp;#39;a str { // &amp;#39;a是xy中较小的那个（以保证安全） 假设返回的那个引用拥有最短的生命周期以保证安全 if x.len() &amp;gt; y.len() { x } else { y } } // main 1 fn main() { let str1 = String::from(&amp;#34;hello&amp;#34;); let result; { let str2 = String::from(&amp;#34;world&amp;#34;); // result的生命周期是较短的即str2，此时在离开此作用域后调用println宏时 // 的result是不能保证未被释放，因此报错。 result = longest(&amp;amp;str1, &amp;amp;str2); } println!(&amp;#34;The longest string is {}&amp;#34;, result); } // main 2 fn main() { let str1 = String::from(&amp;#34;hello&amp;#34;); { let str2 = String::from(&amp;#34;world&amp;#34;); let result = longest(&amp;amp;str1, &amp;amp;str2); // 即使result是较短的那个生命周期(str2)，但仍然在str2的作用域内调用，因此可保证安全。 println!</description>
+    </item>
+    
+    <item>
+      <title>rust环境配置</title>
+      <link>http://4fan.top/posts/rust%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 17 Aug 2020 21:09:20 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/rust%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <description>Windows 环境配置： 1. 创建2个文件夹 2. CARGO_HOME : 刚才创建的对应文件路径, 如: E:\Environment\RUST\CARGO RUSTUP_HOME: 刚才创建的对应文件路径, 如: E:\Environment\RUST\RUSTUP 3. 配置安装源: [设置环境变量] RUSTUP_DIST_SERVER : https://mirrors.ustc.edu.cn/rust-static RUSTUP_UPDATE_ROOT : https://mirrors.ustc.edu.cn/rust-static/rustup 运行 rustup-init.exe (从官网下载) WIN：基于mingw64
+自定义安装 :x86_64-pc-windows-gnu,stable,y WIN 基于 msvc(推荐)：
+安装：visual c++ build tools Linux 0. 确保拥有c编译环境(gcc/cc等均可) 1. 创建2个文件夹并配置环境变量 CARGO_HOME=刚才创建的对应文件路径, RUSTUP_HOME=刚才创建的对应文件路径, export CARGO_HOME=~/Environment/RUST/CARGO export RUSTUP_HOME~/Environment/RUST/RUSTUP 2. 配置安装源: [设置环境变量] export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup 如下命令也可以 (#echo &amp;#39;export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile ) (#echo &amp;#39;export RUSTUP_UPDATE_ROOT : https://mirrors.ustc.edu.cn/rust-static/rustup&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile ) 3. curl https://sh.</description>
+    </item>
+    
+  </channel>
+</rss>

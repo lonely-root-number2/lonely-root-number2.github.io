@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wsl2 on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/wsl2/</link>
+    <description>Recent content in wsl2 on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 16 Oct 2020 13:16:05 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/wsl2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wsl2折腾笔记</title>
+      <link>http://4fan.top/posts/wsl2%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 16 Oct 2020 13:16:05 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/wsl2%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</guid>
+      <description>背景： 学生机上配置好了Hadoop跑WordCount的demo时出现内存不足的问题，尝试解决没有成功。因此只能从本地虚拟机上跑。但是VM挂了，而且体验不是很好，所以打算试试wsl2 + docker的方案迁移过去。
+安装 主要参考 ms的文档： https://docs.microsoft.com/zh-cn/windows/wsl/install-win10 (ms的文档其实很棒，步骤清晰并且有常见问题解答)
+运行中输入winver查看版本，如果运行的是 Windows 10 版本1903 或 1909，请在 Windows 菜单中打开“设置”，导航到“更新和安全性”，然后选择“检查更新”。 内部版本号必须是 18362.1049+ 或 18363.1049+，次要内部版本号需要高于 .1049。 以管理员身份打开 PowerShell 并依次运行以下2条命令： dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 下载并安装升级包.【如果下载慢可以尝试迅雷等其它方案，如果安装失败重启可能有帮助】 将 WSL 2 设置为默认版本： powershell中 &amp;ndash;&amp;gt;wsl --set-default-version 2 安装Linux 分发版 https://aka.ms/wslstore 其它说明(重要) 每次你可以通过在 power shell中运行 bash 命令来打开wsl2
+当你停止使用时在power shell中输入 wsl --shutdown关闭相关进程。
+你可以通过 wsl &amp;ndash;help查看帮助，借助 wsl的export/import等指令你可以完成快照或将wsl中的操作系统移动到非系统盘。
+补充 Ubuntu为例的一些常用操作
+配置SSH #1. 重装SSH sudo apt-get purge openssh-server sudo apt-get install openssh-server # 如果需要配置远程开发环境sudo apt-get install openssh-client openssh-server openssh-sftp-server #2.</description>
+    </item>
+    
+  </channel>
+</rss>

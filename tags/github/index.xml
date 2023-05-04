@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/github/</link>
+    <description>Recent content in Github on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 25 Aug 2020 16:45:13 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub入门级使用技巧</title>
+      <link>http://4fan.top/posts/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8%E7%BA%A7/</link>
+      <pubDate>Tue, 25 Aug 2020 16:45:13 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8%E7%BA%A7/</guid>
+      <description>常用词含义 watch - 会持续收到该项目的动态 fork - 复制某个项目到自己的GitHub仓库 star - 可以理解为点赞 clone - 下载到本地 follow - 关注感兴趣的作者，会收到他们的动态 限制搜索 xxx in:name - 项目名字中含有xxx xxx in:description - 描述中含有xxx xxx in:readme - 在readme中包含 language:go - 指定语言go语言 star&amp;amp;fork stars:&amp;gt;= 5000
+forks:&amp;gt;500
+stars:100..200 forks:10..20
+awesome awesome xxx	收集学习、工具、书籍类相关项目 #L+number 地址 + #L+number - 高亮显示某一行 eg: https://github.com/codingXiaxw/seckill/blob/master/src/main/java/cn/codingxiaxw/dao/SeckillDao.java#L14 地址 + #L+num1-L+num2 - 高亮显示 num1-num2 项目内搜索及快捷键 点击 Go to file(绿色的Code左侧) GitHub其它快捷键
+找大佬 location:beijing language:go 推荐链接：
+Advanced search
+searching-on-github</description>
+    </item>
+    
+  </channel>
+</rss>

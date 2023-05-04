@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta name="generator" content="Hugo 0.111.3">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>DY&#39;s blog | JAVA仔,Go语言爱好者</title>
+    <meta property="og:title" content="DY&#39;s blog | JAVA仔,Go语言爱好者">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="-">
+    <meta property="og:url" content="http://4fan.top/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="http://4fan.top/index.xml" title="DY's blog" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="http://4fan.top">
+                            DY&#39;s blog
+                        </a>
+                    </h1>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="idea常用快捷键" target="_blank">idea常用快捷键</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-02-18T22:26:06Z" class="post-meta meta-date dt-published">
+    2021-02-18
+  </time>
+
+
+
+        <div class="post-content">
+            Home/End 光标快速定位至行首/行末 或者 shift + 小键盘 1 、 7 推荐alt + [ / ] * alt + f12 打开终端	* esc 切换焦点到代码编辑区 * shift + esc 关闭工作区
+alt +1 打开/关闭 左侧project
+整行左移 选中整行tab或shift tab 推荐：Ctrl +[ / ] 整行左、右移 *
+快捷键：Ctrl + W ctrl + shift + w * Ctrl + Shift + 数字键 标记/取消标记代码 Ctrl + 数字键 跳至标记好的点 f12 切换到最近使用的工具窗口 ctrl + - 代码折叠 ctrl + g 跳指定行/列 Ctrl + B、Ctrl +鼠标左键 跳到声明处 Ctrl + F12 显示当前文件结构。 Ctrl+F 查找 Ctrl+R 替换 Ctrl + y 删除一行 * ctrl + x 剪切一行 * Ctrl + d 复制一行 * F2 下一个错误 alt + f7 查找引用 Ctrl + z 撤销 Ctrl + Shift + z 反撤销 F3，查找下一个 * Shift+F3，查找上一个 alt+shift + 鼠标左键 多处选中 * Ctrl+Shift+J，整合两行 Alt+1，快速打开或隐藏工程面板 * Ctrl+Alt+B，跳转到方法实现处 Ctrl+Shift+Backspace，跳转到上次编辑的地方 * ctrl +shift +e 最近修改的文件 * Shift Shift 根据文件名称进行搜索 Ctrl + Shift + f 全局搜索 Ctrl + N 或 Ctrl+Shift+N 全局搜索或按文件名搜索 Alt+F7 查找类或方法在哪被使用 Shift+Shift 搜索任何东西 Ctrl + Alt + s idea 设置 Ctrl + Alt + Shift + s project 设置 Ctrl + Shift + u 大小写转换 java常用： ​	alt + insert 功能及其强大的快捷键……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/wsl2%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/" title="wsl2折腾笔记" target="_blank">wsl2折腾笔记</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-10-16T13:16:05Z" class="post-meta meta-date dt-published">
+    2020-10-16
+  </time>
+
+
+
+        <div class="post-content">
+            背景： 学生机上配置好了Hadoop跑WordCount的demo时出现内存不足的问题，尝试解决没有成功。因此只能从本地虚拟机上跑。但是VM挂了，而且体验不是很好，所以打算试试wsl2 + docker的方案迁移过去。
+安装 主要参考 ms的文档： https://docs.microsoft.com/zh-cn/windows/wsl/install-win10 (ms的文档其实很棒，步骤清晰并且有常见问题解答)
+运行中输入winver查看版本，如果运行的是 Windows 10 版本1903 或 1909，请在 Windows 菜单中打开“设置”，导航到“更新和安全性”，然后选择“检查更新”。 内部版本号必须是 18362.1049+ 或 18363.1049+，次要内部版本号需要高于 .1049。 以管理员身份打开 PowerShell 并依次运行以下2条命令： dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 下载并安装升级包.【如果下载慢可以尝试迅雷等其它方案，如果安装失败重启可能有帮助】 将 WSL 2 设置为默认版本： powershell中 &ndash;&gt;wsl --set-default-version 2 安装Linux 分发版 https://aka.ms/wslstore 其它说明(重要) 每次你可以通过在 power shell中运行 bash 命令来打开wsl2
+当你停止使用时在power shell中输入 wsl --shutdown关闭相关进程。
+你可以通过 wsl &ndash;help查看帮助，借助 wsl的export/import等指令你可以完成快照或将wsl中的操作系统移动到非系统盘。
+补充 Ubuntu为例的一些常用操作
+配置SSH #1. 重装SSH sudo apt-get purge openssh-server sudo apt-get install openssh-server # 如果需要配置远程开发环境sudo apt-get install openssh-client openssh-server openssh-sftp-server #2.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/wsl2%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="linux定时任务" target="_blank">linux定时任务</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-09-28T21:04:44Z" class="post-meta meta-date dt-published">
+    2020-09-28
+  </time>
+
+
+
+        <div class="post-content">
+            Linux定时任务 背景：寒假在家看到必应每日的壁纸不错，加上在学golang想练手，萌生了把每日壁纸收藏的想法。简单分析后搞定，通过ticker每24小时执行一次任务。一直执行了180+天一切正常。之后莫名panic(tail了下nohup的日志，没看出来&hellip;.)。一直懒得找原因，于是打算改为Linux定时任务。
+cron 简介 cron是Linux系统自带(各发行版均有)的一个定时任务执行工具。通过 ps aux|grep crond可以看到对应的进程。由此也可以了解到此进程为守护进程。
+简单使用 crontab -l 命令可列出已经设置当前的任务。
+crontab -e 用于编辑计划任务:
+按照 分 时 日 月 星期 任务的格式指定在对应时间执行相应的任务。
+对于日期格式的指定：
+&ldquo;*&ldquo;表示每一 &ldquo;,&ldquo;表示并列多个时间 &ldquo;-&rdquo; 指连续，例如你可以设置 20-40则表示在20,40]都执行一次共21次 &ldquo;/&ldquo;整除 &ldquo;L&rdquo; 年的最后月/月的最后一天 除此之外，日期设置上也可以使用缩写：MON，JUL&hellip;等
+例如：你可以使用通过 crontab -e并设置内容 &quot; * * * * * echo `date` &raquo; $HOME/date.txt	&quot;
+来指定每分钟输出一次日期并追加到文件 date.txt中。
+补充：
+*/2 &lt;==&gt;0/2 ，0，2，4，6&hellip; 1/2 则表示减去1能整除2，即1，3，5，7 &hellip; 更多参考 man page
+一个坑：虽然不能算是cron
+​	从cron启动时的工作目录不是原路径，相对路径失效了。。。
+未完待续。。。。……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/spring-1-why-spring/" title="Spring(1): Why Spring" target="_blank">Spring(1): Why Spring</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-29T23:23:40Z" class="post-meta meta-date dt-published">
+    2020-08-29
+  </time>
+
+
+
+        <div class="post-content">
+            耦合的概念：
+传统的开发中，通常会在main方法或者业务中根据需要创建对应的对象。 public static void main(String []args){ Obj o = new Obj(); .... } ​ 这样的结果就是程序中(不同类之间)的耦合非常大，而带来的问题就是不利于程序后期的维护(试想，当我们因为业务改变而需要修改Obj类或者改为创建新的类时，我们不得不修改源程序，而这违背了面向对象程序设计的开闭原则)。
+现在思考如何解决这个问题呢？
+通过反射来加载类(class.forName，我们在加载数据库驱动时经常会这样做) 通过加载配置文件读取全限定类名[使用propities.getClassLoader.getResourceAsStream相关命令] tip:有些同学会疑问，这样依然需要写类名，仍然会有耦合。注意，降低耦合并不等于完全消除耦合。
+而Spring就是一个完成这样功能框架。[ Spring是一个轻量级控制反转(IoC)和面向切面(AOP)的容器框架 &mdash;&ndash;摘自百度百科]
+关于控制反转：控制反转的主要作用是降低耦合，为什么叫做控制反转呢？我们将在下文中提到。
+关于 bean：编程英语中bean通常指的是可重用组件，而在Java中一般指类。
+Spring如何使用呢？
+创建bean.xml [可参考官网, 最小仅需要id和class属性。] 一个简单的bean.xml的例子:
+&lt;bean id=&#34;accountService&#34; class=&#34;top.4fan.dy.service.impl.AccountServiceImpl&#34;&gt;&lt;/bean&gt; 创建对应的所需要获得的对象对应的类文件。 在需要的位置(比如main)通过如下方式获得需要的对象： ApplicationContext ac = new ClassPathXmlApplicationContext(&#34;bean.xml&#34;) //一下两种方法无本质区别 Obj o1 = (Obj)ac.getBean(&#34;xml里边的id&#34;); Obj o2 = ac.getBean(&#34;xml里边的id&#34;,xxx.class);//这种方法不需要强转 ApplicationContext类有三个常用的实现类(我们以上仅用到一种,其它的用法场景如下)：
+ClassPathXmlApplicationContext :加载类路径下的配置文件【配置文件必须在类路径下】
+FileSystemXmlApplicationContext：加载磁盘上任意有权限[指操作系统级别的权限]的文件
+AnnotationConfigApplicationContext：读取注解创建容器
+​ 所有的ApplicationContext类都有立即加载的特征，即``new xxxApplicationContext时即创建对象。与之相对应的另一种用于获得对象的XmlBeanFactory`(3.1已被标注放弃)类则在需要时创建对象。对于未使用到的另外两个常用类，可以参考Spring文档。
+所以最后一个问题，为什么叫做控制反转呢？
+​	在传统的代码中，我们通过自己创建对象并控制对象的生命周期(初始化&hellip;&hellip;销毁)，而使用Spring时，对象的生命周期则由Spring管理，即我们把对象的控制权交给了Spring容器。
+tip:如果你对面向对象程序设计中的设计模式部分比较熟悉的话，你可以将Spring理解为一个工厂模式的实现。
+// 补充AnnotationConfigApplicationContext demo // 在配置类上添加注解的方式来替代xml配置文件 // 1. 配置类上添加 @ComponentScan([扫描路径])并且在bean类上添加@Component注解 // 2.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/spring-1-why-spring/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/docker%E7%AC%94%E8%AE%B0/" title="docker笔记" target="_blank">docker笔记</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-28T15:26:44Z" class="post-meta meta-date dt-published">
+    2020-08-28
+  </time>
+
+
+
+        <div class="post-content">
+            安装：yum -y install docker-ce 开启：systemctl start docker 开机自启:systemctl enable docker docker version docker：docker run hello-world 查看帮助： docker | docker image 拉取镜像：docker pull mariadb Dockerfile:名字不能修改 # StudyDocker from scratch add hello / cmd [&#34;/hello&#34;] docker history ID docker build -t gochaochao/hello-world . docker run -it centos 交互式，进入此系统 docker container ls (-a) docker container ls -aq 列出ID docker rm ID / docker rm $(docker container ls -aq) 删除 docker container ls -f &#34;state=exited&#34; -q //没运行的 docker exec -it ID /bin/bash //进入容器交互 docker run -d -p 9000:80 --name=web nginx //端口映射，后台 --network none/bridge/host // 无网络，安全/桥接/共享宿主机命名空间 -e redius-host=39.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/docker%E7%AC%94%E8%AE%B0/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8%E7%BA%A7/" title="GitHub入门级使用技巧" target="_blank">GitHub入门级使用技巧</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-25T16:45:13Z" class="post-meta meta-date dt-published">
+    2020-08-25
+  </time>
+
+
+
+        <div class="post-content">
+            常用词含义 watch - 会持续收到该项目的动态 fork - 复制某个项目到自己的GitHub仓库 star - 可以理解为点赞 clone - 下载到本地 follow - 关注感兴趣的作者，会收到他们的动态 限制搜索 xxx in:name - 项目名字中含有xxx xxx in:description - 描述中含有xxx xxx in:readme - 在readme中包含 language:go - 指定语言go语言 star&amp;fork stars:&gt;= 5000
+forks:&gt;500
+stars:100..200 forks:10..20
+awesome awesome xxx	收集学习、工具、书籍类相关项目 #L+number 地址 + #L+number - 高亮显示某一行 eg: https://github.com/codingXiaxw/seckill/blob/master/src/main/java/cn/codingxiaxw/dao/SeckillDao.java#L14 地址 + #L+num1-L+num2 - 高亮显示 num1-num2 项目内搜索及快捷键 点击 Go to file(绿色的Code左侧) GitHub其它快捷键
+找大佬 location:beijing language:go 推荐链接：
+Advanced search
+searching-on-github……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8%E7%BA%A7/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/go-module%E4%B8%8B%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%8C%85/" title="Go Module下使用本地包" target="_blank">Go Module下使用本地包</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-17T21:16:29Z" class="post-meta meta-date dt-published">
+    2020-08-17
+  </time>
+
+
+
+        <div class="post-content">
+            介绍两种方式： 方式一（推荐）: 严格的说，方式一是使用项目目录下的go文件。 项目目录如下：
+|── studyModule	//项目主目录
+|	|──log	//主目录下文件夹
+|	|	|──log.go	// log目录下go文件
+|	|── main.go	// 主目录下go文件
+|	|── go.mod
+log.go 中首行 package log，注意，log文件夹下不要go mod init，否则会导致无法编译
+studyModule文件夹下 go mod init sts
+main.go中调用log.go中的方法：import &ldquo;sts/log&rdquo;-&gt; 此处为主目录下的mod名下边的log文件夹
+log目录下的方法,变量等依然需要大写。如果不能正常使用可尝试在主目录下执行go mod tidy
+方式二（使用go mod replace） |── studyModule	//项目主目录
+|	|──4fan.top	//主目录下文件夹
+|	|──|──DY
+|	|	|	|──DYlogger@v1.1.0
+|	|	|	|	|	|──*.go
+|	|	|	|	|	|──go.mod【2】
+|	|── main.go	// 主目录下go文件……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/go-module%E4%B8%8B%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%8C%85/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/rust%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="rust环境配置" target="_blank">rust环境配置</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-17T21:09:20Z" class="post-meta meta-date dt-published">
+    2020-08-17
+  </time>
+
+
+
+        <div class="post-content">
+            Windows 环境配置： 1. 创建2个文件夹 2. CARGO_HOME : 刚才创建的对应文件路径, 如: E:\Environment\RUST\CARGO RUSTUP_HOME: 刚才创建的对应文件路径, 如: E:\Environment\RUST\RUSTUP 3. 配置安装源: [设置环境变量] RUSTUP_DIST_SERVER : https://mirrors.ustc.edu.cn/rust-static RUSTUP_UPDATE_ROOT : https://mirrors.ustc.edu.cn/rust-static/rustup 运行 rustup-init.exe (从官网下载) WIN：基于mingw64
+自定义安装 :x86_64-pc-windows-gnu,stable,y WIN 基于 msvc(推荐)：
+安装：visual c++ build tools Linux 0. 确保拥有c编译环境(gcc/cc等均可) 1. 创建2个文件夹并配置环境变量 CARGO_HOME=刚才创建的对应文件路径, RUSTUP_HOME=刚才创建的对应文件路径, export CARGO_HOME=~/Environment/RUST/CARGO export RUSTUP_HOME~/Environment/RUST/RUSTUP 2. 配置安装源: [设置环境变量] export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup 如下命令也可以 (#echo &#39;export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup&#39; &gt;&gt; ~/.bash_profile ) (#echo &#39;export RUSTUP_UPDATE_ROOT : https://mirrors.ustc.edu.cn/rust-static/rustup&#39; &gt;&gt; ~/.bash_profile ) 3. curl https://sh.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/rust%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/vscode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%8F%8A%E9%85%8D%E7%BD%AE/" title="vscode常用插件及配置" target="_blank">vscode常用插件及配置</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-17T21:03:43Z" class="post-meta meta-date dt-published">
+    2020-08-17
+  </time>
+
+
+
+        <div class="post-content">
+            本文为自用，仅供参考
+** 2020.10.22更新**
+Paste JSON as Code
+leetcode : 力扣刷题用
+Rainbow Fart
+VSC Netease Music:网易云音乐
+小霸王： 小霸王游戏机
+rust
+rust
+rust-analyzer ：rust静态语法分析器
+** 2020.8.5更新** TabNine (必备,很强，支持所有语言，但很吃内存) 必备：
+beauty（代码格式化，支持主流语言）
+Bracket Pair Colorizer(彩色括号，拯救你于重重调用)
+chinese（汉化）
+前端
+Auto Close Tag
+Auto rename Tag
+HTML Snippets
+color info
+JavaScript (ES6) code snippets
+open in browser
+eslint
+其它常用：
+Code Runner：右键即可编译运行单文件，很方便
+风格主题：
+ayu
+深海主题 Material Theme
+吸血鬼主题 Dracula Official
+One Dark Pro
+设置背景图片[此插件修改通过vscode实现，小概率可能会导致vscode崩掉]：
+插件：background
+相关配置项：
+background-size 参数的第一个设置背景图大小
+opacity 设置背景图透明度，推荐0.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/vscode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%8F%8A%E9%85%8D%E7%BD%AE/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/" title="linux shell编程" target="_blank">linux shell编程</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-16T20:47:48Z" class="post-meta meta-date dt-published">
+    2020-08-16
+  </time>
+
+
+
+        <div class="post-content">
+            preparing 查看当前操作系统的默认shell echo $SHELL
+vimrc的推荐配置(非必须)
+set nu set cursorline set autoindent autocmd BufNewFile *.sh 0r ~/.vim/template/sh &mdash;&gt;创建新文件的头文件
+cd ..;ls #进入上一级目录再执行ls，结束后wd位于.. (cd ..;ls)	#进入上一级目录再执行ls,结束后wd位于.(fork,exec) #内建命令&amp;外部命令(通过环境变量) #查看环境变量 env $path 说明：在学习时，以下提到的命令和demo大多可直接在shell中运行，无需编写成shell文件
+第一个shell文件（vim sample.sh） #!/bin/bash #指定解析器 #仅支持单行注释，多行可以通过语句块实现 date echo &#34;&#34; echo &#34;we are current in following path&#34; /bin/pwd shell的运行(三种) chmod +x sample.sh ./sample.sh . sample.sh bash sample.sh 数据类型和变量 shell中只有字符串类型，有两种变量类型: 环境变量（类似于全局变量） 本地变量(类似于局部变量)
+#声明变量 var=10 #不能有空格 #查看变量的值 echo $var #或 echo ${var} [推荐] #删除变量 unset var #控制语句 if,else,switch case,for,while.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="http://4fan.top/">Previous</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="http://4fan.top/">1</a>
+    </li>
+    
+    <li  class="current">
+        <a href="http://4fan.top/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="http://4fan.top/page/3/">3</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="http://4fan.top/page/3/">Next</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>linux shell编程 | DY&#39;s blog</title>
+    <meta property="og:title" content="linux shell编程 - DY&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-08-16T20:47:48&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-08-16T20:47:48&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="linux shell编程">
+        
+    <meta name="author" content="DY">
+    <meta property="og:url" content="http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://4fan.top">
+                        DY&#39;s blog
+                    </a>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">Table of Contents</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#preparing">preparing</a></li>
+        <li><a href="#第一个shell文件vim-samplesh">第一个shell文件（vim sample.sh）</a></li>
+        <li><a href="#shell的运行三种">shell的运行(三种)</a></li>
+        <li><a href="#数据类型和变量">数据类型和变量</a></li>
+        <li><a href="#匹配代换">匹配&amp;代换</a></li>
+        <li><a href="#条件测试">条件测试</a></li>
+        <li><a href="#if分支">if分支</a></li>
+        <li><a href="#switch-case">switch case</a></li>
+        <li><a href="#循环">循环</a></li>
+        <li><a href="#命令行参数">命令行参数</a></li>
+        <li><a href="#echoprintftee重定向">echo，printf，tee，重定向</a></li>
+        <li><a href="#函数">函数</a></li>
+        <li><a href="#shell脚本的调试">shell脚本的调试</a></li>
+        <li><a href="#正则表达式">正则表达式</a></li>
+        <li><a href="#grep">grep</a></li>
+        <li><a href="#find">find</a></li>
+        <li><a href="#sed">sed</a></li>
+        <li><a href="#awk">awk</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">linux shell编程</h1>
+        </header>
+        
+  <time datetime="2020-08-16T20:47:48Z" class="post-meta meta-date dt-published">
+    2020-08-16
+  </time>
+
+
+
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">Table of Contents</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h3 id="preparing">preparing</h3>
+<p>查看当前操作系统的默认shell <code>echo $SHELL</code></p>
+<p>vimrc的推荐配置(非必须)</p>
+<p>set nu
+set cursorline
+set autoindent
+autocmd BufNewFile *.sh 0r ~/.vim/template/sh &mdash;&gt;创建新文件的头文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ..;ls    <span style="color:#75715e">#进入上一级目录再执行ls，结束后wd位于..</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>cd ..;ls<span style="color:#f92672">)</span>	<span style="color:#75715e">#进入上一级目录再执行ls,结束后wd位于.(fork,exec)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#内建命令&amp;外部命令(通过环境变量)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#查看环境变量 </span>
+</span></span><span style="display:flex;"><span>env $path
+</span></span></code></pre></div><p>说明：在学习时，以下提到的命令和demo大多可直接在shell中运行，无需编写成shell文件</p>
+<h3 id="第一个shell文件vim-samplesh">第一个shell文件（vim sample.sh）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash       #指定解析器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#仅支持单行注释，多行可以通过语句块实现</span>
+</span></span><span style="display:flex;"><span>date
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;we are current in following path&#34;</span>
+</span></span><span style="display:flex;"><span>/bin/pwd
+</span></span></code></pre></div><h3 id="shell的运行三种">shell的运行(三种)</h3>
+<ol>
+<li><code>chmod +x  sample.sh   ./sample.sh</code></li>
+<li><code>. sample.sh</code></li>
+<li><code>bash sample.sh</code></li>
+</ol>
+<h3 id="数据类型和变量">数据类型和变量</h3>
+<p>shell中只有<strong>字符串</strong>类型，有两种变量类型: 环境变量（类似于全局变量） 本地变量(类似于局部变量)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#声明变量</span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>            <span style="color:#75715e">#不能有空格</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#查看变量的值 </span>
+</span></span><span style="display:flex;"><span>echo $var <span style="color:#75715e">#或 echo ${var} [推荐]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#删除变量</span>
+</span></span><span style="display:flex;"><span>unset var
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#控制语句</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>,else,switch <span style="color:#66d9ef">case</span>,for,while...
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#函数</span>
+</span></span></code></pre></div><h3 id="匹配代换">匹配&amp;代换</h3>
+<h4 id="匹配">匹配</h4>
+<blockquote>
+<p>* 匹配0或任意个字符</p>
+<p>? 匹配一个任意字符</p>
+<p>[若干字符] 匹配方括号中的任意一个字符的一次出现 ([a-z])</p>
+</blockquote>
+<h4 id="命令代换">命令代换</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>now<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span>		<span style="color:#75715e">#将date命令运行的结果赋值给now变量等价于以下命令:</span>
+</span></span><span style="display:flex;"><span>now<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date<span style="color:#e6db74">`</span>
+</span></span></code></pre></div><h4 id="算术代换">算术代换</h4>
+<p>使用$(())用于算术运算，(())中的变量取值将转换到整数，功能同 $[]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>var<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#66d9ef">$((</span>$var<span style="color:#f92672">+</span><span style="color:#ae81ff">5</span><span style="color:#66d9ef">))</span>     <span style="color:#75715e">#15     == echo $[$var+5]  == echo $[$var+5] == echo $((${var}+5))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#注:只能进行+1*/和()运算且只能进行整数运算。</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#进制</span>
+</span></span><span style="display:flex;"><span>echo $<span style="color:#f92672">[</span>2#11+3<span style="color:#f92672">]</span>   <span style="color:#75715e">#二进制的&#34;11&#34; + 3</span>
+</span></span></code></pre></div><h4 id="转义字符">转义字符</h4>
+<p>shell使用 &ldquo;\&rdquo; 作为转义字符，用于去除紧跟其后的一个字符的特殊含义，即紧跟其后的字符取字面值[转特殊义或转本身义,参考echo参数节]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#ae81ff">\$</span>path <span style="color:#75715e">#-----&gt;   $path</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#创建 名为  --abc 的文件</span>
+</span></span><span style="display:flex;"><span>touch -- --abc
+</span></span></code></pre></div><h4 id="单双引号">单双引号</h4>
+<p>单双引号内的内容都将被视为单一字符串，区别在于 双引号阻止通配符的扩展但允许变量扩展</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>var<span style="color:#f92672">=</span>hello
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$var<span style="color:#e6db74">&#34;</span>			<span style="color:#75715e">#==&gt; hello</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;$var&#39;</span>			<span style="color:#75715e">#==&gt; $var</span>
+</span></span></code></pre></div><h3 id="条件测试">条件测试</h3>
+<p>条件测试结果 &mdash;&gt; 真:0 假:1 (类似于unix的syscall)</p>
+<h4 id="算术比较符greaterless-than">算术比较符(greater,less than&hellip;):</h4>
+<blockquote>
+<p>arg1 op arg2  (只能为整数)</p>
+<p>-gt 大于	-ge 大于等于	-eq 等于</p>
+<p>-lt 小于		-le 小于等于	-ne 不等于</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>var<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>test $var -gt <span style="color:#ae81ff">11</span>       <span style="color:#75715e">#===&gt;等价于 [ $var -gt 11 ] 空格不能少(相当于[是运算符)</span>
+</span></span><span style="display:flex;"><span>echo $? <span style="color:#75715e">#查看上一次命令运行的结果</span>
+</span></span></code></pre></div><h4 id="文件类型比较符">文件类型比较符</h4>
+<blockquote>
+<p>-d arg  存在且是一个目录为真	-f arg 存在且是一个文件为真	-p arg 存在且是一个管道为真 -l arg软连接	-c arg 字符设备 -b arg 块设备 -s socket文件</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 当前目录下存在一个名为 go 的文件夹</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -d go <span style="color:#f92672">]</span>  <span style="color:#75715e">#===&gt;echo $? ---&gt;0 </span>
+</span></span><span style="display:flex;"><span>mkfifo ww
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -p ww <span style="color:#f92672">]</span> <span style="color:#75715e">#===&gt;echo $? ---&gt;1 </span>
+</span></span></code></pre></div><h4 id="逻辑运算">逻辑运算</h4>
+<p>​	-a 逻辑与		-o 逻辑或		! 逻辑非</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>expr1 -a expr2
+</span></span><span style="display:flex;"><span>! expr
+</span></span></code></pre></div><h4 id="字符串比较符">字符串比较符</h4>
+<blockquote>
+<p>-z 如果字符串的长度且为0则为真，-n 如果字符串长度不为0为真</p>
+<p>判断字符串相等/不等  == ，!=</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#变量不存在时(!!!注意变量前的$不能少)：</span>
+</span></span><span style="display:flex;"><span>unset var
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -z $var <span style="color:#f92672">]</span>    <span style="color:#75715e">#===&gt;echo $? ---&gt;0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -n $var <span style="color:#f92672">]</span>	 <span style="color:#75715e">#===&gt;echo $? ---&gt;0</span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;abc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -z $var <span style="color:#f92672">]</span> 		<span style="color:#75715e">#===&gt;echo $? ---&gt;1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -n $var <span style="color:#f92672">]</span> 		<span style="color:#75715e">#===&gt;echo $? ---&gt;0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#-----</span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;abc&#34;</span>         
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> $var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span> <span style="color:#f92672">]</span>  <span style="color:#75715e">#echo $?  ---&gt;0##！！！！注意等号两边的空格不能少</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> $var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcd&#34;</span> <span style="color:#f92672">]</span><span style="color:#75715e">#echo $?  ---&gt;1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> $var !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcd&#34;</span> <span style="color:#f92672">]</span><span style="color:#75715e">#echo $?  ---&gt;0</span>
+</span></span></code></pre></div><h4 id="补充">补充</h4>
+<p>​	条件测试也除了使用以上的[]形式,也可以使用test命令，推荐使用[]</p>
+<p>​	未定义的变量在shell中会被展开为空(  空而不是&quot;&quot; )，因此良好的shell编程习惯中推荐总是使用双引号来对变量取值，比如以下例子:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#变量vr不存在</span>
+</span></span><span style="display:flex;"><span>var<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;abc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> $vr !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcd&#34;</span> <span style="color:#f92672">]</span> <span style="color:#75715e">#err,报错</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$vr<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcd&#34;</span> <span style="color:#f92672">]</span> <span style="color:#75715e">#返回0</span>
+</span></span></code></pre></div><h3 id="if分支">if分支</h3>
+<h4 id="demo1">demo1</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd /
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d bin <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>&gt; echo <span style="color:#e6db74">&#34;It&#39;s a dictory&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>It<span style="color:#e6db74">&#39;s a dictory
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">###
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">#! /bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">if [ -f sample.sh ];then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	echo &#34;It&#39;</span>s a file<span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">fi	
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">###等价于
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">if [ -f sample.sh ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">then	
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	echo &#34;</span>It<span style="color:#960050;background-color:#1e0010">&#39;</span>s a file<span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">fi	
+</span></span></span></code></pre></div><h4 id="demo2">demo2</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Is it morning? please enter y or n:&#34;</span>
+</span></span><span style="display:flex;"><span>read ord
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $ord <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;good morning&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> $ord <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;good night&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;what black man question mark?&#34;</span>
+</span></span><span style="display:flex;"><span>	exit <span style="color:#ae81ff">1</span>    
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> :; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;: is always true&#34;</span>  <span style="color:#75715e">### : 表示一条空指令且总为true</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>	
+</span></span></code></pre></div><h3 id="switch-case">switch case</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#说明：无switch,使用 ;; 防止case穿透(相当于break)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#！ /bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Is it morning? please enter yes or no:&#34;</span>
+</span></span><span style="display:flex;"><span>read ord
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$ord<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>yY<span style="color:#f92672">][</span>eE<span style="color:#f92672">][</span>Ss<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;good mao ni&#34;</span>;;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Nn<span style="color:#f92672">][</span>Oo<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;good evening&#34;</span>;;
+</span></span><span style="display:flex;"><span>*<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;?????&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span></code></pre></div><h3 id="循环">循环</h3>
+<h4 id="for">for</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>ls<span style="color:#e6db74">`</span>;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;file name is </span>$i<span style="color:#e6db74">,more about:&#34;</span>
+</span></span><span style="display:flex;"><span>	ls -al $i
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h4 id="while">while</h4>
+<h5 id="demo1-1">demo1</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;please enter the passwd&#34;</span>
+</span></span><span style="display:flex;"><span>read passwd
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$passwd<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;secret&#34;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;sorry,passwd is not match,try again&#34;</span>
+</span></span><span style="display:flex;"><span>	read passwd
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h5 id="demo2-1">demo2</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;while loop&#34;</span>
+</span></span><span style="display:flex;"><span>count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$count<span style="color:#e6db74">&#34;</span> -lt <span style="color:#ae81ff">10</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;now it is </span>$count<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>	count<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>$count<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>break[n]可以跳出多层循环，continue同C语言相同。</p>
+<h5 id="demo2改进">demo2改进</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;while loop&#34;</span>
+</span></span><span style="display:flex;"><span>count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$count<span style="color:#e6db74">&#34;</span> -lt <span style="color:#ae81ff">10</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;now it is </span>$count<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>	count<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>$count<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$count<span style="color:#e6db74">&#34;</span> -eq <span style="color:#ae81ff">7</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>		break
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">fi</span>	
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h3 id="命令行参数">命令行参数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">##文件名为 argv.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash</span>
+</span></span><span style="display:flex;"><span>echo $0
+</span></span><span style="display:flex;"><span>echo $1
+</span></span><span style="display:flex;"><span>echo $2
+</span></span><span style="display:flex;"><span>echo $3
+</span></span><span style="display:flex;"><span>echo $4
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;the argv&#39;s number is </span>$#<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $@为参数列表,可用于for循环</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $$ 当前进程的进程号</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $? 上一条命令的Exit status</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># shift，命令行参数左移，自己测试（eg:处理一个左移一次）</span>
+</span></span></code></pre></div><p>bash argv.sh a1 a2 a3 a4		&mdash;&gt;查看结果</p>
+<p>也可以 <code>chmod +x argv.sh</code>,<code> ./argv a1 a2 a3 a4</code> 查看结果</p>
+<h3 id="echoprintftee重定向">echo，printf，tee，重定向</h3>
+<p>-e 解析转义字符</p>
+<p>​	运行以下命令查看区别：<code>echo &quot;hello\n&quot;</code> 和 <code>echo -e &quot;hello\n&quot;</code></p>
+<p>-n 不回车换行</p>
+<p>​	运行以下命令查看区别：<code>echo &quot;hello&quot;</code> 和 <code>echo -n &quot;hello&quot;</code></p>
+<h4 id="printf">printf</h4>
+<p>​		printf命令有和echo相似的功能，具体使用请参考man</p>
+<p>管道: 通过 | 把一个命令的输出传递到另一个命令做输入</p>
+<h4 id="tee">tee</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#&gt;&gt;代表在文件后面追加，不覆盖    &gt; 代表覆盖文件内容写入</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#当我们使用想将一个命令运行的结果输出到一个文件时</span>
+</span></span><span style="display:flex;"><span>ls &gt; out <span style="color:#75715e">#此时屏幕上将不能显示运行结果，此时可以使用tee命令(输出到屏幕并保存到文件)</span>
+</span></span><span style="display:flex;"><span>ls | tee out   <span style="color:#75715e">#此时将覆盖文件</span>
+</span></span><span style="display:flex;"><span>ls | tee -a out <span style="color:#75715e">#追加</span>
+</span></span></code></pre></div><h4 id="重定向">重定向</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cmd  &gt; file  <span style="color:#75715e">#标准输出重定向到新文件中</span>
+</span></span><span style="display:flex;"><span>cmd &gt;&gt; file <span style="color:#75715e">#标准输出重定向追加到文件中</span>
+</span></span><span style="display:flex;"><span>cmd &gt;file 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#75715e">#标准出错也重定向到file文件中</span>
+</span></span><span style="display:flex;"><span>cmd &gt;&gt;file 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>cmd &lt;file  &gt;fiel2 <span style="color:#75715e">#标准输入/输出都重定向到文件中(cat &lt; file )</span>
+</span></span><span style="display:flex;"><span>cmd &lt; &amp;-       <span style="color:#75715e">#关闭标准输出</span>
+</span></span><span style="display:flex;"><span>cmd &gt;&amp;fd		<span style="color:#75715e">#重定向到文件描述符中</span>
+</span></span></code></pre></div><p>由重定向引出来的两个关于nohup的非常常用的命令（nohup输出日志文件非常占用空间）</p>
+<p><code>nohup commond &gt;/dev/null 2&gt;&amp;1 &amp; </code>  		不保存任何信息</p>
+<p><code>nohup commond &gt;/dev/null 2&gt;log &amp;</code>			 只输出错误信息到日志文件</p>
+<h3 id="函数">函数</h3>
+<p>shell中的函数无返回值也无参数列表。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#定义函数</span>
+</span></span><span style="display:flex;"><span>foo<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;foo&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#调用</span>
+</span></span><span style="display:flex;"><span>foo          
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#-------------传参demo，类似命令行参数-------</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash</span>
+</span></span><span style="display:flex;"><span>foo<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>foo <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><h3 id="shell脚本的调试">shell脚本的调试</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>-n 			<span style="color:#75715e">#不执行，只检查语法(类似于nginx -t/ make -n)</span>
+</span></span><span style="display:flex;"><span>-v 			<span style="color:#75715e">#一边执行一边将出错打印出来</span>
+</span></span><span style="display:flex;"><span>-x			<span style="color:#75715e">#跟踪程序执行信息，将每一条命令和执行结果输出出来</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iz2zeh46wfpirjtbp5x1xyz shell<span style="color:#f92672">]</span><span style="color:#75715e"># cat func3.sh </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;haha&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;ww&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iz2zeh46wfpirjtbp5x1xyz shell<span style="color:#f92672">]</span><span style="color:#75715e"># bash -x func3.sh </span>
+</span></span><span style="display:flex;"><span>+ echo haha
+</span></span><span style="display:flex;"><span>haha
+</span></span><span style="display:flex;"><span>+ echo ww
+</span></span><span style="display:flex;"><span>ww
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#####部分片段</span>
+</span></span><span style="display:flex;"><span>set -x <span style="color:#75715e">#开启</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>set +x <span style="color:#75715e">#关闭</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#这样即可只对脚本的一部分片段进行追踪调试</span>
+</span></span></code></pre></div><h3 id="正则表达式">正则表达式</h3>
+<p>扩展正则和基本正则</p>
+<p>​	Basic正则与扩展正则类似，只是字符?+{}|()应解释为普通字符，如要表示上述特殊含义则需要加\转义</p>
+<p>​	如果使用grep而不是egrep并且不加-E参数则遵照Basic正则来解释。</p>
+<h3 id="grep">grep</h3>
+<p>grep -r “key word” 快速搜索目录下的关键字</p>
+<p>&hellip;.</p>
+<h3 id="find">find</h3>
+<p>find命令常用来找文件</p>
+<p>find / -name &ldquo;*init&rdquo;			从根目录下查找名字以&quot;init&quot;结尾的文件</p>
+<p>find ./ -size +2k					从当前目录下查找大于2K文件</p>
+<p>find ./ -size +20M -size -40M	 从当前目录下查找大于20M小于40M文件 (一个size一个限制)</p>
+<p>（无单位默认为扇区大小，0.5K）</p>
+<p>find ./ -type f							从当前目录下寻找类型为文件的					-type f,b,s</p>
+<p>find ./ -maxdepth 1 -name &ldquo;*&rdquo; 列出当前文件夹下的文件/目录(不递归，且此参数应放在前边)</p>
+<p>find命令不能和管道符同时使用，应使用exec替代</p>
+<p>find ./ -maxdepth 1 -exec ls -l {} ;		\；表示结束符</p>
+<p>find ./ -maxdepth 1 -ok rm {} ;			交互版的exec，每次执行命令前询问y,n</p>
+<p>find ./ -maxdepth 1 | xargs ls -ld		分批处理(内容过多时内存紧张，性能低等时)</p>
+<p>​	xargs默认按照空格分隔，若返回结果中的有空格则不能正常运行</p>
+<p>====&gt;find ./ -maxdepth 1 -print0 |xargs -0 ls -lh</p>
+<p>-atime|ctime|mtime: 天为单位（访问/修改/属性被修改 时间）</p>
+<p>-amin|cmin|mmin</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd /var/log
+</span></span><span style="display:flex;"><span>find ./ -name <span style="color:#e6db74">&#34;syslog*&#34;</span> -mtime +5   <span style="color:#75715e">#5天前，，-5表示5天内</span>
+</span></span></code></pre></div><h3 id="sed">sed</h3>
+<p>​		流编辑器(stream editor),由于sed与vi同起源于UNIX的ed，因此两者有很多相似。</p>
+<p>sed 将输入的内容读入缓冲区进行处理并输出。（默认并不修改源文件）</p>
+<p>基本用法:</p>
+<p><code>sed option 'script' file1 file2 ...   或者 sed option -f scriptfile file1 file2 ...</code></p>
+<blockquote>
+<p>&ndash;version			&ndash;help</p>
+<p>-n,&ndash;silence,&ndash;quiet	sed在所有脚本指令执行完成后将自动打印模式空间中的内容，这些选项可以屏蔽自动打印。</p>
+<p><code>sed &quot;s/at/ta/&quot; test</code>  ##从test读入缓冲区并把内容中的at替换为 ta（注意结束的/不能少</p>
+<p>-e 允许多个脚本</p>
+<p>-f 指定脚本文件</p>
+<p>-i 直接在源文件中修改(慎用)</p>
+<p><code>sed &quot;s/at/ta/&quot; test -i</code>  ##将test文件中的at替换为 ta</p>
+</blockquote>
+<p>脚本的指令说明</p>
+<pre><code>&gt;a , append	追加
+&gt;
+&gt;i,insert		插入
+&gt;
+&gt;d, delete	删除
+&gt;
+&gt;s, substitution 替换
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sed <span style="color:#e6db74">&#34;1,5d&#34;</span> test 	将从test文件中读入的内容的1-5行删除
+</span></span><span style="display:flex;"><span>sed <span style="color:#e6db74">&#34;2a DY不会编程&#34;</span> test	将从test文件中读入的内容第2行后加入 DY不会编程
+</span></span></code></pre></div><p>对于脚本文件格式为 <code>/pattern/action</code>,pattern表示正则表达式，action表示编辑操作。sed程序一行一行读入文件到缓冲区，如果某一行和pattern匹配则执行对应的action，如果一条命令没有pattern，则action处理每一行。</p>
+<p>/pattern/p		打印符合pattern的行</p>
+<p>/pattern/d		删除符合pattern的行</p>
+<p><code>sed 's/bc/-&amp;-' testfile</code> 将testfile中的bc替换为 -bc-(即&amp;代替bc)</p>
+<h3 id="awk">awk</h3>
+<p>awk既可以进行行处理也可以进行列处理，但通常使用sed处理行。</p>
+<p>awk缺省的行分隔符是换行，缺省的列分隔符是连续的空格和tab，但也可以自定义</p>
+<p><code>ps aux|awk '{print $2}'</code> 取进程号(打印第2列)     $0表示全部</p>
+<p>基本用法：类似于sed</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iz2zeh46wfpirjtbp5x1xyz tmp<span style="color:#f92672">]</span><span style="color:#75715e"># cat testfile </span>
+</span></span><span style="display:flex;"><span>productA  <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>productB  <span style="color:#ae81ff">76</span>
+</span></span><span style="display:flex;"><span>prductC	  <span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@iz2zeh46wfpirjtbp5x1xyz tmp<span style="color:#f92672">]</span><span style="color:#75715e"># awk &#39;$2&lt;75 {printf &#34;%s %s\n&#34;,$0,&#34;reorder&#34;} $2&gt;=75 { printf &#34;%s \n&#34;,$0}&#39; testfile </span>
+</span></span><span style="display:flex;"><span>productA  <span style="color:#ae81ff">12</span> reorder
+</span></span><span style="display:flex;"><span>productB  <span style="color:#ae81ff">76</span> 
+</span></span><span style="display:flex;"><span>prductC	  <span style="color:#ae81ff">21</span> reorder
+</span></span></code></pre></div><p>说明：</p>
+<p>关于sed和awk的内容有很多(awk甚至有自己的语言)，这里只简单介绍，具体可参考相关手册。</p>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>Author: </strong><a rel="author" href="http://4fan.top">DY</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/">http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/</a></li>
+        <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a></li>
+        
+        <li><a href="/posts/jave-ide-%E9%85%8D%E7%BD%AE/">jave ide 配置</a></li>
+        
+        <li><a href="/posts/jwt%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/">JWT原理介绍</a></li>
+        
+        <li><a href="/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/">spring boot restful光速无痛入门</a></li>
+        
+        <li><a href="/posts/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8/">微服务入门</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/linux' target="_blank">linux</a></li>
+                
+                <li><a href='/tags/shell' target="_blank">shell</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

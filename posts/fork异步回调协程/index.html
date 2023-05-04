@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>fork，异步回调 和 协程 对比 | DY&#39;s blog</title>
+    <meta property="og:title" content="fork，异步回调 和 协程 对比 - DY&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-06-01T13:55:05&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-06-01T13:55:05&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="fork，异步回调 和 协程 对比">
+        
+    <meta name="author" content="DY">
+    <meta property="og:url" content="http://4fan.top/posts/fork%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E5%8D%8F%E7%A8%8B/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://4fan.top">
+                        DY&#39;s blog
+                    </a>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">fork，异步回调 和 协程 对比</h1>
+        </header>
+        
+  <time datetime="2020-06-01T13:55:05Z" class="post-meta meta-date dt-published">
+    2020-06-01
+  </time>
+
+
+
+        
+        
+        <div class="post-content">
+            <p>目的：提高效率，充分利用多核</p>
+<p>要解决的问题：上下文状态的保存</p>
+<p>实现对比：</p>
+<p>​	fork&mdash;&gt;保存在栈中，交给操作系统。</p>
+<p>​	异步回调&mdash;&gt;自己实现。</p>
+<p>​	协程&mdash;&gt;保存在栈上，用户态完成。</p>
+<p>效率对比：异步回调 &gt; 协程 [据某位大佬说异步回调大概是协程10倍]&gt; fork</p>
+<p>优缺点对比:</p>
+<ul>
+<li>
+<p>fork：实现简单，效率低，不能支持大量并发。</p>
+</li>
+<li>
+<p>异步回调：效率很高，实现复杂。</p>
+</li>
+<li>
+<p>协程：效率较高，实现简单，解放心智。</p>
+</li>
+</ul>
+<p>注：由于实际工程中，协程/异步回调中的代码段往往包含很多逻辑，而协程部分的性能损耗远低于业务逻辑，因此协程是一种比较好的方案。</p>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>Author: </strong><a rel="author" href="http://4fan.top">DY</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="http://4fan.top/posts/fork%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E5%8D%8F%E7%A8%8B/">http://4fan.top/posts/fork%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E5%8D%8F%E7%A8%8B/</a></li>
+        <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/%E6%9C%80%E9%95%BF%E5%AF%92%E5%81%87%E7%9A%84%E6%80%BB%E7%BB%93/">最长寒假的总结</a></li>
+        
+        <li><a href="/posts/restart-in-hexo/">restart in hexo</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/archives/">归档</a></li>
+        
+        <li><a href="/search/">搜索</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E5%B9%B6%E5%8F%91' target="_blank">并发</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

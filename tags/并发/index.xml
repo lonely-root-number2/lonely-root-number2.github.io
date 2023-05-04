@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>并发 on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/%E5%B9%B6%E5%8F%91/</link>
+    <description>Recent content in 并发 on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 01 Jun 2020 13:55:05 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fork，异步回调 和 协程 对比</title>
+      <link>http://4fan.top/posts/fork%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E5%8D%8F%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jun 2020 13:55:05 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/fork%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83%E5%8D%8F%E7%A8%8B/</guid>
+      <description>目的：提高效率，充分利用多核
+要解决的问题：上下文状态的保存
+实现对比：
+​	fork&amp;mdash;&amp;gt;保存在栈中，交给操作系统。
+​	异步回调&amp;mdash;&amp;gt;自己实现。
+​	协程&amp;mdash;&amp;gt;保存在栈上，用户态完成。
+效率对比：异步回调 &amp;gt; 协程 [据某位大佬说异步回调大概是协程10倍]&amp;gt; fork
+优缺点对比:
+fork：实现简单，效率低，不能支持大量并发。
+异步回调：效率很高，实现复杂。
+协程：效率较高，实现简单，解放心智。
+注：由于实际工程中，协程/异步回调中的代码段往往包含很多逻辑，而协程部分的性能损耗远低于业务逻辑，因此协程是一种比较好的方案。</description>
+    </item>
+    
+  </channel>
+</rss>

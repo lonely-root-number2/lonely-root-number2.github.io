@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>注解 on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/</link>
+    <description>Recent content in 注解 on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 30 Jun 2022 22:36:34 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spring注解</title>
+      <link>http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Thu, 30 Jun 2022 22:36:34 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/</guid>
+      <description>spring context 注册组件 xml方式 resources下：标签&amp;ndash;&amp;gt; ClassPathXmlApplicationContext(&amp;ldquo;beans.xml&amp;rdquo;);
+注解方式 @Configuration: 放在配置类上。配置类 @Bean: 获取对象的方法，默认id为方法名。可通过注解value指定id。
+@ComponentScan：放在配置类上 (value=&amp;ldquo;top.fan4.dy&amp;rdquo;，excludeFilter按照不同方式排除，include)==&amp;gt;@ComponentScans。也可自定义过滤规则
+@Scope：调整作用域 singleton 默认单例 IOC启动时即创建。饿汉模式 @Lazy 懒加载 prototype 多实例 获取时即重新创建 request(web) session(web)
+@Condational 满足条件时注册bean。可放在类或者方法上 condationClass implements Condation。 @Condational(condationClass.class)
+组件注册方式：
+包扫描【@ComponentScan配置类上】 + 组件注解标注（标注了@Controller(controller层),@Service(serice层),@Repository(dao层),@Component）可被扫描加入容器
+@Bean 【方法上】 (第三方组件,注册在方法上返回创建对应对象的类即可)
+@Import 【配置类上】 (快速给容器导入组件) {Class.class}id为全类名。 ImportSelector: class MyImportSelector implements ImportSelector{全类名} @Import({MyImportSelector.class}) @ImportBeanDefination 手动注册
+FactoryBean class MyBeanFactory implements FactoryBean{} @Bean public MyBeanFactory MyBeanFactory(){return new MyBeanFactory()} xxxx.getBean(&amp;ldquo;MyBeanFactory&amp;rdquo;) getBean(&amp;quot;&amp;amp;MyBeanFactory&amp;quot;) ==&amp;gt; 得到实际的bean|MyBeanFactory
+生命周期 @Bean() 设置初始化(init)方法和销毁(destory)方法。在创建对象完成和容器关闭时。多实例时不管理bean和销毁。 bean implements InitializingBean,DisposableBean jsr250 @PostConstruct(方法上使用，对象创建和赋值之后调用) 和 @PreDestory(方法上使用，容器移除对象之前) BeanPostProcessor【interface】 BeanPostProcessor 包装返回obj 生命周期：初始化-&amp;gt;对象创建完成-&amp;gt;赋值-&amp;gt;初始化方法-&amp;gt;BeanPostProcessor-&amp;gt;postProcessAfterInitialation 属性赋值 pre: 配置文件的导入：(导入外部文件到运行环境变量) xml：{context:property-placeholder location=&amp;ldquo;classpath:person.</description>
+    </item>
+    
+  </channel>
+</rss>

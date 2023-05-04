@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Posts | DY&#39;s blog</title>
+    <meta property="og:title" content="Posts - DY&#39;s blog">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="Posts">
+        
+    <meta name="author" content="DY">
+    <meta property="og:url" content="http://4fan.top/posts/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="http://4fan.top/posts/index.xml" title="DY's blog" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://4fan.top">
+                        DY&#39;s blog
+                    </a>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+            </h1>
+        </header>
+        
+  <time datetime="2023-05-04T07:45:22Z" class="post-meta meta-date dt-published">
+    2023-05-04
+  </time>
+
+
+
+        <div class="post-content">
+            迁移到hugo 一个标题 上次写博客已经是22年6月的事情了,几乎是从入职开始，还没有写过啥。转眼间快1年了。在之前的某天发现基于hexo的博客可能是由于某些原因导致显示出现了问题，一直没处理。阶段性的尝试了几次，也没有处理好，反而遇到了各种奇奇怪怪的事（基于nodejs的东西，准确的说是npm的锅，总是给人有不稳定的感觉）。作为Gopher，很早就有迁移到hugo的想法，不过受限于一直没有找到现在这个主题(maupassant)的平替。终于在假期这最后时间重新决定处理下并顺利找到了hugo-maupassant.
+description 工作快1年了&hellip;
+reviwie 从hexo hexo是20年3月开始处理的，那个时候大二下，现在已经23年5月，工作快1年。之前写的那些东西还有意义嘛？ 多看书，学点找到编程无关的东西&mdash;&gt;还是中间断断续续的看了一些东西，但其它的爱好仍然匮乏&hellip;&hellip;虽然工作耗去了日常的很多时间，应该认识到这是未来很长很长很长一段时间的常态。所以还是要转变下心态，多主动些，多点勇气去尝试。 其它要做的：最终算是实现了自己当时的目标吧。
+向未来 多一点勇气，尝试不同的东西等等，也包括其它方面的，再多一点勇气。
+再多一点乐观
+还是要多看一看书
+附：hexo时写的
+一个标题 博客跑了一段时间了，上一个跑在阿里云上的也跑了半年多了。
+时间总是过的很快。从虚拟主机CPanel到hostdie，还有博客园，如今跌跌撞撞最后又回到了hexo。原因无它：简单。
+以前总觉着自己写一套模板，用别人的总觉着太low。现在却以简为美，反而对这些花里胡哨的东西失了兴趣。也不再打算自写或者重构博客了，以后将一直用hexo。之前的博客也将逐步搬移过来【但可能有点麻烦，毕竟不是hexo写的，也没用md】。
+希望用博客记录自己成长。
+写给自己： 多看书，学点找到编程无关的东西
+近期要做的： 看基础的书
+数据库相关
+刷leetcode……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/re-restart-in-hugo/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-06-30T22:36:34Z" class="post-meta meta-date dt-published">
+    2022-06-30
+  </time>
+
+
+
+        <div class="post-content">
+            spring context 注册组件 xml方式 resources下：标签&ndash;&gt; ClassPathXmlApplicationContext(&ldquo;beans.xml&rdquo;);
+注解方式 @Configuration: 放在配置类上。配置类 @Bean: 获取对象的方法，默认id为方法名。可通过注解value指定id。
+@ComponentScan：放在配置类上 (value=&ldquo;top.fan4.dy&rdquo;，excludeFilter按照不同方式排除，include)==&gt;@ComponentScans。也可自定义过滤规则
+@Scope：调整作用域 singleton 默认单例 IOC启动时即创建。饿汉模式 @Lazy 懒加载 prototype 多实例 获取时即重新创建 request(web) session(web)
+@Condational 满足条件时注册bean。可放在类或者方法上 condationClass implements Condation。 @Condational(condationClass.class)
+组件注册方式：
+包扫描【@ComponentScan配置类上】 + 组件注解标注（标注了@Controller(controller层),@Service(serice层),@Repository(dao层),@Component）可被扫描加入容器
+@Bean 【方法上】 (第三方组件,注册在方法上返回创建对应对象的类即可)
+@Import 【配置类上】 (快速给容器导入组件) {Class.class}id为全类名。 ImportSelector: class MyImportSelector implements ImportSelector{全类名} @Import({MyImportSelector.class}) @ImportBeanDefination 手动注册
+FactoryBean class MyBeanFactory implements FactoryBean{} @Bean public MyBeanFactory MyBeanFactory(){return new MyBeanFactory()} xxxx.getBean(&ldquo;MyBeanFactory&rdquo;) getBean(&quot;&amp;MyBeanFactory&quot;) ==&gt; 得到实际的bean|MyBeanFactory
+生命周期 @Bean() 设置初始化(init)方法和销毁(destory)方法。在创建对象完成和容器关闭时。多实例时不管理bean和销毁。 bean implements InitializingBean,DisposableBean jsr250 @PostConstruct(方法上使用，对象创建和赋值之后调用) 和 @PreDestory(方法上使用，容器移除对象之前) BeanPostProcessor【interface】 BeanPostProcessor 包装返回obj 生命周期：初始化-&gt;对象创建完成-&gt;赋值-&gt;初始化方法-&gt;BeanPostProcessor-&gt;postProcessAfterInitialation 属性赋值 pre: 配置文件的导入：(导入外部文件到运行环境变量) xml：{context:property-placeholder location=&ldquo;classpath:person.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-04-21T13:04:20Z" class="post-meta meta-date dt-published">
+    2022-04-21
+  </time>
+
+
+
+        <div class="post-content">
+            前置 需要理解变量生命周期。
+显式标注的特点 不改变引用的生命周期，描述多个生命周期的关系
+显式标注的意义和作用 给编译器提示，帮助编译器判断所写的代码是否安全(避免悬垂引用)。
+&lt;==&gt;描述函数输入参数和输出参数的关系以帮助编译器检查所写的代码是否符合预期
+&lt;==&gt;编译器根据函数的标注对函数调用时的传参情况判断。（限制函数的调用处于安全）
+&lt;==&gt;确切的说是当用户添加显式标注时表达了用户对此函数输入输出引用参数的生命周期的期待，编译器根据用户的期待与相关变量的实际生命周期对比以判断是否满足。
+&lt;==&gt;其实编译器都知道，主要是反过来提示用户注意此代码是否为安全的。
+例子和说明 fn longest&lt;&#39;a&gt;(x: &amp;&#39;a str,y: &amp;&#39;a str) -&gt; &amp;&#39;a str { // &#39;a是xy中较小的那个（以保证安全） 假设返回的那个引用拥有最短的生命周期以保证安全 if x.len() &gt; y.len() { x } else { y } } // main 1 fn main() { let str1 = String::from(&#34;hello&#34;); let result; { let str2 = String::from(&#34;world&#34;); // result的生命周期是较短的即str2，此时在离开此作用域后调用println宏时 // 的result是不能保证未被释放，因此报错。 result = longest(&amp;str1, &amp;str2); } println!(&#34;The longest string is {}&#34;, result); } // main 2 fn main() { let str1 = String::from(&#34;hello&#34;); { let str2 = String::from(&#34;world&#34;); let result = longest(&amp;str1, &amp;str2); // 即使result是较短的那个生命周期(str2)，但仍然在str2的作用域内调用，因此可保证安全。 println!……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-14T16:23:32Z" class="post-meta meta-date dt-published">
+    2022-03-14
+  </time>
+
+
+
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-14T16:19:09Z" class="post-meta meta-date dt-published">
+    2022-03-14
+  </time>
+
+
+
+        <div class="post-content">
+            Sentinel errors 哨兵模式，例如
+​	if io == io.EOF 优缺点：需要导包，可能循环引用
+Error Types ​	包含error以及其它信息的结构体
+优缺点：需要导包，循环引用。但可得到更多的信息。比哨兵模式更好一点。
+Opaque errors 黑盒策略，不关心具体错误类型，有错误则返回否则继续或根据是否具有某种行为（实现某种接口）判断是否重试。demo：
+func fn() error { x, err := bar.Foo() if err != nil { return err } // use x return nil } // type temporary interface {	Temporary() bool} func IsTemporary(err error) bool {	te, ok := err.(temporary)	return ok &amp;&amp; te.Temporary() } pkg/errors 携带一个message并可返回原始error以进行Sentinel errors比较的库：github.com/pkg/errors 可避免在多个层多次处理eror
+go1.13标准库的升级 https://www.flysnow.org/2019/09/06/go1.13-error-wrapping.html
+errorf %w &ndash;&gt;不丢失原error的wrap error。 Unwrap 解一层wrap error Is wrap chain中是否包含 As error转换（断言） rob pike：Errors are values 法1：……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-09T11:51:15Z" class="post-meta meta-date dt-published">
+    2022-03-09
+  </time>
+
+
+
+        <div class="post-content">
+            ​	在写一个后端的时候，前端的同学需要将接口部署上去。后端还在不断的迭代，因此需要反复编译部署十分麻烦，因此决定将这一套自动化。记录了在使用drone过程中踩的一系列坑。
+选型 jenkins：war包， 需要java环境，比较吃内存，生态比较完善。 drone： go实现，可docker直接运行，文档不够详细。 由于之前Jenkins的不好体验，因此这次选择drone。
+drone基本概念 drone由server和runner构成。两者通过rpc交互。
+server端为web管理服务，可直接通过docker运行。
+runner实际执行工作流的部分。
+一个Go程序借助gitee的cicd demo 所需物料：gitee账号，配置好docker和go编译环境的linux
+配置gitee
+​	gitee设置&ndash;&gt;第三方应用&ndash;&gt;创建第三方应用
+​	应用主页 ：linux主机ip,例如： http://xxx.xxx.xxx.xxx（此处使用http而非https，和后续一致）
+​	应用回调地址 ：应用主页地址 + &ldquo;/login&rdquo;.例如：http://xxx.xxx.xxx.xxx/login
+**权限** ：选择projects，pr，hook必选。 创建一个secret并记录。可使用以下命令：
+$ openssl rand -hex 16
+在gitee中创建好的应用中读取并记录 Client ID 和 Client Secret 以备下步使用
+运行server，此处使用docker方式
+# ！！！注意替换环境变量 # DRONE_GITEE_CLIENT_ID和DRONE_GITEE_CLIENT_SECRET对应第三步获得的。 # DRONE_RPC_SECRET runner和server交互的secret。任意值，推荐使用第二步生成的值 # DRONE_SERVER_HOST 填写本机公网ip即可 # DRONE_SERVER_PROTO选择 http 以和第一步对应 # DRONE_USER_CREATE需创建超级管理员账号时请添加此环境变量，否则不需要。（trusted仓库时需要，此demo中不需要 docker run \ --volume=/var/lib/drone:/data \ --env=DRONE_GITEE_CLIENT_ID=f7018cd1a520c9e6f7eca37b97761de20 \ --env=DRONE_GITEE_CLIENT_SECRET=8a6bfd074b3c7befe72d5f9647ed02c \ --env=DRONE_RPC_SECRET=super-duper-secret \ --env=DRONE_SERVER_HOST=drone.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-01-25T22:11:42Z" class="post-meta meta-date dt-published">
+    2022-01-25
+  </time>
+
+
+
+        <div class="post-content">
+            ​	上次写点什么已经是大概一年前了。想稍微写点啥的想法持续有一段时间了。今天终于在北方的小年这一天写点，全当是如标题所说的21总结了。
+最近在干啥？ ​	自从1号回来，几乎没把自己安排的很满(主要是懒)。上午大概就躺过去了。下午大概就看看电视。一般会在晚上写写代码，或者看一些东西(最近看了点netty)。刚回来的前几天玩了下nodemcu。正是因为过于颓废才使得今天决定要写点东西😂
+流水账 warm-up ​	后疫情时代总是感觉过的很快。20年的下半年是疫情后开学的第一个学期，重回校园却总感觉和以前不太一样了。在这种恍惚也有一种紧张感(为找实习)。在开学的前几周陆续地刷了一部分题，还记得那一段时间总是在接近0点的时候从易班刷完题回宿舍。也伴随着一种迷茫。到了后半个学期基本上就很难继续下去了。即使已经决定转行，在专业课仅想摆烂通过的情况下，由于课程难度的问题，也需要耗费一番精力。大概10周之后就不断的有课程结课、考试，一直持续到18周(我校每学期18周)。加上后边由于一场感冒引起的一些问题几乎持续到了学期结束。
+找实习 ​	2020年算是后疫情的又一个新年。对于互联网行业，实习来的非常早。刚过完年就陆续有公司开始了暑期实习的招聘。虽然自开学后继续刷题，开始准备面试，但总感觉自己的准备不够充分。也因此错过了很多的招聘。4月中终于开始投了一些公司。第一场来自百度的笔试，然后是腾讯/字节的笔试。第一场来自百度的面试，很遗憾由于一些原因没有通过。之后又挂在字节教育部门的三面。此时已大概5月多。对于一个简历投递比较晚开始的菜鸟来说略有尴尬了，因为暑期实习的招聘即将就要结束了。好在后续来自鹅的一系列面试比较顺利，也最终拿到了offer。虽然最后run了，但是依旧感恩我所在的组捞了我，给了我一段经历。
+实习 ​	7月初，逃离了工地带专和小学期去了sz。刚开始第一次来到南方，这么南端的地方有很多的不习惯。到最后的习惯了社畜的日常摸鱼。&hellip;&hellip;..
+返回和继续 ​	老实说9月初回学校是有些失望和压力的。大概是没达到自己预想到的那样(无转正，无其它offer)。在学校的事情暂时告一段落之后继续了秋招。从8月底到9月中，陆续3次挂在了字节不同部门的一面。抖音电商(后端)，教育和抖音电商(客户端)。属实是让人有一些失去自信了。再之后小米二面挂(挂的很尴尬&hellip;..)。11月来的比较顺利了。百度上午连续三面过，随后mt也比较顺利的过了。和当时找实习一样，在比较晚的时间，在略有压力的情况下，最后有个相对还 彳 亍的结果。（其实2次即使在比较失落时也比较坚信自己最终应该能取得一个不错的结果，但在结果来到之前依然会有压力和焦虑😔。
+今年看/学/玩了点啥吗？ 除去一些为了准备实习/秋招之外的：
+计算机网络教程:自顶向下方法:a top-down approach（部分
+深入理解计算机系统:a programmer&rsquo;s perspective（主要是感兴趣的部分：内存管理，异常和系统编程部分
+陆陆续续看了点rust方面的东西，有分享，有书
+10月玩了一小段时间树莓派（虽然面临秋招等，但是遇到想玩的还是要花时间玩下的😄
+lab: writing an os in rust( ing
+22年1月初玩了几天nodemcu
+翻一些很杂的书，比如ddia(reading
+其它各种很杂的一些分享
+我算是一个兴趣广泛的（或者说三分钟热度😂
+碎碎念 ​	今天，在村外的路上看着零星还未融化的雪在田野里包裹着村落，还有远处的落日。按照正常的放假安排，工作之后，可能未来的几年，我都很难在一年的小年时回到家里，经历一些场景。我们总是在陆陆续续的丢弃一些过去的生活/习惯或者？也在向前😀
+明年：多读书(不仅限于技术类)，多写写文章有产出，锻炼身体，闲了学学🎸（多半又要失败了😂。然后把之前看的一些东西整理出来
+:语言表述能力和写作能力太差，要多练习（倒不是表达能力差，而是缺少一种整体的感觉和写作的技巧，事实上在一些比较具体的问题上我倒是具有一种很快而准确的表达能力，但若要写起长一点的东西就容易不知所云&hellip;.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-03-11T16:05:58Z" class="post-meta meta-date dt-published">
+    2021-03-11
+  </time>
+
+
+
+        <div class="post-content">
+            控制以及常用命令: 1. 信号： http://nginx.org/en/docs/control.html 2. 命令 nginx -t #检查配置文件语法 nginx -c file #检查指定路径的配置文件语法 nginx -s reload #热重载，修改配置文件后使用 nginx -s stop #强制停止 nginx -s quit #优雅的停止 nginx -h #查看帮助 nginx -v #版本 nginx -V #查看编译参数 http段 #nginx 的 default_server 指令可以定义默认的 server 出处理一些没有成功匹配 server_name 的请求，如果没有显式定义，则会选取第一个定义的 server 作为 default_server。 server{ listen 80; server_name z.com; location / { root /home/html; #通常用绝对路径 index index.html; } } server{ listen 80; server_name 192.168.1.200; location / { root /var/www/html; #通常用绝对路径 index index.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-03-08T23:50:22Z" class="post-meta meta-date dt-published">
+    2021-03-08
+  </time>
+
+
+
+        <div class="post-content">
+            ​	现代系统通过使控制流发生突变来对系统状态的变化(例如:硬件定时器产生的周期信号，包到达网络适配器&hellip;)做出反应，我们把这些突变称作异常控制流。异常控制流发生在系统的各个层次。（包括硬件层，内核层，应用层）。理解ECF将有助于你理解OS的I/O，进程和虚拟存储器机制，有助于理解应用程序如何与OS交互(system call/trap)，有助于理解并发，软件异常，编写有趣的程序。
+8.1异常：概述 异常的机制 ​	系统为每种异常分配一个非负的异常号。一部分是处理器的设计者分配，另一部分则由操作系统的设计者分配。前者的示例包括：零除，缺页，存储器访问违例，断点以及算术溢出【主要是硬件相关的】。后者的示例包括系统调用和来自I/O设备的信号【主要是操作系统能够处理的】。由操作系统分配的异常号在操作系统启动时初始化一张称为异常表的跳转表。当发生异常时通过下面的方式计算出异常处理程序的地址：
+异常表基址寄存器 + 异常号*4 异常处理后 返回触发异常的指令(eg:内存缺页异常) 返回到下一指令(eg:系统调用) 终止被中断的程序 异常的分类 异常分类 异常产生原因/说明 异常处理之后的操作 备注 中断 I/O设备的信号 返回到下一条指令 I/O设备指：网卡，磁盘，定时器等 陷阱 有意引起的异常 返回到下一条指令 系统调用引起 故障 可恢复的异常 可能返回到当前指令 如缺页故障 终止 不可恢复的异常 不返回 硬件错误 注：中断是四种异常中唯一的异步异常。
+Linux的系统调用 在x86架构上，Linux系统的系统调用通过一条成为 int n的陷阱指令完成。历史上是通过128(0*80)异常号实现。
+按照惯例，寄存器%eax包含系统调用号，寄存器ebx,ecx,edx,edi,esi和ebp存储最多6个任意的参数【esp不能使用，原因是进入内核模式时会被覆盖掉】。以上的规则我们称之为调用规约。
+注：为提高性能，在最新的架构和操作系统下有一种新的系统调用的实现机制（利用 SYSENTER / SYSEXIT指令）
+扩展阅读：
+https://github.com/cch123/llp-trans/blob/master/part3/translation-details/function-calling-sequence/calling-convention.md
+https://github.com/cch123/asmshare/blob/master/layout.md
+8.2进程 进程为程序提供了两个非常重要的抽象：
+一个独立的逻辑控制流：好像我们的程序独占的使用处理器 一个私有的地址空间：好像我们的程序独占的使用存储器系统 用户模式和内核模式 处理器通常是用某个控制寄存器中的一个模式位来标记程序是否可以执行的某些指令和访问某些特定的地址空间[即内核模式]。用户从用户模式进入内核模式的唯一方式是通过某种异常，当异常处理完毕后重新改为用户模式。
+上下文切换（调度） 内核为每一个进程维持一个重新开始一个先前被抢占的进程所需的状态，称之为上下文(包括各种寄存器，用户栈，内核栈和各种内核数据结构，如页表，进程信息表，文件表)。通过上下文切换的机制实现控制转移到新的进程。当内核代表用户执行系统调用时可能发生上下文切换（典型的那些慢系统调用），中断也可能引发上下文切换。
+高速缓存污染 一般而言硬件高速缓存存储器不能和诸如中断和上下文切换这样的异常控制流很好地交互。当中断发生或返回时告诉缓存对于当前执行的代码段总是冷的（即程序所需的数据都不在告高速缓存中，这也很好理解，因为局部性原理）。
+8.3 系统调用错误处理 unix中的系统调用发生错误时通常返回-1并设置errno变量。我们可以通过strerror(errno)函数得到出错原因对应的字符串。程序员应该像例如demo1这样总是去检查错误(像go的返回值总是包含一个error类型，更极端的rust返回一个枚举类型强制你去处理)。然而这样会导致程序变得臃肿难懂。我们可以简化这个代码(参见demo2)。更进一步，习惯上可以为系统调用进行一种例如demo3这样的封装(似乎APUE里提到过这玩意)，称之为包装函数。
+//demo1: if( (pid = fork()) &lt; 0){ fprintf(stderr,&#34;fork err:%s\n&#34;,strerror(errno)); exit(0); } //demo2 void unix_error(char *msg){ fprintf(stderr,&#34;fork err:%s\n&#34;,strerror(errno)); exit(0); } if( (pid = fork()) &lt; 0){ unxi_error(&#34;fork error&#34;); } //demo3 // Fork是一个参数和返回值与fork均相同的函数 pid_t Fork(void){ pid_t pid; if( (pid = fork()) &lt; 0) unxi_error(&#34;fork error&#34;); return pid; } 8.……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-02-18T23:00:40Z" class="post-meta meta-date dt-published">
+    2021-02-18
+  </time>
+
+
+
+        <div class="post-content">
+            作为一个不常写前端的菜鸟，看到node在C盘留下及其离谱大小的缓存，加上电脑垃圾，所以要给默认的缓存换个目录： ​	【node_global】及【node_cache】
+npm config set prefix &ldquo;D:\Develop\nodejs\node_global&rdquo; npm config set cache &ldquo;D:\Develop\nodejs\node_cache&rdquo; 环境变量： 将【用户变量】下的【Path】修改为【D:\Develop\nodejs\node_global】 在【系统变量】下新建【NODE_PATH】，输入【D:\Develop\nodejs\node_global\node_modules】 安装淘宝镜像: npm install -g cnpm &ndash;registry=https://registry.npm.taobao.org
+设置默认镜像源：【二选一即可】 npm config set registry https://mirrors.huaweicloud.com/repository/npm/	华为镜像 npm config set registry https://registry.npm.taobao.org	淘宝镜像 npm cache clean -f	清理缓存
+Linux下可能遇到的问题及解决 sh: 1: node: Permission denied:
+npm config set user 0 npm config set unsafe-perm true
+未完待续&hellip;..……
+        </div>
+        <p class="readmore"><a href="http://4fan.top/posts/nodejs-tips/" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+
+    
+    <li  class="current">
+        <a href="http://4fan.top/posts/">1</a>
+    </li>
+    
+    <li >
+        <a href="http://4fan.top/posts/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="http://4fan.top/posts/page/3/">3</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="http://4fan.top/posts/page/2/">Next</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

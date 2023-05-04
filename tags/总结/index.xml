@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>总结 on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 总结 on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 14 May 2020 14:21:32 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最长寒假的总结</title>
+      <link>http://4fan.top/posts/%E6%9C%80%E9%95%BF%E5%AF%92%E5%81%87%E7%9A%84%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 14 May 2020 14:21:32 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/%E6%9C%80%E9%95%BF%E5%AF%92%E5%81%87%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
+      <description>大概分成两个阶段吧：开学前，假如开学的时间。
+​	回家之前在图书馆借了两本书，年前年后看了《区块链：密码共识原理、产业与应用》 ，重点看了下密码共识相关的和目前已经发的那些币之间的各种区别。emm，貌似也忘完了。===&amp;gt;一定要做笔记!!
+​	在这期间大概看了一点 vue 的东西，相当于把之前的东西捡了一点起来。也看了C的一些进阶的东西。
+​	另外一本书 是关于 操作系统的，一直陆陆续续的，看到今天，也没看多少😢，还得继续啃。[这本是太难啃了]
+​	然后就是看Go了，跟着qimi大佬重学了基础和进阶的，然后附带看了操作数据库的，gin框架，gorm，etcd，nsq==。之后整天跟着群友和夜读开始了解一些Go底层的东西，比如GC，GMP模型，看了很小很小一部分的标准库的源码，有Context，slice====&amp;gt;也没整明白。😅
+​	这期间用Go也写了一些小demo，有web，爬虫==。 Go圣经看了一部分，。还看了docker的基础东西。(k8s是不可能学的，这种大坑不能跳)。看了Go圣经
+​	看Go进阶和底层那块说实话没看懂多少，缺少很多东西做铺垫。这就===&amp;gt;操作系统和之后Linux相关的埋了坑。
+​	再之后[假如开学的时间]看了MySQL(偏重于实战和调优)的，还企图看DBA的，放弃了。因为某个讲师讲的挺好，加上之前从来没系统看过Linux的，就顺带把Linux基础的命令看了。
+​	四月中旬，看了一节IO多路复用，讲真对于我这种菜鸟，sstrace ff这个命令AC格太高了，然后加上之前Go还有其它时间看blog的疑惑=====&amp;gt;看了Linux系统编程，[相当于 非常粗浅的 过了 apue的一部分]，接着上边又把网络编程看了[相当于 非常粗浅的 过了 unp的一部分]。这两本书非常推荐，[虽然我还没看,但群里还有网上很多大佬都说很重要，我觉着很有道理(算了算了，有时间不如打打游戏)]。
+​	所以这学期可能是游戏打的最多的一段时间了[综合各方面，持续时间长而稳定]，所以是我目前最高段位了。前期少数时间反向上分，后期基本上不去了😢。枪3，0.9+kd，但我不是把负哥[把把都是负战绩]🤣，状态不够稳定，手感好能20杀轻松拿下，能空砍 10+难救主 ，手感差能0-6，2-7😂
+​	然后还间歇的看了点redis[真就一点点]，博客&amp;ndash;&amp;gt;hexo 博客又回到hexo了，看了(真)一点点rust，Haskell的语法，还有密码学的一点点基础。还有至今貌似依然0进展的c ligth框架[虽然最近有一点点思路，但是怕是还要凉]，还要那个企图用websocket写的游戏====&amp;gt;算了，真有时间再搞了。
+​	留下了笔记和一堆的困惑、疑问。学的越多困惑越多😂。
+​</description>
+    </item>
+    
+  </channel>
+</rss>

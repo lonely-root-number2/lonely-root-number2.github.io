@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>nodejs | DY&#39;s blog</title>
+    <meta property="og:title" content="nodejs - DY&#39;s blog">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="nodejs">
+        
+    <meta name="author" content="DY">
+    <meta property="og:url" content="http://4fan.top/tags/nodejs/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="http://4fan.top/tags/nodejs/index.xml" title="DY's blog" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://4fan.top">
+                        DY&#39;s blog
+                    </a>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        
+        <span>4</span>
+        
+        <span>4</span>
+        
+        <span>3</span>
+        
+        <span>3</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span class="keyword">nodejs</span>
+        articles
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/nodejs-tips/" target="_blank">nodejs tips</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-02-18T23:00:40Z" class="post-meta meta-date dt-published">
+    2021-02-18
+  </time>
+
+
+
+        <div class="post-content">
+            作为一个不常写前端的菜鸟，看到node在C盘留下及其离谱大小的缓存，加上电脑垃圾，所以要给默认的缓存换个目录： ​	【node_global】及【node_cache】
+npm config set prefix &ldquo;D:\Develop\nodejs\node_global&rdquo; npm config set cache &ldquo;D:\Develop\nodejs\node_cache&rdquo; 环境变量： 将【用户变量】下的【Path】修改为【D:\Develop\nodejs\node_global】 在【系统变量】下新建【NODE_PATH】，输入【D:\Develop\nodejs\node_global\node_modules】 安装淘宝镜像: npm install -g cnpm &ndash;registry=https://registry.npm.taobao.org
+设置默认镜像源：【二选一即可】 npm config set registry https://mirrors.huaweicloud.com/repository/npm/	华为镜像 npm config set registry https://registry.npm.taobao.org	淘宝镜像 npm cache clean -f	清理缓存
+Linux下可能遇到的问题及解决 sh: 1: node: Permission denied:
+npm config set user 0 npm config set unsafe-perm true
+未完待续&hellip;..……
+            <p class="readmore"><a href="http://4fan.top/posts/nodejs-tips/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

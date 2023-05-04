@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ide on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/ide/</link>
+    <description>Recent content in ide on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 18 Feb 2021 22:26:06 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/ide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>idea常用快捷键</title>
+      <link>http://4fan.top/posts/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Thu, 18 Feb 2021 22:26:06 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>Home/End 光标快速定位至行首/行末 或者 shift + 小键盘 1 、 7 推荐alt + [ / ] * alt + f12 打开终端	* esc 切换焦点到代码编辑区 * shift + esc 关闭工作区
+alt +1 打开/关闭 左侧project
+整行左移 选中整行tab或shift tab 推荐：Ctrl +[ / ] 整行左、右移 *
+快捷键：Ctrl + W ctrl + shift + w * Ctrl + Shift + 数字键 标记/取消标记代码 Ctrl + 数字键 跳至标记好的点 f12 切换到最近使用的工具窗口 ctrl + - 代码折叠 ctrl + g 跳指定行/列 Ctrl + B、Ctrl +鼠标左键 跳到声明处 Ctrl + F12 显示当前文件结构。 Ctrl+F 查找 Ctrl+R 替换 Ctrl + y 删除一行 * ctrl + x 剪切一行 * Ctrl + d 复制一行 * F2 下一个错误 alt + f7 查找引用 Ctrl + z 撤销 Ctrl + Shift + z 反撤销 F3，查找下一个 * Shift+F3，查找上一个 alt+shift + 鼠标左键 多处选中 * Ctrl+Shift+J，整合两行 Alt+1，快速打开或隐藏工程面板 * Ctrl+Alt+B，跳转到方法实现处 Ctrl+Shift+Backspace，跳转到上次编辑的地方 * ctrl +shift +e 最近修改的文件 * Shift Shift 根据文件名称进行搜索 Ctrl + Shift + f 全局搜索 Ctrl + N 或 Ctrl+Shift+N 全局搜索或按文件名搜索 Alt+F7 查找类或方法在哪被使用 Shift+Shift 搜索任何东西 Ctrl + Alt + s idea 设置 Ctrl + Alt + Shift + s project 设置 Ctrl + Shift + u 大小写转换 java常用： ​	alt + insert 功能及其强大的快捷键</description>
+    </item>
+    
+    <item>
+      <title>vscode常用插件及配置</title>
+      <link>http://4fan.top/posts/vscode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 17 Aug 2020 21:03:43 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/vscode%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
+      <description>本文为自用，仅供参考
+** 2020.10.22更新**
+Paste JSON as Code
+leetcode : 力扣刷题用
+Rainbow Fart
+VSC Netease Music:网易云音乐
+小霸王： 小霸王游戏机
+rust
+rust
+rust-analyzer ：rust静态语法分析器
+** 2020.8.5更新** TabNine (必备,很强，支持所有语言，但很吃内存) 必备：
+beauty（代码格式化，支持主流语言）
+Bracket Pair Colorizer(彩色括号，拯救你于重重调用)
+chinese（汉化）
+前端
+Auto Close Tag
+Auto rename Tag
+HTML Snippets
+color info
+JavaScript (ES6) code snippets
+open in browser
+eslint
+其它常用：
+Code Runner：右键即可编译运行单文件，很方便
+风格主题：
+ayu
+深海主题 Material Theme
+吸血鬼主题 Dracula Official
+One Dark Pro
+设置背景图片[此插件修改通过vscode实现，小概率可能会导致vscode崩掉]：
+插件：background
+相关配置项：
+background-size 参数的第一个设置背景图大小
+opacity 设置背景图透明度，推荐0.</description>
+    </item>
+    
+    <item>
+      <title>jave ide 配置</title>
+      <link>http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 10 Aug 2020 20:42:25 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/</guid>
+      <description>​	前几天，idea的教育授权被暂停了。说起来这事挺魔幻，18年时在某个群里边有人说自己白嫖了好几个upc的教育邮箱，当时在想这会对我有啥影响吗？但貌似跟我关系不大，然后现在就&amp;hellip;
+然而生活还得继续下去😰，虽然，但是备用方案还得有，太依赖ide忽然ideGG了人也废了就不好了。另外这些也作为轻量级解决方案。避免自己下次配置踩坑&amp;ndash;&amp;gt;记录一下。
+Preparing 配置jdk
+配置maven
+下载点此 配置环境变量 #例(linux) MAVEN_HOME=/usr/local/apache-maven-xxx PATH=$PATH:$MAVEN_HOME/bin	配置maven #1. 配置镜像(华为镜像为例) 下载配置文件： https://mirrors.huaweicloud.com/v1/configurations/maven? 替换: apache-maven-xxx/conf/settings.xml #2. 设置本地maven仓库 创建一个目录作为本地仓库(用于存放jar包) 在settings.xml中找到&amp;lt;localRepository&amp;gt;标签设置本地仓库路径 例(linux):&amp;lt;localRepository&amp;gt;/home/wide/java/maven_home&amp;lt;/localRepository&amp;gt; 注:本地仓库用于存放maven下载的包 1 Spring tool4方案 spring 官方提供的基于eclipse的开发工具
+https://spring.io/tools
+下载之后得到一个jar文件，使用 java -jar 命令解压。
+注：sts4之前的为一个eclipse插件，需要在eclipse中安装。sts4为配置好插件的eclipse，直接解压即可使用
+2 vscode解决方案 vscode安装java extension 和 Spring Boot Extension Pack两个插件
+配置文件中必须完成以下两项：
+#例(linux) { &amp;#34;java.configuration.maven.userSettings&amp;#34;: &amp;#34;/home/wide/java/apache-maven-3.3.3/conf/settings.xml&amp;#34;, &amp;#34;maven.executable.path&amp;#34;: &amp;#34;/home/wide/java/apache-maven-3.3.3/bin/mvn&amp;#34;, } 注: vscode下载language server时如果没有配置参数1将会从原始镜像下载，极慢 一些常用的maven命令 mvn install ---完成依赖(pom.xml所在目录中) mvn spring-boot:run ---运行spring boot项目 </description>
+    </item>
+    
+  </channel>
+</rss>

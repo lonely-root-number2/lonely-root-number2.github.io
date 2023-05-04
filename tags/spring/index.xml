@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/spring/</link>
+    <description>Recent content in spring on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 30 Jun 2022 22:36:34 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spring注解</title>
+      <link>http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Thu, 30 Jun 2022 22:36:34 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/</guid>
+      <description>spring context 注册组件 xml方式 resources下：标签&amp;ndash;&amp;gt; ClassPathXmlApplicationContext(&amp;ldquo;beans.xml&amp;rdquo;);
+注解方式 @Configuration: 放在配置类上。配置类 @Bean: 获取对象的方法，默认id为方法名。可通过注解value指定id。
+@ComponentScan：放在配置类上 (value=&amp;ldquo;top.fan4.dy&amp;rdquo;，excludeFilter按照不同方式排除，include)==&amp;gt;@ComponentScans。也可自定义过滤规则
+@Scope：调整作用域 singleton 默认单例 IOC启动时即创建。饿汉模式 @Lazy 懒加载 prototype 多实例 获取时即重新创建 request(web) session(web)
+@Condational 满足条件时注册bean。可放在类或者方法上 condationClass implements Condation。 @Condational(condationClass.class)
+组件注册方式：
+包扫描【@ComponentScan配置类上】 + 组件注解标注（标注了@Controller(controller层),@Service(serice层),@Repository(dao层),@Component）可被扫描加入容器
+@Bean 【方法上】 (第三方组件,注册在方法上返回创建对应对象的类即可)
+@Import 【配置类上】 (快速给容器导入组件) {Class.class}id为全类名。 ImportSelector: class MyImportSelector implements ImportSelector{全类名} @Import({MyImportSelector.class}) @ImportBeanDefination 手动注册
+FactoryBean class MyBeanFactory implements FactoryBean{} @Bean public MyBeanFactory MyBeanFactory(){return new MyBeanFactory()} xxxx.getBean(&amp;ldquo;MyBeanFactory&amp;rdquo;) getBean(&amp;quot;&amp;amp;MyBeanFactory&amp;quot;) ==&amp;gt; 得到实际的bean|MyBeanFactory
+生命周期 @Bean() 设置初始化(init)方法和销毁(destory)方法。在创建对象完成和容器关闭时。多实例时不管理bean和销毁。 bean implements InitializingBean,DisposableBean jsr250 @PostConstruct(方法上使用，对象创建和赋值之后调用) 和 @PreDestory(方法上使用，容器移除对象之前) BeanPostProcessor【interface】 BeanPostProcessor 包装返回obj 生命周期：初始化-&amp;gt;对象创建完成-&amp;gt;赋值-&amp;gt;初始化方法-&amp;gt;BeanPostProcessor-&amp;gt;postProcessAfterInitialation 属性赋值 pre: 配置文件的导入：(导入外部文件到运行环境变量) xml：{context:property-placeholder location=&amp;ldquo;classpath:person.</description>
+    </item>
+    
+    <item>
+      <title>Spring(1): Why Spring</title>
+      <link>http://4fan.top/posts/spring-1-why-spring/</link>
+      <pubDate>Sat, 29 Aug 2020 23:23:40 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/spring-1-why-spring/</guid>
+      <description>耦合的概念：
+传统的开发中，通常会在main方法或者业务中根据需要创建对应的对象。 public static void main(String []args){ Obj o = new Obj(); .... } ​ 这样的结果就是程序中(不同类之间)的耦合非常大，而带来的问题就是不利于程序后期的维护(试想，当我们因为业务改变而需要修改Obj类或者改为创建新的类时，我们不得不修改源程序，而这违背了面向对象程序设计的开闭原则)。
+现在思考如何解决这个问题呢？
+通过反射来加载类(class.forName，我们在加载数据库驱动时经常会这样做) 通过加载配置文件读取全限定类名[使用propities.getClassLoader.getResourceAsStream相关命令] tip:有些同学会疑问，这样依然需要写类名，仍然会有耦合。注意，降低耦合并不等于完全消除耦合。
+而Spring就是一个完成这样功能框架。[ Spring是一个轻量级控制反转(IoC)和面向切面(AOP)的容器框架 &amp;mdash;&amp;ndash;摘自百度百科]
+关于控制反转：控制反转的主要作用是降低耦合，为什么叫做控制反转呢？我们将在下文中提到。
+关于 bean：编程英语中bean通常指的是可重用组件，而在Java中一般指类。
+Spring如何使用呢？
+创建bean.xml [可参考官网, 最小仅需要id和class属性。] 一个简单的bean.xml的例子:
+&amp;lt;bean id=&amp;#34;accountService&amp;#34; class=&amp;#34;top.4fan.dy.service.impl.AccountServiceImpl&amp;#34;&amp;gt;&amp;lt;/bean&amp;gt; 创建对应的所需要获得的对象对应的类文件。 在需要的位置(比如main)通过如下方式获得需要的对象： ApplicationContext ac = new ClassPathXmlApplicationContext(&amp;#34;bean.xml&amp;#34;) //一下两种方法无本质区别 Obj o1 = (Obj)ac.getBean(&amp;#34;xml里边的id&amp;#34;); Obj o2 = ac.getBean(&amp;#34;xml里边的id&amp;#34;,xxx.class);//这种方法不需要强转 ApplicationContext类有三个常用的实现类(我们以上仅用到一种,其它的用法场景如下)：
+ClassPathXmlApplicationContext :加载类路径下的配置文件【配置文件必须在类路径下】
+FileSystemXmlApplicationContext：加载磁盘上任意有权限[指操作系统级别的权限]的文件
+AnnotationConfigApplicationContext：读取注解创建容器
+​ 所有的ApplicationContext类都有立即加载的特征，即``new xxxApplicationContext时即创建对象。与之相对应的另一种用于获得对象的XmlBeanFactory`(3.1已被标注放弃)类则在需要时创建对象。对于未使用到的另外两个常用类，可以参考Spring文档。
+所以最后一个问题，为什么叫做控制反转呢？
+​	在传统的代码中，我们通过自己创建对象并控制对象的生命周期(初始化&amp;hellip;&amp;hellip;销毁)，而使用Spring时，对象的生命周期则由Spring管理，即我们把对象的控制权交给了Spring容器。
+tip:如果你对面向对象程序设计中的设计模式部分比较熟悉的话，你可以将Spring理解为一个工厂模式的实现。
+// 补充AnnotationConfigApplicationContext demo // 在配置类上添加注解的方式来替代xml配置文件 // 1. 配置类上添加 @ComponentScan([扫描路径])并且在bean类上添加@Component注解 // 2.</description>
+    </item>
+    
+  </channel>
+</rss>

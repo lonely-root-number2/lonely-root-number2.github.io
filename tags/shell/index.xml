@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/shell/</link>
+    <description>Recent content in shell on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 16 Aug 2020 20:47:48 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux shell编程</title>
+      <link>http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Sun, 16 Aug 2020 20:47:48 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/</guid>
+      <description>preparing 查看当前操作系统的默认shell echo $SHELL
+vimrc的推荐配置(非必须)
+set nu set cursorline set autoindent autocmd BufNewFile *.sh 0r ~/.vim/template/sh &amp;mdash;&amp;gt;创建新文件的头文件
+cd ..;ls #进入上一级目录再执行ls，结束后wd位于.. (cd ..;ls)	#进入上一级目录再执行ls,结束后wd位于.(fork,exec) #内建命令&amp;amp;外部命令(通过环境变量) #查看环境变量 env $path 说明：在学习时，以下提到的命令和demo大多可直接在shell中运行，无需编写成shell文件
+第一个shell文件（vim sample.sh） #!/bin/bash #指定解析器 #仅支持单行注释，多行可以通过语句块实现 date echo &amp;#34;&amp;#34; echo &amp;#34;we are current in following path&amp;#34; /bin/pwd shell的运行(三种) chmod +x sample.sh ./sample.sh . sample.sh bash sample.sh 数据类型和变量 shell中只有字符串类型，有两种变量类型: 环境变量（类似于全局变量） 本地变量(类似于局部变量)
+#声明变量 var=10 #不能有空格 #查看变量的值 echo $var #或 echo ${var} [推荐] #删除变量 unset var #控制语句 if,else,switch case,for,while.</description>
+    </item>
+    
+  </channel>
+</rss>

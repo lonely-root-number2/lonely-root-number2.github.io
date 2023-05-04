@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring boot on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/spring-boot/</link>
+    <description>Recent content in spring boot on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 10 Aug 2020 20:42:25 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jave ide 配置</title>
+      <link>http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 10 Aug 2020 20:42:25 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/</guid>
+      <description>​	前几天，idea的教育授权被暂停了。说起来这事挺魔幻，18年时在某个群里边有人说自己白嫖了好几个upc的教育邮箱，当时在想这会对我有啥影响吗？但貌似跟我关系不大，然后现在就&amp;hellip;
+然而生活还得继续下去😰，虽然，但是备用方案还得有，太依赖ide忽然ideGG了人也废了就不好了。另外这些也作为轻量级解决方案。避免自己下次配置踩坑&amp;ndash;&amp;gt;记录一下。
+Preparing 配置jdk
+配置maven
+下载点此 配置环境变量 #例(linux) MAVEN_HOME=/usr/local/apache-maven-xxx PATH=$PATH:$MAVEN_HOME/bin	配置maven #1. 配置镜像(华为镜像为例) 下载配置文件： https://mirrors.huaweicloud.com/v1/configurations/maven? 替换: apache-maven-xxx/conf/settings.xml #2. 设置本地maven仓库 创建一个目录作为本地仓库(用于存放jar包) 在settings.xml中找到&amp;lt;localRepository&amp;gt;标签设置本地仓库路径 例(linux):&amp;lt;localRepository&amp;gt;/home/wide/java/maven_home&amp;lt;/localRepository&amp;gt; 注:本地仓库用于存放maven下载的包 1 Spring tool4方案 spring 官方提供的基于eclipse的开发工具
+https://spring.io/tools
+下载之后得到一个jar文件，使用 java -jar 命令解压。
+注：sts4之前的为一个eclipse插件，需要在eclipse中安装。sts4为配置好插件的eclipse，直接解压即可使用
+2 vscode解决方案 vscode安装java extension 和 Spring Boot Extension Pack两个插件
+配置文件中必须完成以下两项：
+#例(linux) { &amp;#34;java.configuration.maven.userSettings&amp;#34;: &amp;#34;/home/wide/java/apache-maven-3.3.3/conf/settings.xml&amp;#34;, &amp;#34;maven.executable.path&amp;#34;: &amp;#34;/home/wide/java/apache-maven-3.3.3/bin/mvn&amp;#34;, } 注: vscode下载language server时如果没有配置参数1将会从原始镜像下载，极慢 一些常用的maven命令 mvn install ---完成依赖(pom.xml所在目录中) mvn spring-boot:run ---运行spring boot项目 </description>
+    </item>
+    
+    <item>
+      <title>spring boot restful光速无痛入门</title>
+      <link>http://4fan.top/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 08 Jul 2020 22:40:50 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/</guid>
+      <description>spring boot restful光速无痛入门 hello world 我将让你以最快的速度先看到内容，请一步一步跟着做，然后将讲解内容。
+创建项目：通过spring initialz创建。
+打开网站，按照以下选择
+Version：任意，推荐无任何备注的
+Project：Maven Project Language:Java packaging:Jar Java:推荐8
+在右侧选择依赖：加入Spring Web
+在下侧选择generate下载生成的项目文件并解压。
+使用idea，载入项目。等待maven完成依赖和目录初始化。
+创建路由类：
+在src/main/java/****下创建controller文件夹[将在此文件夹下完成业务]，在文件夹下创建一个类，填写以下代码并导入相关类。 @RestController public class Index { @GetMapping(&amp;#34;/&amp;#34;) public String index(){ return &amp;#34;恭喜你完成第一步&amp;#34;; } } 启动项目，打开 localhost:8080/，你可以看到内容了~。 相关的目录结构：
+spring系列框架的理解
+spring: 百科中有如下解释“ 针对bean的生命周期进行管理的轻量级容器 ， 提供了功能强大IOC、AOP及Web MVC等功能 ” 。
+我的理解[估计不对，不敢信的]：连接池 + xml ==&amp;gt;解耦，高效。
+spring boot: 耦合性是降低了，但是xml中的各种配置参数让人懵B，属实劝退。spring boot就是为了解决这种问题，即通过提供各种功能的默认参数尽可能的减少配置以便快速跑起来。[spring boot启动时会优先使用自定义的配置，如果没有就使用默认的]
+spring boot的starter: 将其原本的功能封装好并加入默认配置的jar包。
+版本的问题？
+在上边我们创建项目时可以选择spring boot的版本，那么各种版本的区别是什么呢？版本介绍：
+你可以在这里看到spring boot的各种版本，以下是各个版本的含义：
+​	GA ：稳定版本
+​	CURRENT: 最新不一定稳定
+​	SHAPSHOT：开发版</description>
+    </item>
+    
+  </channel>
+</rss>

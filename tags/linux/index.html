@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>linux | DY&#39;s blog</title>
+    <meta property="og:title" content="linux - DY&#39;s blog">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="linux">
+        
+    <meta name="author" content="DY">
+    <meta property="og:url" content="http://4fan.top/tags/linux/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="http://4fan.top/tags/linux/index.xml" title="DY's blog" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://4fan.top">
+                        DY&#39;s blog
+                    </a>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        
+        <span>4</span>
+        
+        <span>4</span>
+        
+        <span>3</span>
+        
+        <span>3</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span class="keyword">linux</span>
+        articles
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/wsl2%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/" target="_blank">wsl2折腾笔记</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-10-16T13:16:05Z" class="post-meta meta-date dt-published">
+    2020-10-16
+  </time>
+
+
+
+        <div class="post-content">
+            背景： 学生机上配置好了Hadoop跑WordCount的demo时出现内存不足的问题，尝试解决没有成功。因此只能从本地虚拟机上跑。但是VM挂了，而且体验不是很好，所以打算试试wsl2 + docker的方案迁移过去。
+安装 主要参考 ms的文档： https://docs.microsoft.com/zh-cn/windows/wsl/install-win10 (ms的文档其实很棒，步骤清晰并且有常见问题解答)
+运行中输入winver查看版本，如果运行的是 Windows 10 版本1903 或 1909，请在 Windows 菜单中打开“设置”，导航到“更新和安全性”，然后选择“检查更新”。 内部版本号必须是 18362.1049+ 或 18363.1049+，次要内部版本号需要高于 .1049。 以管理员身份打开 PowerShell 并依次运行以下2条命令： dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 下载并安装升级包.【如果下载慢可以尝试迅雷等其它方案，如果安装失败重启可能有帮助】 将 WSL 2 设置为默认版本： powershell中 &ndash;&gt;wsl --set-default-version 2 安装Linux 分发版 https://aka.ms/wslstore 其它说明(重要) 每次你可以通过在 power shell中运行 bash 命令来打开wsl2
+当你停止使用时在power shell中输入 wsl --shutdown关闭相关进程。
+你可以通过 wsl &ndash;help查看帮助，借助 wsl的export/import等指令你可以完成快照或将wsl中的操作系统移动到非系统盘。
+补充 Ubuntu为例的一些常用操作
+配置SSH #1. 重装SSH sudo apt-get purge openssh-server sudo apt-get install openssh-server # 如果需要配置远程开发环境sudo apt-get install openssh-client openssh-server openssh-sftp-server #2.……
+            <p class="readmore"><a href="http://4fan.top/posts/wsl2%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" target="_blank">linux定时任务</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-09-28T21:04:44Z" class="post-meta meta-date dt-published">
+    2020-09-28
+  </time>
+
+
+
+        <div class="post-content">
+            Linux定时任务 背景：寒假在家看到必应每日的壁纸不错，加上在学golang想练手，萌生了把每日壁纸收藏的想法。简单分析后搞定，通过ticker每24小时执行一次任务。一直执行了180+天一切正常。之后莫名panic(tail了下nohup的日志，没看出来&hellip;.)。一直懒得找原因，于是打算改为Linux定时任务。
+cron 简介 cron是Linux系统自带(各发行版均有)的一个定时任务执行工具。通过 ps aux|grep crond可以看到对应的进程。由此也可以了解到此进程为守护进程。
+简单使用 crontab -l 命令可列出已经设置当前的任务。
+crontab -e 用于编辑计划任务:
+按照 分 时 日 月 星期 任务的格式指定在对应时间执行相应的任务。
+对于日期格式的指定：
+&ldquo;*&ldquo;表示每一 &ldquo;,&ldquo;表示并列多个时间 &ldquo;-&rdquo; 指连续，例如你可以设置 20-40则表示在20,40]都执行一次共21次 &ldquo;/&ldquo;整除 &ldquo;L&rdquo; 年的最后月/月的最后一天 除此之外，日期设置上也可以使用缩写：MON，JUL&hellip;等
+例如：你可以使用通过 crontab -e并设置内容 &quot; * * * * * echo `date` &raquo; $HOME/date.txt	&quot;
+来指定每分钟输出一次日期并追加到文件 date.txt中。
+补充：
+*/2 &lt;==&gt;0/2 ，0，2，4，6&hellip; 1/2 则表示减去1能整除2，即1，3，5，7 &hellip; 更多参考 man page
+一个坑：虽然不能算是cron
+​	从cron启动时的工作目录不是原路径，相对路径失效了。。。
+未完待续。。。。……
+            <p class="readmore"><a href="http://4fan.top/posts/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/" target="_blank">linux shell编程</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-16T20:47:48Z" class="post-meta meta-date dt-published">
+    2020-08-16
+  </time>
+
+
+
+        <div class="post-content">
+            preparing 查看当前操作系统的默认shell echo $SHELL
+vimrc的推荐配置(非必须)
+set nu set cursorline set autoindent autocmd BufNewFile *.sh 0r ~/.vim/template/sh &mdash;&gt;创建新文件的头文件
+cd ..;ls #进入上一级目录再执行ls，结束后wd位于.. (cd ..;ls)	#进入上一级目录再执行ls,结束后wd位于.(fork,exec) #内建命令&amp;外部命令(通过环境变量) #查看环境变量 env $path 说明：在学习时，以下提到的命令和demo大多可直接在shell中运行，无需编写成shell文件
+第一个shell文件（vim sample.sh） #!/bin/bash #指定解析器 #仅支持单行注释，多行可以通过语句块实现 date echo &#34;&#34; echo &#34;we are current in following path&#34; /bin/pwd shell的运行(三种) chmod +x sample.sh ./sample.sh . sample.sh bash sample.sh 数据类型和变量 shell中只有字符串类型，有两种变量类型: 环境变量（类似于全局变量） 本地变量(类似于局部变量)
+#声明变量 var=10 #不能有空格 #查看变量的值 echo $var #或 echo ${var} [推荐] #删除变量 unset var #控制语句 if,else,switch case,for,while.……
+            <p class="readmore"><a href="http://4fan.top/posts/linux-shell%E7%BC%96%E7%A8%8B/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">linux常用命令</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-11T14:48:08Z" class="post-meta meta-date dt-published">
+    2020-08-11
+  </time>
+
+
+
+        <div class="post-content">
+            #查看帮助 man ins ins --help info ins vim set nu|nonu	--行号 #一般模式[default] #dd/d5d	删除当前行/删除当前行[包含] 后5行 #u	撤销上一步 #yy/y2y	复制当前行/复制当前行[包含]后5行 #x/X	del/backspace #dw/yw	删除一个词[光标放在首字母]/复制一个单词 #shift+^/$	移动到行头/尾 #(1)+shift+g	移动到页头/尾--&gt;数字+操作==&gt;移动到数字行 #编辑模式[从一般模式进入,按esc回到一般模式] #i/a[after]/o	当前光标处/后/下一行插入 #命令模式[从一般模式进入] #:----&gt;w,q,!, (%s/old/new/g) #/----[查找]---&gt;	n/N[shift+n]	下/上 一个 #?----[查找]---&gt;	N[shift+n]/n	下/上 一个 ##-----------vim补充 快速跳转行首/尾： 0，^【是否带空格】 $ 【行尾】 跳转指定行: 1. 88G[88 shift g] 2. :88 跳转文件首/尾: gg:首 G尾 格式化: gg=G 括号对应: 命令模式 % 删除: x和X【命令模式】---&gt;单个字符 dw---删除一个单词 D【shift+D】删除光标之后所有 或 d $ d0-----删除光标之前的 替换: r + 字符 删除指定区域： v[visual]--&gt;选择区域-&gt;d 删除指定行数: dNd 或者 Ndd 复制行: yy yNy 或者 Nyy 粘贴: p/P 实际上vim中无删除，只有剪切[结合 p]。 查找: 1.……
+            <p class="readmore"><a href="http://4fan.top/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

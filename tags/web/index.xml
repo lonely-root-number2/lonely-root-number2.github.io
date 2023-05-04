@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/web/</link>
+    <description>Recent content in web on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 13 Jul 2020 15:04:43 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JWT原理介绍</title>
+      <link>http://4fan.top/posts/jwt%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 13 Jul 2020 15:04:43 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/jwt%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D/</guid>
+      <description>JWT(json web token原理介绍) 1. JWT构成 JWT(json web token)由三段分别用base64 URL算法加密构成，用.分割。
+JWT头 (Header) + js // 表示加密协议和类型，以下为默认值 { &amp;quot;alg&amp;quot;: &amp;quot;HS256&amp;quot;, &amp;quot;typ&amp;quot;: &amp;quot;JWT&amp;quot; } 有效载荷 (Payload) + js //JWT 规定了7个官方字段，供选用，也可以包含自定义内容 { iss (issuer)：签发人 exp (expiration time)：过期时间 sub (subject)：主题 aud (audience)：受众 nbf (Not Before)：生效时间 iat (Issued At)：签发时间 jti (JWT ID)：编号 } // 默认情况下JWT是未加密的，任何人都可以解读其内容，因此不要构建隐私信息字段，存放保密信息，以防止信息泄露。 3. **签名哈希** HMACSHA256(base64UrlEncode(header) + &amp;#34;.&amp;#34;+base64UrlEncode(payload),secret) // secret即盐值 ​
+2. JWT使用及验证 使用流程：前端请求后端获取令牌并保存在cookie或 localStorage，需要时在请求中附带，后端获取并验证。
+前端一般使用如下协议头: &amp;#39;Authorization&amp;#39;: &amp;#39;Bearer &amp;#39; + token 后端验证流程：获取jwt按照生成方式重新生成并对比。
+jwt = request.</description>
+    </item>
+    
+  </channel>
+</rss>

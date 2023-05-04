@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Spring(1): Why Spring | DY&#39;s blog</title>
+    <meta property="og:title" content="Spring(1): Why Spring - DY&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-08-29T23:23:40&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-08-29T23:23:40&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="Spring(1): Why Spring">
+        
+    <meta name="author" content="DY">
+    <meta property="og:url" content="http://4fan.top/posts/spring-1-why-spring/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://4fan.top">
+                        DY&#39;s blog
+                    </a>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Spring(1): Why Spring</h1>
+        </header>
+        
+  <time datetime="2020-08-29T23:23:40Z" class="post-meta meta-date dt-published">
+    2020-08-29
+  </time>
+
+
+
+        
+        
+        <div class="post-content">
+            <p>耦合的概念：</p>
+<pre><code>传统的开发中，通常会在main方法或者业务中根据需要创建对应的对象。
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String <span style="color:#f92672">[]</span>args<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    Obj o <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Obj<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">....</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>​    这样的结果就是程序中(不同类之间)的耦合非常大，而带来的问题就是不利于程序后期的维护(试想，当我们因为业务改变而需要修改Obj类或者改为创建新的类时，我们不得不修改源程序，而这违背了面向对象程序设计的开闭原则)。</p>
+<p>现在思考如何解决这个问题呢？</p>
+<ol>
+<li>通过反射来加载类(class.forName，我们在加载数据库驱动时经常会这样做)</li>
+<li>通过加载配置文件读取<strong>全限定类名</strong>[使用<code>propities.getClassLoader.getResourceAsStream</code>相关命令]</li>
+</ol>
+<p>tip:有些同学会疑问，这样依然需要写类名，仍然会有耦合。注意，降低耦合并不等于完全消除耦合。</p>
+<p>而Spring就是一个完成这样功能框架。[ Spring是一个轻量级控制反转(IoC)和面向切面(AOP)的容器框架 &mdash;&ndash;摘自百度百科]</p>
+<p>关于控制反转：控制反转的主要作用是降低耦合，为什么叫做控制反转呢？我们将在下文中提到。</p>
+<p>关于 <code>bean</code>：编程英语中bean通常指的是可重用组件，而在Java中一般指类。</p>
+<p>Spring如何使用呢？</p>
+<ol>
+<li>创建bean.xml [可参考官网, 最小仅需要id和class属性。]</li>
+</ol>
+<p>一个简单的bean.xml的例子:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>bean id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;accountService&#34;</span> class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top.4fan.dy.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">&gt;&lt;/</span>bean<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><ol start="2">
+<li>创建对应的所需要获得的对象对应的类文件。</li>
+<li>在需要的位置(比如main)通过如下方式获得需要的对象：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ApplicationContext ac <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bean.xml&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//一下两种方法无本质区别
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Obj o1 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Obj<span style="color:#f92672">)</span>ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml里边的id&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>Obj o2 <span style="color:#f92672">=</span> ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml里边的id&#34;</span><span style="color:#f92672">,</span>xxx<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span><span style="color:#75715e">//这种方法不需要强转
+</span></span></span></code></pre></div><p><strong>ApplicationContext</strong>类有三个常用的实现类(我们以上仅用到一种,其它的用法场景如下)：</p>
+<ul>
+<li>
+<p><code>ClassPathXmlApplicationContext</code> :加载类路径下的配置文件【配置文件必须在类路径下】</p>
+</li>
+<li>
+<p><code>FileSystemXmlApplicationContext</code>：加载磁盘上任意有权限[指操作系统级别的权限]的文件</p>
+</li>
+<li>
+<p><code>AnnotationConfigApplicationContext</code>：读取注解创建容器</p>
+</li>
+</ul>
+<p>​    所有的<strong>ApplicationContext</strong>类都有立即加载的特征，即``new xxxApplicationContext<code>时即创建对象。与之相对应的另一种用于获得对象的</code>XmlBeanFactory`(3.1已被标注放弃)类则在需要时创建对象。对于未使用到的另外两个常用类，可以参考Spring文档。</p>
+<p>所以最后一个问题，为什么叫做控制反转呢？</p>
+<p>​	 在传统的代码中，我们通过自己创建对象并控制对象的生命周期(初始化&hellip;&hellip;销毁)，而使用Spring时，对象的生命周期则由Spring管理，即我们把对象的控制权交给了Spring容器。</p>
+<p>tip:如果你对面向对象程序设计中的设计模式部分比较熟悉的话，你可以将Spring理解为一个工厂模式的实现。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 补充AnnotationConfigApplicationContext   demo
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 在配置类上添加注解的方式来替代xml配置文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 1. 配置类上添加 @ComponentScan([扫描路径])并且在bean类上添加@Component注解
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 2. 在配置类的方法上添加@Bean注解
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>ApplicationContext ac <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AnnotationConfigApplicationContext<span style="color:#f92672">(</span>Config<span style="color:#f92672">.</span><span style="color:#a6e22e">Class</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//法1  可参考下方关于相关注解的说明
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.example&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span><span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 法2  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">user</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="spring补充笔记">Spring补充笔记</h2>
+<h4 id="concepts">concepts</h4>
+<p>IOC[Inversion of Control]控制反转的作用：降低耦合。</p>
+<p>bean：可重用组件（java中一般指类）</p>
+<p>AOP 面向切面编程[通过动态代理]&mdash;-&gt;解耦合</p>
+<p>依赖注入：Dependency Injection即依赖关系的维护，</p>
+<h4 id="spring对bean的管理细节">spring对Bean的管理细节</h4>
+<h5 id="创建bean的三种方式">创建bean的三种方式</h5>
+<ol>
+<li>在xml中bean标签仅配置id和class采用默认构造参数(无参)创建bean对象。[使用account的默认构造]</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;top.4fan.dy.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+</span></span></code></pre></div><ol start="2">
+<li>使用普通工厂中的方法创建对象（使用某个类中的方法创建对象并存入spring容器）[jar包中的类]</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;instanceFactory&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;top.4fan.dy.factory.InstanceFactory&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;instanceFactory&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getAccountService&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>[第二行的bean的factory-bean指向上一行]
+</span></span></code></pre></div><ol start="3">
+<li>使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象并存入spring容器）</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>bean id=&#34;accountService&#34; class=&#34;top.4fan.dy.StaticFactory&#34; factory-method=&#34;getAccountService&#34;&gt;<span style="color:#f92672">&lt;/bean&gt;</span>[用class中的静态方法创建]
+</span></span></code></pre></div><h5 id="bean的作用范围">bean的作用范围</h5>
+<h6 id="使用bean的-scope属性调整">使用bean的 scope属性调整：</h6>
+<ul>
+<li>singleton:单例，默认值</li>
+<li>prototype:多例</li>
+<li>request: 作用于web应用的请求范围</li>
+<li>session:作用于web应用的会话范围</li>
+<li>global-session:作用于集群环境的会话范围，当不是集群环境就是session</li>
+</ul>
+<h5 id="bean的声明周期">bean的声明周期</h5>
+<ul>
+<li>单例:
+<ul>
+<li>创建： 容器创建时 （也可以懒加载：lazy-init=true）</li>
+<li>死亡： 容器销毁时</li>
+</ul>
+</li>
+<li>多例：
+<ul>
+<li>创建：使用对象时创建</li>
+<li>死亡:   由GC完成</li>
+</ul>
+</li>
+</ul>
+<h4 id="依赖注入dependency-injection即依赖关系的维护">依赖注入：Dependency Injection即依赖关系的维护</h4>
+<h5 id="注入目标">注入目标</h5>
+<ul>
+<li>基本类型</li>
+<li>String</li>
+<li>其它Bean类型(配置文件中或注解配置过的bean)，复杂类型(集合类型)</li>
+</ul>
+<h5 id="注入方式">注入方式</h5>
+<ul>
+<li>
+<p>构造函数注入：<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+constructor-arg标签的属性:type，index，name用于指定给哪个参数赋值，value，ref为值
+[ref的值为另一个bean标签的id[即其它对象，比如日期]]</p>
+</li>
+<li>
+<p>set方法注入：<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+属性：name,value,ref
+优点：创建对象时没有明确的限制，可以直接使用默认的构造函数
+缺点：若某个成员必须有值，set方法无法保证一定注入。[优缺点和构造函数注入相反，更常用]</p>
+</li>
+<li>
+<p>使用注解</p>
+</li>
+</ul>
+<h4 id="常用注解">常用注解</h4>
+<h5 id="用于创建对象的xml中的bean的功能">用于创建对象的：xml中的bean的功能</h5>
+<ul>
+<li>@Component:将当前类对象存入spring容器中，可通过value指定bean的id，默认为当前类名且首字母小写</li>
+<li>@Controller【表现层】，@Service【业务层】,@Respository【持久层+改名】 这三个注解的作用与Component完全一样，是spring提供的三层明确的注解使得三层对象更加清晰。</li>
+</ul>
+<h5 id="用于注入数据的xml中的bean中的property">用于注入数据的：xml中的bean中的property</h5>
+<ul>
+<li>@Autowired：自动按照类型注入，只要容器中有唯一的一个bean对象和要注入的类型匹配就可以注入成功。可以出现在变量上或者方法上。如果容器中满足类型匹配的对象有多个时取要注入的变量名字与class名相同的，否则报错。</li>
+<li>@Qualifier(value=类名)，用于指定类名，但必须与Autowired结合使用</li>
+<li>@Resource(name=&ldquo;类名&rdquo;)，&lt;===&gt;@Autowired + @Qualifier
+以上三个注解只能注入其它bean类型的数据，基本类型数据和String类型无法使用上述注解。另外集合类型只能通过XML实现。</li>
+<li>@Value：用于注入基本类型和String类型。属性：value用于指定数据的值。可以使用spring的Spel表达式 ${}</li>
+</ul>
+<h5 id="用于改变作用范围的scope">用于改变作用范围的：scope</h5>
+<ul>
+<li>@Scope()  eg:@Scope(&ldquo;prototype&rdquo;)多例【spring不负责多例对象的销毁，由GC负责】</li>
+</ul>
+<h5 id="和声明周期相关的init-methoddestory-method">和声明周期相关的：init-method/destory-method</h5>
+<ul>
+<li>
+<p>@PostConstruct/@PreDestroy【了解即可】</p>
+</li>
+<li>
+<p>@Configuration 指明当前类是一个配置类&lt;相当于一个Spring配置的xml文件&gt;&ndash;&gt;替代以下的SpringConfiguration.class&ndash;&gt;写一个主要的为参数，主要的类加ComponentScan，其他的加Configuration。也可以在主要的下边用Import注解导入其它参数类。</p>
+</li>
+<li>
+<p>@ComponentScan 用于通过注解指定Spring创建容器时要扫描的包。扫描包下所有使用@Service,@Component&hellip;..等四个注解的类并注册为bean。
+属性:basePackage和value具有相同作用，用于创建容器时要扫描的包。等同于xml中的
+&lt;context:component-scan base-package:&ldquo;com.abc.&quot;&gt;
+然后将ApplicationContext ac = new ClassPathXmlApplicationContext(&ldquo;bean.xml&rdquo;)改为
+ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfiguration.class);</p>
+</li>
+<li>
+<p>@Bean 将当前方法返回的对象放入Spring IOC容器中
+属性：name用于指定bean的id，默认值：当前方法的名称。
+如果方法有参数则去spring容器中找，查找方式和Autowired注解一样</p>
+</li>
+<li>
+<p>@Import 指定其它配置类的字节码</p>
+</li>
+<li>
+<p>@PropertySource(&ldquo;classpath:[包名]application.properties&rdquo;)</p>
+</li>
+</ul>
+<p>接口命名规范demo：<code>IAccountService</code></p>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>Author: </strong><a rel="author" href="http://4fan.top">DY</a></li>
+        <li style="word-break:break-all"><strong>Link: </strong><a href="http://4fan.top/posts/spring-1-why-spring/">http://4fan.top/posts/spring-1-why-spring/</a></li>
+        <li><strong>License: </strong>This work is under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>. Kindly fulfill the requirements of the aforementioned License when adapting or creating a derivative of this work.</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/jave-ide-%E9%85%8D%E7%BD%AE/">jave ide 配置</a></li>
+        
+        <li><a href="/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/">spring boot restful光速无痛入门</a></li>
+        
+        <li><a href="/posts/docker%E7%AC%94%E8%AE%B0/">docker笔记</a></li>
+        
+        <li><a href="/posts/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8%E7%BA%A7/">GitHub入门级使用技巧</a></li>
+        
+        <li><a href="/posts/go-module%E4%B8%8B%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%8C%85/">Go Module下使用本地包</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/spring' target="_blank">spring</a></li>
+                
+                <li><a href='/tags/java' target="_blank">java</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

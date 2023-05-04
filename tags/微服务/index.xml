@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微服务 on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+    <description>Recent content in 微服务 on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Jun 2020 12:16:18 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微服务入门</title>
+      <link>http://4fan.top/posts/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 29 Jun 2020 12:16:18 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8/</guid>
+      <description>什么是微服务？ 六特征 一组小的服务
+独立的进程: 例如容器等
+轻量级通信: http,json
+基于业务能力
+独立部署:团队间无依赖，独立进行，迭代速度快
+无集中式管理：可以使用独立的技术栈
+特点 松散耦合(loosely coupled) 面向服务(soa) 独立数据源(bounded context) 思考：独立部署后有什么好处？ 每个团队独立数据源时有什么挑战？ 微服务利弊权衡 利 强模块化边界 可独立部署(低协同开销) 技术多样性 弊 分布式复杂性 最终一致性 运维复杂性 测试复杂性 思考：运维团队如何面对这样的复杂性？ 康威法则 设计系统的组织，其产生的设计和架构等价于组织间的沟通结构
+单块应用与多团队矛盾，沟通协同成本大，测试复杂，交付能力差 思考：架构师为什么既需要再考虑技术架构时也要去考虑组织架构？ 企业应该在什么时候引入微服务？ 初期主要是验证商业模式，而微服务存在基础设施的投资，需要一定的基础设施。
+一般认为团队接近百人时考虑
+我在设计初期时如何考虑呢？ 单块优先(未验证商业模式，模式不成熟稳定，因此风险高)，逐步引入，逐步分解 思考：架构是设计出来的还是演化出来的？ 什么样的组织架构更适合微服务？ 传统组织架构及其缺点： 产品管理团队，用户体验团队，研发团队，测试团队，...DBA团队，运维团队 缺点：沟通协同成本大，反馈周期长，研发效率低下，业务支持慢 基于微服务的跨职能的团队 微服务的跨职能的团队[一般12人左右]*n==&amp;gt;API|团队平台
+端到端：who build it,who run it 思考：如何理解微服务本质上是一种组织架构的重组？ 如何理解阿里巴巴提出的微服务的中台战略？ 大中台小前台
+知乎：中台到底是什么？ 思考:对于架构师大中台小前台战屡如何在自己的公司实现? 服务分层 逻辑性的分层
+思考：如何将目前公司的服务映射到基础服务和聚合服务上 微服务总体技术架构体系 思考: 为什么初创团队直接切入微服务？ 最经典的三种服务发现机制 服务发现：消费者寻找生产者
+1. 传统基于LB模式【简单，需要运维介入，集中式LB挂掉可能导致整个服务无法访问，有一些性能损失】 2. 进程内LB模式【无集中式LB即不存在单点问题,性能好，必须为每个client开发均衡器，多语言支持成本高】 3. 主机读LB模式【方案12的结合，需要每一台主机上运行一个LB 运维成本高】 思考：最新提出的service mesh使用的是哪一种服务发现机制？ 微服务网关原理 为什么要引入网关？屏蔽内部细节</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>drone on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/drone/</link>
+    <description>Recent content in drone on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 09 Mar 2022 11:51:15 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/drone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>drone cicd实践</title>
+      <link>http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Wed, 09 Mar 2022 11:51:15 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/</guid>
+      <description>​	在写一个后端的时候，前端的同学需要将接口部署上去。后端还在不断的迭代，因此需要反复编译部署十分麻烦，因此决定将这一套自动化。记录了在使用drone过程中踩的一系列坑。
+选型 jenkins：war包， 需要java环境，比较吃内存，生态比较完善。 drone： go实现，可docker直接运行，文档不够详细。 由于之前Jenkins的不好体验，因此这次选择drone。
+drone基本概念 drone由server和runner构成。两者通过rpc交互。
+server端为web管理服务，可直接通过docker运行。
+runner实际执行工作流的部分。
+一个Go程序借助gitee的cicd demo 所需物料：gitee账号，配置好docker和go编译环境的linux
+配置gitee
+​	gitee设置&amp;ndash;&amp;gt;第三方应用&amp;ndash;&amp;gt;创建第三方应用
+​	应用主页 ：linux主机ip,例如： http://xxx.xxx.xxx.xxx（此处使用http而非https，和后续一致）
+​	应用回调地址 ：应用主页地址 + &amp;ldquo;/login&amp;rdquo;.例如：http://xxx.xxx.xxx.xxx/login
+**权限** ：选择projects，pr，hook必选。 创建一个secret并记录。可使用以下命令：
+$ openssl rand -hex 16
+在gitee中创建好的应用中读取并记录 Client ID 和 Client Secret 以备下步使用
+运行server，此处使用docker方式
+# ！！！注意替换环境变量 # DRONE_GITEE_CLIENT_ID和DRONE_GITEE_CLIENT_SECRET对应第三步获得的。 # DRONE_RPC_SECRET runner和server交互的secret。任意值，推荐使用第二步生成的值 # DRONE_SERVER_HOST 填写本机公网ip即可 # DRONE_SERVER_PROTO选择 http 以和第一步对应 # DRONE_USER_CREATE需创建超级管理员账号时请添加此环境变量，否则不需要。（trusted仓库时需要，此demo中不需要 docker run \ --volume=/var/lib/drone:/data \ --env=DRONE_GITEE_CLIENT_ID=f7018cd1a520c9e6f7eca37b97761de20 \ --env=DRONE_GITEE_CLIENT_SECRET=8a6bfd074b3c7befe72d5f9647ed02c \ --env=DRONE_RPC_SECRET=super-duper-secret \ --env=DRONE_SERVER_HOST=drone.</description>
+    </item>
+    
+  </channel>
+</rss>

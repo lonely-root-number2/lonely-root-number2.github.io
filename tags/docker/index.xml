@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/docker/</link>
+    <description>Recent content in docker on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 28 Aug 2020 15:26:44 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker笔记</title>
+      <link>http://4fan.top/posts/docker%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 28 Aug 2020 15:26:44 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/docker%E7%AC%94%E8%AE%B0/</guid>
+      <description>安装：yum -y install docker-ce 开启：systemctl start docker 开机自启:systemctl enable docker docker version docker：docker run hello-world 查看帮助： docker | docker image 拉取镜像：docker pull mariadb Dockerfile:名字不能修改 # StudyDocker from scratch add hello / cmd [&amp;#34;/hello&amp;#34;] docker history ID docker build -t gochaochao/hello-world . docker run -it centos 交互式，进入此系统 docker container ls (-a) docker container ls -aq 列出ID docker rm ID / docker rm $(docker container ls -aq) 删除 docker container ls -f &amp;#34;state=exited&amp;#34; -q //没运行的 docker exec -it ID /bin/bash //进入容器交互 docker run -d -p 9000:80 --name=web nginx //端口映射，后台 --network none/bridge/host // 无网络，安全/桥接/共享宿主机命名空间 -e redius-host=39.</description>
+    </item>
+    
+  </channel>
+</rss>

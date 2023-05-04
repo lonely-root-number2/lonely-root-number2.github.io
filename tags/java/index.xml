@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/java/</link>
+    <description>Recent content in java on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 30 Jun 2022 22:36:34 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spring注解</title>
+      <link>http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Thu, 30 Jun 2022 22:36:34 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/</guid>
+      <description>spring context 注册组件 xml方式 resources下：标签&amp;ndash;&amp;gt; ClassPathXmlApplicationContext(&amp;ldquo;beans.xml&amp;rdquo;);
+注解方式 @Configuration: 放在配置类上。配置类 @Bean: 获取对象的方法，默认id为方法名。可通过注解value指定id。
+@ComponentScan：放在配置类上 (value=&amp;ldquo;top.fan4.dy&amp;rdquo;，excludeFilter按照不同方式排除，include)==&amp;gt;@ComponentScans。也可自定义过滤规则
+@Scope：调整作用域 singleton 默认单例 IOC启动时即创建。饿汉模式 @Lazy 懒加载 prototype 多实例 获取时即重新创建 request(web) session(web)
+@Condational 满足条件时注册bean。可放在类或者方法上 condationClass implements Condation。 @Condational(condationClass.class)
+组件注册方式：
+包扫描【@ComponentScan配置类上】 + 组件注解标注（标注了@Controller(controller层),@Service(serice层),@Repository(dao层),@Component）可被扫描加入容器
+@Bean 【方法上】 (第三方组件,注册在方法上返回创建对应对象的类即可)
+@Import 【配置类上】 (快速给容器导入组件) {Class.class}id为全类名。 ImportSelector: class MyImportSelector implements ImportSelector{全类名} @Import({MyImportSelector.class}) @ImportBeanDefination 手动注册
+FactoryBean class MyBeanFactory implements FactoryBean{} @Bean public MyBeanFactory MyBeanFactory(){return new MyBeanFactory()} xxxx.getBean(&amp;ldquo;MyBeanFactory&amp;rdquo;) getBean(&amp;quot;&amp;amp;MyBeanFactory&amp;quot;) ==&amp;gt; 得到实际的bean|MyBeanFactory
+生命周期 @Bean() 设置初始化(init)方法和销毁(destory)方法。在创建对象完成和容器关闭时。多实例时不管理bean和销毁。 bean implements InitializingBean,DisposableBean jsr250 @PostConstruct(方法上使用，对象创建和赋值之后调用) 和 @PreDestory(方法上使用，容器移除对象之前) BeanPostProcessor【interface】 BeanPostProcessor 包装返回obj 生命周期：初始化-&amp;gt;对象创建完成-&amp;gt;赋值-&amp;gt;初始化方法-&amp;gt;BeanPostProcessor-&amp;gt;postProcessAfterInitialation 属性赋值 pre: 配置文件的导入：(导入外部文件到运行环境变量) xml：{context:property-placeholder location=&amp;ldquo;classpath:person.</description>
+    </item>
+    
+    <item>
+      <title>Spring(1): Why Spring</title>
+      <link>http://4fan.top/posts/spring-1-why-spring/</link>
+      <pubDate>Sat, 29 Aug 2020 23:23:40 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/spring-1-why-spring/</guid>
+      <description>耦合的概念：
+传统的开发中，通常会在main方法或者业务中根据需要创建对应的对象。 public static void main(String []args){ Obj o = new Obj(); .... } ​ 这样的结果就是程序中(不同类之间)的耦合非常大，而带来的问题就是不利于程序后期的维护(试想，当我们因为业务改变而需要修改Obj类或者改为创建新的类时，我们不得不修改源程序，而这违背了面向对象程序设计的开闭原则)。
+现在思考如何解决这个问题呢？
+通过反射来加载类(class.forName，我们在加载数据库驱动时经常会这样做) 通过加载配置文件读取全限定类名[使用propities.getClassLoader.getResourceAsStream相关命令] tip:有些同学会疑问，这样依然需要写类名，仍然会有耦合。注意，降低耦合并不等于完全消除耦合。
+而Spring就是一个完成这样功能框架。[ Spring是一个轻量级控制反转(IoC)和面向切面(AOP)的容器框架 &amp;mdash;&amp;ndash;摘自百度百科]
+关于控制反转：控制反转的主要作用是降低耦合，为什么叫做控制反转呢？我们将在下文中提到。
+关于 bean：编程英语中bean通常指的是可重用组件，而在Java中一般指类。
+Spring如何使用呢？
+创建bean.xml [可参考官网, 最小仅需要id和class属性。] 一个简单的bean.xml的例子:
+&amp;lt;bean id=&amp;#34;accountService&amp;#34; class=&amp;#34;top.4fan.dy.service.impl.AccountServiceImpl&amp;#34;&amp;gt;&amp;lt;/bean&amp;gt; 创建对应的所需要获得的对象对应的类文件。 在需要的位置(比如main)通过如下方式获得需要的对象： ApplicationContext ac = new ClassPathXmlApplicationContext(&amp;#34;bean.xml&amp;#34;) //一下两种方法无本质区别 Obj o1 = (Obj)ac.getBean(&amp;#34;xml里边的id&amp;#34;); Obj o2 = ac.getBean(&amp;#34;xml里边的id&amp;#34;,xxx.class);//这种方法不需要强转 ApplicationContext类有三个常用的实现类(我们以上仅用到一种,其它的用法场景如下)：
+ClassPathXmlApplicationContext :加载类路径下的配置文件【配置文件必须在类路径下】
+FileSystemXmlApplicationContext：加载磁盘上任意有权限[指操作系统级别的权限]的文件
+AnnotationConfigApplicationContext：读取注解创建容器
+​ 所有的ApplicationContext类都有立即加载的特征，即``new xxxApplicationContext时即创建对象。与之相对应的另一种用于获得对象的XmlBeanFactory`(3.1已被标注放弃)类则在需要时创建对象。对于未使用到的另外两个常用类，可以参考Spring文档。
+所以最后一个问题，为什么叫做控制反转呢？
+​	在传统的代码中，我们通过自己创建对象并控制对象的生命周期(初始化&amp;hellip;&amp;hellip;销毁)，而使用Spring时，对象的生命周期则由Spring管理，即我们把对象的控制权交给了Spring容器。
+tip:如果你对面向对象程序设计中的设计模式部分比较熟悉的话，你可以将Spring理解为一个工厂模式的实现。
+// 补充AnnotationConfigApplicationContext demo // 在配置类上添加注解的方式来替代xml配置文件 // 1. 配置类上添加 @ComponentScan([扫描路径])并且在bean类上添加@Component注解 // 2.</description>
+    </item>
+    
+    <item>
+      <title>jave ide 配置</title>
+      <link>http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 10 Aug 2020 20:42:25 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/</guid>
+      <description>​	前几天，idea的教育授权被暂停了。说起来这事挺魔幻，18年时在某个群里边有人说自己白嫖了好几个upc的教育邮箱，当时在想这会对我有啥影响吗？但貌似跟我关系不大，然后现在就&amp;hellip;
+然而生活还得继续下去😰，虽然，但是备用方案还得有，太依赖ide忽然ideGG了人也废了就不好了。另外这些也作为轻量级解决方案。避免自己下次配置踩坑&amp;ndash;&amp;gt;记录一下。
+Preparing 配置jdk
+配置maven
+下载点此 配置环境变量 #例(linux) MAVEN_HOME=/usr/local/apache-maven-xxx PATH=$PATH:$MAVEN_HOME/bin	配置maven #1. 配置镜像(华为镜像为例) 下载配置文件： https://mirrors.huaweicloud.com/v1/configurations/maven? 替换: apache-maven-xxx/conf/settings.xml #2. 设置本地maven仓库 创建一个目录作为本地仓库(用于存放jar包) 在settings.xml中找到&amp;lt;localRepository&amp;gt;标签设置本地仓库路径 例(linux):&amp;lt;localRepository&amp;gt;/home/wide/java/maven_home&amp;lt;/localRepository&amp;gt; 注:本地仓库用于存放maven下载的包 1 Spring tool4方案 spring 官方提供的基于eclipse的开发工具
+https://spring.io/tools
+下载之后得到一个jar文件，使用 java -jar 命令解压。
+注：sts4之前的为一个eclipse插件，需要在eclipse中安装。sts4为配置好插件的eclipse，直接解压即可使用
+2 vscode解决方案 vscode安装java extension 和 Spring Boot Extension Pack两个插件
+配置文件中必须完成以下两项：
+#例(linux) { &amp;#34;java.configuration.maven.userSettings&amp;#34;: &amp;#34;/home/wide/java/apache-maven-3.3.3/conf/settings.xml&amp;#34;, &amp;#34;maven.executable.path&amp;#34;: &amp;#34;/home/wide/java/apache-maven-3.3.3/bin/mvn&amp;#34;, } 注: vscode下载language server时如果没有配置参数1将会从原始镜像下载，极慢 一些常用的maven命令 mvn install ---完成依赖(pom.xml所在目录中) mvn spring-boot:run ---运行spring boot项目 </description>
+    </item>
+    
+    <item>
+      <title>spring boot restful光速无痛入门</title>
+      <link>http://4fan.top/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 08 Jul 2020 22:40:50 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/</guid>
+      <description>spring boot restful光速无痛入门 hello world 我将让你以最快的速度先看到内容，请一步一步跟着做，然后将讲解内容。
+创建项目：通过spring initialz创建。
+打开网站，按照以下选择
+Version：任意，推荐无任何备注的
+Project：Maven Project Language:Java packaging:Jar Java:推荐8
+在右侧选择依赖：加入Spring Web
+在下侧选择generate下载生成的项目文件并解压。
+使用idea，载入项目。等待maven完成依赖和目录初始化。
+创建路由类：
+在src/main/java/****下创建controller文件夹[将在此文件夹下完成业务]，在文件夹下创建一个类，填写以下代码并导入相关类。 @RestController public class Index { @GetMapping(&amp;#34;/&amp;#34;) public String index(){ return &amp;#34;恭喜你完成第一步&amp;#34;; } } 启动项目，打开 localhost:8080/，你可以看到内容了~。 相关的目录结构：
+spring系列框架的理解
+spring: 百科中有如下解释“ 针对bean的生命周期进行管理的轻量级容器 ， 提供了功能强大IOC、AOP及Web MVC等功能 ” 。
+我的理解[估计不对，不敢信的]：连接池 + xml ==&amp;gt;解耦，高效。
+spring boot: 耦合性是降低了，但是xml中的各种配置参数让人懵B，属实劝退。spring boot就是为了解决这种问题，即通过提供各种功能的默认参数尽可能的减少配置以便快速跑起来。[spring boot启动时会优先使用自定义的配置，如果没有就使用默认的]
+spring boot的starter: 将其原本的功能封装好并加入默认配置的jar包。
+版本的问题？
+在上边我们创建项目时可以选择spring boot的版本，那么各种版本的区别是什么呢？版本介绍：
+你可以在这里看到spring boot的各种版本，以下是各个版本的含义：
+​	GA ：稳定版本
+​	CURRENT: 最新不一定稳定
+​	SHAPSHOT：开发版</description>
+    </item>
+    
+  </channel>
+</rss>

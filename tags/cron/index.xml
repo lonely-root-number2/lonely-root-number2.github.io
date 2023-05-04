@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cron on DY&#39;s blog</title>
+    <link>http://4fan.top/tags/cron/</link>
+    <description>Recent content in cron on DY&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 28 Sep 2020 21:04:44 +0000</lastBuildDate><atom:link href="http://4fan.top/tags/cron/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux定时任务</title>
+      <link>http://4fan.top/posts/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Mon, 28 Sep 2020 21:04:44 +0000</pubDate>
+      
+      <guid>http://4fan.top/posts/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <description>Linux定时任务 背景：寒假在家看到必应每日的壁纸不错，加上在学golang想练手，萌生了把每日壁纸收藏的想法。简单分析后搞定，通过ticker每24小时执行一次任务。一直执行了180+天一切正常。之后莫名panic(tail了下nohup的日志，没看出来&amp;hellip;.)。一直懒得找原因，于是打算改为Linux定时任务。
+cron 简介 cron是Linux系统自带(各发行版均有)的一个定时任务执行工具。通过 ps aux|grep crond可以看到对应的进程。由此也可以了解到此进程为守护进程。
+简单使用 crontab -l 命令可列出已经设置当前的任务。
+crontab -e 用于编辑计划任务:
+按照 分 时 日 月 星期 任务的格式指定在对应时间执行相应的任务。
+对于日期格式的指定：
+&amp;ldquo;*&amp;ldquo;表示每一 &amp;ldquo;,&amp;ldquo;表示并列多个时间 &amp;ldquo;-&amp;rdquo; 指连续，例如你可以设置 20-40则表示在20,40]都执行一次共21次 &amp;ldquo;/&amp;ldquo;整除 &amp;ldquo;L&amp;rdquo; 年的最后月/月的最后一天 除此之外，日期设置上也可以使用缩写：MON，JUL&amp;hellip;等
+例如：你可以使用通过 crontab -e并设置内容 &amp;quot; * * * * * echo `date` &amp;raquo; $HOME/date.txt	&amp;quot;
+来指定每分钟输出一次日期并追加到文件 date.txt中。
+补充：
+*/2 &amp;lt;==&amp;gt;0/2 ，0，2，4，6&amp;hellip; 1/2 则表示减去1能整除2，即1，3，5，7 &amp;hellip; 更多参考 man page
+一个坑：虽然不能算是cron
+​	从cron启动时的工作目录不是原路径，相对路径失效了。。。
+未完待续。。。。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>java | DY&#39;s blog</title>
+    <meta property="og:title" content="java - DY&#39;s blog">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,java">
+    <meta name="description" content="java">
+        
+    <meta name="author" content="DY">
+    <meta property="og:url" content="http://4fan.top/tags/java/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="http://4fan.top/tags/java/index.xml" title="DY's blog" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://4fan.top">
+                        DY&#39;s blog
+                    </a>
+                
+                <p class="description">JAVA仔,Go语言爱好者</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://4fan.top">Home</a>
+                    
+                    <a  href="http://4fan.top/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://4fan.top/reading/" title="阅读">阅读</a>
+                    
+                    <a  href="http://4fan.top/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        
+        <span>4</span>
+        
+        <span>4</span>
+        
+        <span>3</span>
+        
+        <span>3</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>2</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span>1</span>
+        
+        <span class="keyword">java</span>
+        articles
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" target="_blank">spring注解</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-06-30T22:36:34Z" class="post-meta meta-date dt-published">
+    2022-06-30
+  </time>
+
+
+
+        <div class="post-content">
+            spring context 注册组件 xml方式 resources下：标签&ndash;&gt; ClassPathXmlApplicationContext(&ldquo;beans.xml&rdquo;);
+注解方式 @Configuration: 放在配置类上。配置类 @Bean: 获取对象的方法，默认id为方法名。可通过注解value指定id。
+@ComponentScan：放在配置类上 (value=&ldquo;top.fan4.dy&rdquo;，excludeFilter按照不同方式排除，include)==&gt;@ComponentScans。也可自定义过滤规则
+@Scope：调整作用域 singleton 默认单例 IOC启动时即创建。饿汉模式 @Lazy 懒加载 prototype 多实例 获取时即重新创建 request(web) session(web)
+@Condational 满足条件时注册bean。可放在类或者方法上 condationClass implements Condation。 @Condational(condationClass.class)
+组件注册方式：
+包扫描【@ComponentScan配置类上】 + 组件注解标注（标注了@Controller(controller层),@Service(serice层),@Repository(dao层),@Component）可被扫描加入容器
+@Bean 【方法上】 (第三方组件,注册在方法上返回创建对应对象的类即可)
+@Import 【配置类上】 (快速给容器导入组件) {Class.class}id为全类名。 ImportSelector: class MyImportSelector implements ImportSelector{全类名} @Import({MyImportSelector.class}) @ImportBeanDefination 手动注册
+FactoryBean class MyBeanFactory implements FactoryBean{} @Bean public MyBeanFactory MyBeanFactory(){return new MyBeanFactory()} xxxx.getBean(&ldquo;MyBeanFactory&rdquo;) getBean(&quot;&amp;MyBeanFactory&quot;) ==&gt; 得到实际的bean|MyBeanFactory
+生命周期 @Bean() 设置初始化(init)方法和销毁(destory)方法。在创建对象完成和容器关闭时。多实例时不管理bean和销毁。 bean implements InitializingBean,DisposableBean jsr250 @PostConstruct(方法上使用，对象创建和赋值之后调用) 和 @PreDestory(方法上使用，容器移除对象之前) BeanPostProcessor【interface】 BeanPostProcessor 包装返回obj 生命周期：初始化-&gt;对象创建完成-&gt;赋值-&gt;初始化方法-&gt;BeanPostProcessor-&gt;postProcessAfterInitialation 属性赋值 pre: 配置文件的导入：(导入外部文件到运行环境变量) xml：{context:property-placeholder location=&ldquo;classpath:person.……
+            <p class="readmore"><a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/spring-1-why-spring/" target="_blank">Spring(1): Why Spring</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-29T23:23:40Z" class="post-meta meta-date dt-published">
+    2020-08-29
+  </time>
+
+
+
+        <div class="post-content">
+            耦合的概念：
+传统的开发中，通常会在main方法或者业务中根据需要创建对应的对象。 public static void main(String []args){ Obj o = new Obj(); .... } ​ 这样的结果就是程序中(不同类之间)的耦合非常大，而带来的问题就是不利于程序后期的维护(试想，当我们因为业务改变而需要修改Obj类或者改为创建新的类时，我们不得不修改源程序，而这违背了面向对象程序设计的开闭原则)。
+现在思考如何解决这个问题呢？
+通过反射来加载类(class.forName，我们在加载数据库驱动时经常会这样做) 通过加载配置文件读取全限定类名[使用propities.getClassLoader.getResourceAsStream相关命令] tip:有些同学会疑问，这样依然需要写类名，仍然会有耦合。注意，降低耦合并不等于完全消除耦合。
+而Spring就是一个完成这样功能框架。[ Spring是一个轻量级控制反转(IoC)和面向切面(AOP)的容器框架 &mdash;&ndash;摘自百度百科]
+关于控制反转：控制反转的主要作用是降低耦合，为什么叫做控制反转呢？我们将在下文中提到。
+关于 bean：编程英语中bean通常指的是可重用组件，而在Java中一般指类。
+Spring如何使用呢？
+创建bean.xml [可参考官网, 最小仅需要id和class属性。] 一个简单的bean.xml的例子:
+&lt;bean id=&#34;accountService&#34; class=&#34;top.4fan.dy.service.impl.AccountServiceImpl&#34;&gt;&lt;/bean&gt; 创建对应的所需要获得的对象对应的类文件。 在需要的位置(比如main)通过如下方式获得需要的对象： ApplicationContext ac = new ClassPathXmlApplicationContext(&#34;bean.xml&#34;) //一下两种方法无本质区别 Obj o1 = (Obj)ac.getBean(&#34;xml里边的id&#34;); Obj o2 = ac.getBean(&#34;xml里边的id&#34;,xxx.class);//这种方法不需要强转 ApplicationContext类有三个常用的实现类(我们以上仅用到一种,其它的用法场景如下)：
+ClassPathXmlApplicationContext :加载类路径下的配置文件【配置文件必须在类路径下】
+FileSystemXmlApplicationContext：加载磁盘上任意有权限[指操作系统级别的权限]的文件
+AnnotationConfigApplicationContext：读取注解创建容器
+​ 所有的ApplicationContext类都有立即加载的特征，即``new xxxApplicationContext时即创建对象。与之相对应的另一种用于获得对象的XmlBeanFactory`(3.1已被标注放弃)类则在需要时创建对象。对于未使用到的另外两个常用类，可以参考Spring文档。
+所以最后一个问题，为什么叫做控制反转呢？
+​	在传统的代码中，我们通过自己创建对象并控制对象的生命周期(初始化&hellip;&hellip;销毁)，而使用Spring时，对象的生命周期则由Spring管理，即我们把对象的控制权交给了Spring容器。
+tip:如果你对面向对象程序设计中的设计模式部分比较熟悉的话，你可以将Spring理解为一个工厂模式的实现。
+// 补充AnnotationConfigApplicationContext demo // 在配置类上添加注解的方式来替代xml配置文件 // 1. 配置类上添加 @ComponentScan([扫描路径])并且在bean类上添加@Component注解 // 2.……
+            <p class="readmore"><a href="http://4fan.top/posts/spring-1-why-spring/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/" target="_blank">jave ide 配置</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-08-10T20:42:25Z" class="post-meta meta-date dt-published">
+    2020-08-10
+  </time>
+
+
+
+        <div class="post-content">
+            ​	前几天，idea的教育授权被暂停了。说起来这事挺魔幻，18年时在某个群里边有人说自己白嫖了好几个upc的教育邮箱，当时在想这会对我有啥影响吗？但貌似跟我关系不大，然后现在就&hellip;
+然而生活还得继续下去😰，虽然，但是备用方案还得有，太依赖ide忽然ideGG了人也废了就不好了。另外这些也作为轻量级解决方案。避免自己下次配置踩坑&ndash;&gt;记录一下。
+Preparing 配置jdk
+配置maven
+下载点此 配置环境变量 #例(linux) MAVEN_HOME=/usr/local/apache-maven-xxx PATH=$PATH:$MAVEN_HOME/bin	配置maven #1. 配置镜像(华为镜像为例) 下载配置文件： https://mirrors.huaweicloud.com/v1/configurations/maven? 替换: apache-maven-xxx/conf/settings.xml #2. 设置本地maven仓库 创建一个目录作为本地仓库(用于存放jar包) 在settings.xml中找到&lt;localRepository&gt;标签设置本地仓库路径 例(linux):&lt;localRepository&gt;/home/wide/java/maven_home&lt;/localRepository&gt; 注:本地仓库用于存放maven下载的包 1 Spring tool4方案 spring 官方提供的基于eclipse的开发工具
+https://spring.io/tools
+下载之后得到一个jar文件，使用 java -jar 命令解压。
+注：sts4之前的为一个eclipse插件，需要在eclipse中安装。sts4为配置好插件的eclipse，直接解压即可使用
+2 vscode解决方案 vscode安装java extension 和 Spring Boot Extension Pack两个插件
+配置文件中必须完成以下两项：
+#例(linux) { &#34;java.configuration.maven.userSettings&#34;: &#34;/home/wide/java/apache-maven-3.3.3/conf/settings.xml&#34;, &#34;maven.executable.path&#34;: &#34;/home/wide/java/apache-maven-3.3.3/bin/mvn&#34;, } 注: vscode下载language server时如果没有配置参数1将会从原始镜像下载，极慢 一些常用的maven命令 mvn install ---完成依赖(pom.xml所在目录中) mvn spring-boot:run ---运行spring boot项目 ……
+            <p class="readmore"><a href="http://4fan.top/posts/jave-ide-%E9%85%8D%E7%BD%AE/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://4fan.top/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/" target="_blank">spring boot restful光速无痛入门</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-07-08T22:40:50Z" class="post-meta meta-date dt-published">
+    2020-07-08
+  </time>
+
+
+
+        <div class="post-content">
+            spring boot restful光速无痛入门 hello world 我将让你以最快的速度先看到内容，请一步一步跟着做，然后将讲解内容。
+创建项目：通过spring initialz创建。
+打开网站，按照以下选择
+Version：任意，推荐无任何备注的
+Project：Maven Project Language:Java packaging:Jar Java:推荐8
+在右侧选择依赖：加入Spring Web
+在下侧选择generate下载生成的项目文件并解压。
+使用idea，载入项目。等待maven完成依赖和目录初始化。
+创建路由类：
+在src/main/java/****下创建controller文件夹[将在此文件夹下完成业务]，在文件夹下创建一个类，填写以下代码并导入相关类。 @RestController public class Index { @GetMapping(&#34;/&#34;) public String index(){ return &#34;恭喜你完成第一步&#34;; } } 启动项目，打开 localhost:8080/，你可以看到内容了~。 相关的目录结构：
+spring系列框架的理解
+spring: 百科中有如下解释“ 针对bean的生命周期进行管理的轻量级容器 ， 提供了功能强大IOC、AOP及Web MVC等功能 ” 。
+我的理解[估计不对，不敢信的]：连接池 + xml ==&gt;解耦，高效。
+spring boot: 耦合性是降低了，但是xml中的各种配置参数让人懵B，属实劝退。spring boot就是为了解决这种问题，即通过提供各种功能的默认参数尽可能的减少配置以便快速跑起来。[spring boot启动时会优先使用自定义的配置，如果没有就使用默认的]
+spring boot的starter: 将其原本的功能封装好并加入默认配置的jar包。
+版本的问题？
+在上边我们创建项目时可以选择spring boot的版本，那么各种版本的区别是什么呢？版本介绍：
+你可以在这里看到spring boot的各种版本，以下是各个版本的含义：
+​	GA ：稳定版本
+​	CURRENT: 最新不一定稳定
+​	SHAPSHOT：开发版……
+            <p class="readmore"><a href="http://4fan.top/posts/spring-boot-restful%E5%85%89%E9%80%9F%E6%97%A0%E7%97%9B%E5%85%A5%E9%97%A8/" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2023 <a href="http://4fan.top">DY&#39;s blog By DY</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://4fan.top">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://4fan.top/posts/re-restart-in-hugo/" title="迁移到hugo" target="_blank">迁移到hugo</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/spring%E6%B3%A8%E8%A7%A3/" title="spring注解" target="_blank">spring注解</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/rust%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/" title="rust生命周期标注" target="_blank">rust生命周期标注</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go-mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="go mongodb的一些实践" target="_blank">go mongodb的一些实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/go%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" title="go错误处理" target="_blank">go错误处理</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/drone-cicd%E5%AE%9E%E8%B7%B5/" title="drone cicd实践" target="_blank">drone cicd实践</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/2021%E5%B9%B4%E6%80%BB%E7%BB%93/" title="2021年总结" target="_blank">2021年总结</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nginx%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/" title="nginx常用配置" target="_blank">nginx常用配置</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/csapp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-8-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81-ecf/" title="CSAPP读书笔记-8-异常控制流(ECF)" target="_blank">CSAPP读书笔记-8-异常控制流(ECF)</a>
+    </li>
+    
+    <li>
+        <a href="http://4fan.top/posts/nodejs-tips/" title="nodejs tips" target="_blank">nodejs tips</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://4fan.top/tags/cd/">cd</a>
+    
+    <a href="http://4fan.top/tags/ci/">ci</a>
+    
+    <a href="http://4fan.top/tags/cron/">cron</a>
+    
+    <a href="http://4fan.top/tags/csapp/">csapp</a>
+    
+    <a href="http://4fan.top/tags/docker/">docker</a>
+    
+    <a href="http://4fan.top/tags/drone/">drone</a>
+    
+    <a href="http://4fan.top/tags/ecf/">ECF</a>
+    
+    <a href="http://4fan.top/tags/github/">Github</a>
+    
+    <a href="http://4fan.top/tags/go/">go</a>
+    
+    <a href="http://4fan.top/tags/hugo/">hugo</a>
+    
+    <a href="http://4fan.top/tags/ide/">ide</a>
+    
+    <a href="http://4fan.top/tags/idea/">idea</a>
+    
+    <a href="http://4fan.top/tags/java/">java</a>
+    
+    <a href="http://4fan.top/tags/jwt/">jwt</a>
+    
+    <a href="http://4fan.top/tags/linux/">linux</a>
+    
+    <a href="http://4fan.top/tags/nginx/">nginx</a>
+    
+    <a href="http://4fan.top/tags/nodejs/">nodejs</a>
+    
+    <a href="http://4fan.top/tags/rust/">rust</a>
+    
+    <a href="http://4fan.top/tags/shell/">shell</a>
+    
+    <a href="http://4fan.top/tags/spring/">spring</a>
+    
+    <a href="http://4fan.top/tags/spring-boot/">spring boot</a>
+    
+    <a href="http://4fan.top/tags/vscode/">vscode</a>
+    
+    <a href="http://4fan.top/tags/web/">web</a>
+    
+    <a href="http://4fan.top/tags/wsl2/">wsl2</a>
+    
+    <a href="http://4fan.top/tags/%E5%85%A5%E9%97%A8/">入门</a>
+    
+    <a href="http://4fan.top/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="http://4fan.top/tags/%E5%B0%8F%E5%B9%B4/">小年</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">年终总结</a>
+    
+    <a href="http://4fan.top/tags/%E5%B9%B6%E5%8F%91/">并发</a>
+    
+    <a href="http://4fan.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/">异常控制流</a>
+    
+    <a href="http://4fan.top/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+    
+    <a href="http://4fan.top/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="http://4fan.top/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+    
+    <a href="http://4fan.top/tags/%E6%90%AD%E5%BB%BA/">搭建</a>
+    
+    <a href="http://4fan.top/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+    <a href="http://4fan.top/tags/%E6%B3%A8%E8%A7%A3/">注解</a>
+    
+    <a href="http://4fan.top/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">深入理解计算机系统</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">生命周期</a>
+    
+    <a href="http://4fan.top/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A0%87%E6%B3%A8/">生命周期标注</a>
+    
+    <a href="http://4fan.top/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">错误处理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://blog.semesse.me/" title="色魔是色魔">semesse</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://iww915.top" title="iww915">iww915</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://4fan.top/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
